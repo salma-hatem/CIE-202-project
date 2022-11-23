@@ -252,7 +252,18 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }
-
+//test switch function ---> need to make an op class instead??
+/*
+void GUI::switchToPlay() 
+{
+	InterfaceMode = MODE_PLAY;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreatePlayToolBar();
+	CreateStatusBar();
+}
+*/
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
