@@ -119,6 +119,8 @@ public:
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	void switchToPlay(); //switches the play mode
+	void changePenColor(color pickedColor); //changes pen color to picked color
+	void changeFillColor(color pickedColor); //changes fill color to picked color
 
 
 	~GUI();

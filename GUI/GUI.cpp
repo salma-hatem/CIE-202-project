@@ -253,7 +253,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 
 }
 //test switch function ---> need to make an op class instead??
-/*
+
 void GUI::switchToPlay() 
 {
 	InterfaceMode = MODE_PLAY;
@@ -263,7 +263,16 @@ void GUI::switchToPlay()
 	CreatePlayToolBar();
 	CreateStatusBar();
 }
-*/
+
+void GUI::changePenColor(color pickedColor)
+{
+	DrawColor = pickedColor;
+}
+
+void GUI::changeFillColor(color pickedColor)
+{
+	FillColor = pickedColor;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
