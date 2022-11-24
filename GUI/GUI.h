@@ -45,6 +45,8 @@ class GUI
 		ICON_PEN,
 		ICON_FILL,
 		ICON_DELETE,
+		ICON_SAVE,
+		ICON_LOAD,
 		ICON_SWITCH,
 		
 		//TODO: Add more icons names here
