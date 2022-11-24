@@ -205,7 +205,6 @@
     <ClInclude Include="Shapes\Graph.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">
@@ -220,11 +219,5 @@
     <Filter Include="Shapes&amp;Graph">
       <UniqueIdentifier>{5e150dff-8a89-44f3-b58a-731df9cea925}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="CIE202-project.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
