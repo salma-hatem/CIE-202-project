@@ -4,6 +4,7 @@
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
 #include "operations\opAddSquare.h"
+#include "operations\opDelete.h"
 
 
 //Constructor
@@ -54,6 +55,10 @@ operation* controller::createOperation(operationType OpType)
 			///create Exitoperation here
 			
 			break;
+
+		case DEL:
+			pOp = new opDelete(this);
+			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
@@ -81,6 +86,7 @@ Graph* controller::getGraph() const
 {
 	return pGraph;
 }
+
 
 
 

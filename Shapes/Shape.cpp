@@ -9,7 +9,7 @@ void shape::SetSelected(bool s)
 {	ShpGfxInfo.isSelected = s; }
 
 bool shape::IsSelected() const
-{	return ShpGfxInfo.isSelected; }
+{	return ShpGfxInfo.isSelected;}
 
 void shape::ChngDrawClr(color Dclr)
 {	ShpGfxInfo.DrawClr = Dclr; }
