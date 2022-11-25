@@ -1,3 +1,6 @@
+
+
+
 #include "GUI.h"
 
 GUI::GUI()
@@ -251,6 +254,36 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //								shapes Drawing Functions								//
 //======================================================================================//
 
+
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+
+	double length, dxsq, dysq;
+	Point P3;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	length = pow(dxsq + dysq, 0.5);
+	P3.x = P1.x + length;
+	pWind->DrawRectangle(P1.x,P1.y,(P1.x)+length,(P1.y)-length, style);
+
+}
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
 	color DrawingClr;
@@ -337,11 +370,6 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
 		DrawingClr = CircleGfxInfo.DrawClr;
 
 	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
-void GUI::changeFillColor(color pickedColor)
-{
-	FillColor = pickedColor;
-}
-
 	drawstyle style;
 	if (CircleGfxInfo.isFilled)
 	{
@@ -354,8 +382,16 @@ void GUI::changeFillColor(color pickedColor)
 	dxsq = pow(P1.x - P2.x, 2);
 	dysq = pow(P1.y - P2.y, 2);
 	redius = pow(dxsq + dysq, 0.5);
-	pWind->DrawCircle(P1.x, P1.y,redius , style);
+	pWind->DrawCircle(P1.x, P1.y, redius, style);
 }
+
+
+void GUI::changeFillColor(color pickedColor)
+{
+	FillColor = pickedColor;
+}
+
+	
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
 {

@@ -3,6 +3,7 @@
 #include "operations\opAddLine.h"
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
+#include "operations\opAddSquare.h"
 
 
 //Constructor
@@ -44,6 +45,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
+			break;
+		case DRAW_SQR:
+			pOp = new opAddSquare(this);
 			break;
 
 		case EXIT:

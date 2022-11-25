@@ -118,6 +118,8 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo)const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo)const;
+	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
+
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
