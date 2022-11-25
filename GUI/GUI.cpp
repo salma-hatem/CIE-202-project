@@ -90,6 +90,7 @@ operationType GUI::GetUseroperation() const
 			
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_LINE:	return DRAW_LINE;
+			case ICON_TRI: return DRAW_TRI;
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
 			
@@ -282,7 +283,49 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const{
 		style = FRAME;
 	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
 }
+void GUI::DrawTriangle(Point P1, Point P2,Point P3, GfxInfo TriangleGfxInfo) const {
+	color DrawingClr;
+	if (TriangleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = TriangleGfxInfo.DrawClr;
 
+	pWind->SetPen(DrawingClr, TriangleGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (TriangleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(TriangleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x,P3.y, style);
+}
+
+void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
+	color DrawingClr;
+	if (CircleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = CircleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (CircleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(CircleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	double redius, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	redius = pow(dxsq + dysq, 0.5);
+	pWind->DrawCircle(P1.x, P1.y,redius , style);
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
 {
