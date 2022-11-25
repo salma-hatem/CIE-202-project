@@ -22,7 +22,7 @@ void opAddRect::Execute()
 	//Read 1st corner and store in point P1
 	pUI->GetPointClicked(P1.x, P1.y);
 
-	string msg = "First corner is at hhhhhhh (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
+	string msg = "First corner is at  (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
 	msg += " ... Click at second corner";
 	pUI->PrintMessage(msg);
 	//Read 2nd corner and store in point P2
@@ -39,11 +39,12 @@ void opAddRect::Execute()
 
 
 	RectGfxInfo.isFilled = false;	//default is not filled
-	RectGfxInfo.isSelected = false;	//defualt is not selected
+	RectGfxInfo.isSelected = false;	//defualt is not selected 
 
 
 	//Create a rectangle with the above parameters
 	Rect *R=new Rect(P1, P2, RectGfxInfo);
+	
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
