@@ -45,8 +45,11 @@ class GUI
 		ICON_PEN,		//Pen icon in menu
 		ICON_FILL,		//Fill icon in menu
 		ICON_DELETE,	//Delete icon in menu
+		ICON_SAVE,		//save icon in menu
+		ICON_LOAD,		//Load icon in menu
+
 		ICON_SWITCH,	//Switch icon in menu
-		
+
 		//TODO: Add more icons names here
 
 		ICON_EXIT,		//Exit icon
