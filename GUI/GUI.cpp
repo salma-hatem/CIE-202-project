@@ -89,6 +89,14 @@ operationType GUI::GetUseroperation() const
 			{
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
+			case ICON_TRI:  return DRAW_TRI;
+			case ICON_SQU:  return DRAW_SQR;
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_PEN:  return CHNG_DRAW_CLR;
+			case ICON_FILL: return CHNG_FILL_CLR;
+			case ICON_DELETE: return DEL;
+			case ICON_SWITCH: return TO_PLAY; //switches from draw to play ONLY
+
 			case ICON_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar

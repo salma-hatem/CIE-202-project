@@ -39,13 +39,13 @@ class GUI
 		//If you want to change the menu icons order, change the order here
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
-		ICON_TRI,
-		ICON_SQU,
-		ICON_LINE,
-		ICON_PEN,
-		ICON_FILL,
-		ICON_DELETE,
-		ICON_SWITCH,
+		ICON_TRI,		//Triangle icon in menu
+		ICON_SQU,		//Square icon in menu
+		ICON_LINE,		//Line icon in menu
+		ICON_PEN,		//Pen icon in menu
+		ICON_FILL,		//Fill icon in menu
+		ICON_DELETE,	//Delete icon in menu
+		ICON_SWITCH,	//Switch icon in menu
 		
 		//TODO: Add more icons names here
 
