@@ -71,6 +71,8 @@ class GUI
 
 	int	width, height,	//Window width and height
 		wx, wy,			//Window starting coordinates
+		x1,y1,
+		x2,y2,
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
@@ -110,6 +112,7 @@ public:
 
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
+	void DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const;
 
 	///Make similar functions for drawing all other shapes.
 

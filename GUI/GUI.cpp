@@ -87,9 +87,14 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
+			
 			case ICON_RECT: return DRAW_RECT;
+			case ICON_LINE:	return DRAW_LINE;
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
+			
+		
+			
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -127,6 +132,7 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 	pW->SetBrush(BkGrndColor);
 	pW->SetPen(BkGrndColor, 1);
 	pW->DrawRectangle(0, ToolBarHeight, w, h);
+	
 	return pW;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -135,6 +141,7 @@ void GUI::CreateStatusBar() const
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearStatusBar() const
@@ -143,6 +150,7 @@ void GUI::ClearStatusBar() const
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateDrawToolBar() 
@@ -153,37 +161,37 @@ void GUI::CreateDrawToolBar()
 	//Below is one possible way
 
 	//First prepare List of images for each menu icon
-	//To control the order of these images in the menu, 
-	//reoder them in UI_Info.h ==> enum DrawMenuIcon
-	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
-	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
-	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
-	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
-	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
-	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
-	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
-	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
-	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	
-
-	//TODO: Prepare images for each menu icon and add it to the list
-
-	//Draw menu icon one image at a time
-	for (int i = 0; i < DRAW_ICON_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+//To control the order of these images in the menu, 
+//reoder them in UI_Info.h ==> enum DrawMenuIcon
+string MenuIconImages[DRAW_ICON_COUNT];
+MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
+MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
+MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
+MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
+MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
+MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
+MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
+MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
+MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 
+//TODO: Prepare images for each menu icon and add it to the list
 
-	//Draw a line under the toolbar
-	pWind->SetPen(LIGHTSEAGREEN, 3);
-	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
+//Draw menu icon one image at a time
+for (int i = 0; i < DRAW_ICON_COUNT; i++)
+	pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+
+
+
+//Draw a line under the toolbar
+pWind->SetPen(LIGHTSEAGREEN, 3);
+pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void GUI::CreatePlayToolBar() 
+void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
@@ -195,6 +203,7 @@ void GUI::ClearDrawArea() const
 	pWind->SetPen(BkGrndColor, 1);
 	pWind->SetBrush(BkGrndColor);
 	pWind->DrawRectangle(0, ToolBarHeight, width, height - StatusBarHeight);
+	
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -206,6 +215,7 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->SetPen(MsgColor, 50);
 	pWind->SetFont(24, BOLD, BY_NAME, "Arial");
 	pWind->DrawString(10, height - (int)(0.75 * StatusBarHeight), msg);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -253,6 +263,25 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 
 }
 
+void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const{
+	color DrawingClr;
+	if (LineGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = LineGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, LineGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (LineGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(LineGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

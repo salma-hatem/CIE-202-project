@@ -1,5 +1,6 @@
 #include "controller.h"
 #include "operations\opAddRect.h"
+#include "operations\opAddLine.h"
 
 
 //Constructor
@@ -32,7 +33,7 @@ operation* controller::createOperation(operationType OpType)
 
 		case DRAW_LINE:
 			///create AddLineoperation here
-
+			pOp = new opAddLine(this);
 			break;
 
 		case EXIT:
