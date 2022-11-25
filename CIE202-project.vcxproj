@@ -216,12 +216,6 @@
     <ClInclude Include="Shapes\Square.h" />
     <ClInclude Include="Shapes\Triangle.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="CIE202-project.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

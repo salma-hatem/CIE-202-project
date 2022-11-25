@@ -261,10 +261,4 @@
       <UniqueIdentifier>{cc4dfad3-3220-4da0-a755-b6f30c107ea1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="CIE202-project.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
 </Project>

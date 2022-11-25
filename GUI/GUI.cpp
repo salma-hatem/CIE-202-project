@@ -89,9 +89,17 @@ operationType GUI::GetUseroperation() const
 			{
 			
 			case ICON_RECT: return DRAW_RECT;
-			case ICON_LINE:	return DRAW_LINE;
-			case ICON_TRI: return DRAW_TRI;
 			case ICON_CIRC: return DRAW_CIRC;
+			case ICON_TRI:  return DRAW_TRI;
+			case ICON_SQU:  return DRAW_SQR;
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_PEN:  return CHNG_DRAW_CLR;
+			case ICON_FILL: return CHNG_FILL_CLR;
+			case ICON_DELETE: return DEL;
+			case ICON_SAVE: return SAVE;
+			case ICON_LOAD: return LOAD;
+			case ICON_SWITCH: return TO_PLAY; //switches from draw to play ONLY
+
 			case ICON_EXIT: return EXIT;
 			
 		
@@ -162,20 +170,22 @@ void GUI::CreateDrawToolBar()
 	//Below is one possible way
 
 	//First prepare List of images for each menu icon
-//To control the order of these images in the menu, 
-//reoder them in UI_Info.h ==> enum DrawMenuIcon
-string MenuIconImages[DRAW_ICON_COUNT];
-MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
-MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
-MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
-MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
-MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
-MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
-MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
-MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
-MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-
+	//To control the order of these images in the menu, 
+	//reoder them in UI_Info.h ==> enum DrawMenuIcon
+	string MenuIconImages[DRAW_ICON_COUNT];
+	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
+	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
+	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
+	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
+	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
+	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
+	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
+	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
+	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
+	
 
 //TODO: Prepare images for each menu icon and add it to the list
 
@@ -263,6 +273,22 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }
+//test switch function ---> need to make an op class instead??
+
+void GUI::switchToPlay() 
+{
+	InterfaceMode = MODE_PLAY;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreatePlayToolBar();
+	CreateStatusBar();
+}
+
+void GUI::changePenColor(color pickedColor)
+{
+	DrawColor = pickedColor;
+}
 
 void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const{
 	color DrawingClr;
@@ -311,6 +337,10 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
 		DrawingClr = CircleGfxInfo.DrawClr;
 
 	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
+void GUI::changeFillColor(color pickedColor)
+{
+	FillColor = pickedColor;
+}
 
 	drawstyle style;
 	if (CircleGfxInfo.isFilled)
