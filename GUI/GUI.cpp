@@ -165,6 +165,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 	
 
@@ -252,7 +254,27 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }
+//test switch function ---> need to make an op class instead??
 
+void GUI::switchToPlay() 
+{
+	InterfaceMode = MODE_PLAY;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreatePlayToolBar();
+	CreateStatusBar();
+}
+
+void GUI::changePenColor(color pickedColor)
+{
+	DrawColor = pickedColor;
+}
+
+void GUI::changeFillColor(color pickedColor)
+{
+	FillColor = pickedColor;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

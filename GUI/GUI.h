@@ -45,6 +45,8 @@ class GUI
 		ICON_PEN,
 		ICON_FILL,
 		ICON_DELETE,
+		ICON_SAVE,
+		ICON_LOAD,
 		ICON_SWITCH,
 		
 		//TODO: Add more icons names here
@@ -118,6 +120,9 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+	void switchToPlay(); //switches the play mode
+	void changePenColor(color pickedColor); //changes pen color to picked color
+	void changeFillColor(color pickedColor); //changes fill color to picked color
 
 
 	~GUI();
