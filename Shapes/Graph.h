@@ -12,7 +12,7 @@ class Graph
 {
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
-	shape* selectedShape;	//pointer to the currently selected shape
+	shape* selectedShape;	// vector for a single selected shape
 public:										
 	Graph();
 	~Graph();
@@ -22,4 +22,7 @@ public:
 
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void load(ifstream& inputfile);	//Load all shapes from a file
+	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
+	shape* getSelectedShape();
+	
 };
