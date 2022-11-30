@@ -62,7 +62,8 @@ class GUI
 	{
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
-
+		ICON_START,
+		ICON_EXIT_P,
 		//TODO: Add more icons names here
 
 		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum

@@ -194,6 +194,20 @@ void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+	string MenuIconImages[PLAY_ICON_COUNT];
+	MenuIconImages[ICON_START] = "images\\MenuIcons\\Menu_Start.jpg";
+	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
+
+
+	//Draw menu icon one image at a time
+	for (int i = 0; i < PLAY_ICON_COUNT; i++)
+		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+
+
+
+	//Draw a line under the toolbar
+	pWind->SetPen(LIGHTSEAGREEN, 3);
+	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
