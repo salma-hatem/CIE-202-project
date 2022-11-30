@@ -114,8 +114,31 @@ operationType GUI::GetUseroperation() const
 	{
 		///TODO:
 		//perform checks similar to Draw mode checks above
-		//and return the correspoding operation
-		return TO_PLAY;	//just for now. This should be updated
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			//Check whick Menu icon was clicked
+			//==> This assumes that menu icons are lined up horizontally <==
+			int ClickedIconOrder = (x / MenuIconWidth);
+			//Divide x coord of the point clicked by the menu icon width (int division)
+			//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+			switch (ClickedIconOrder)
+			{
+			case ICON_EXIT_P: return EXIT;
+
+			default: return EMPTY;	//A click on empty place in desgin toolbar
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= ToolBarHeight && y < height - StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+		return STATUS;
+		//return TO_PLAY;	//just for now. This should be updated
 	}
 
 }
