@@ -89,6 +89,11 @@ operationType GUI::GetUseroperation() const
 			{
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
+			case ICON_TRI: return DRAW_TRI;
+			case ICON_SQU: return DRAW_SQR;
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_PEN: return CHNG_DRAW_CLR;
+			case ICON_DELETE: return DEL;
 			case ICON_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -251,6 +256,31 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	else
 		style = FRAME;
 
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+///////////////////////////////////
+
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	int diffY = P2.y - P1.y;
+	P2.x = P1.x + diffY;
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }

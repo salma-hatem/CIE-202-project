@@ -58,13 +58,16 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DEL:
-			//pOp = new opDelete(this);
+			pOp = new opDelete(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 		case CHNG_DRAW_CLR:
 			pOp = new opChngDrawClr(this);
+			break;
+		case TO_PLAY:
+			pOp = new opDelete(this);
 			break;
 			
 	}

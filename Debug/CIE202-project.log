@@ -1,5 +1,4 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  controller.cpp
-  LINK : .\Debug\CIE202-project.exe not found or not built by the last incremental link; performing full link
-auxil.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  GUI.cpp
+E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\GUI\GUI.cpp(363,32): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
   CIE202-project.vcxproj -> E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\Debug\CIE202-project.exe

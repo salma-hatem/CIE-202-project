@@ -2,7 +2,7 @@
 #include "..\controller.h"
 
 
-/*
+
 opDelete::opDelete(controller* pCont) :operation(pCont)
 {}
 opDelete::~opDelete()
@@ -21,4 +21,3 @@ void opDelete::Execute()
 	
 	pGr->Delete();
 }
-*/

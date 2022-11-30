@@ -3,7 +3,7 @@
 #include "operation.h"
 
 //Add Rectangle operation class
-/*
+
 class opDelete : public operation
 {
 public:
@@ -14,4 +14,3 @@ public:
 	virtual void Execute();
 
 };
-*/
