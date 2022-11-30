@@ -6,6 +6,7 @@
 #include "operations\opAddSquare.h"
 #include "operations\opDelete.h"
 #include "operations\opChngDrawClr.h"
+#include "operations\opSwitch.h"
 
 //Constructor
 controller::controller()
@@ -67,7 +68,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opChngDrawClr(this);
 			break;
 		case TO_PLAY:
-			pOp = new opDelete(this);
+			pOp = new opSwitch(this);
 			break;
 			
 	}
