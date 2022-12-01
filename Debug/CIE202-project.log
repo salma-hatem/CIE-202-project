@@ -1,4 +1,24 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  opSwitch.cpp
+  opDelete.cpp
+  opChngDrawClr.cpp
+  opAddTriangle.cpp
+  opAddSquare.cpp
+  opAddRect.cpp
+  opAddLine.cpp
+  opAddCircle.cpp
+  main.cpp
+  controller.cpp
+  Triangle.cpp
+  Square.cpp
+  Shape.cpp
+  Rect.cpp
+  Line.cpp
+  Graph.cpp
+  Circle.cpp
   GUI.cpp
 E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\GUI\GUI.cpp(401,32): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\GUI\GUI.cpp(431,53): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\GUI\GUI.cpp(447,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   CIE202-project.vcxproj -> E:\Textbook\Year 2\CIE 202\Project\CIE-202-project\Debug\CIE202-project.exe

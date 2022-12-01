@@ -30,7 +30,8 @@ class GUI
 	enum GUI_MODE	//Graphical user interface mode
 	{
 		MODE_DRAW,	//Drawing mode (startup mode)
-		MODE_PLAY	//Playing mode
+		MODE_PLAY,	//Playing mode
+		MODE_COLOR
 	};
 
 	enum DrawMenuIcon //The icons of the Draw menu (you should add more icons)
@@ -68,6 +69,13 @@ class GUI
 
 		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
 
+	};
+
+	enum Colors_CP
+	{
+		C_BLUE,
+		C_RED,
+		COLOR_COUNT
 	};
 
 
@@ -132,6 +140,10 @@ public:
 	void changePenColor(color pickedColor); //changes pen color to picked color
 	void changeFillColor(color pickedColor); //changes fill color to picked color
 
+	void switchToColor(); //colorPalette
+	void CreateColorPalette(); //draw color palette
+	color getColor(); //detect which
+	void switchToDraw(); //switch back to play
 
 	~GUI();
 };

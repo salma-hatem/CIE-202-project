@@ -406,12 +406,70 @@ void GUI::changeFillColor(color pickedColor)
 {
 	FillColor = pickedColor;
 }
-/*
-void GUI::changeFillColor(color pickedColor)
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// color palette
+
+void GUI::switchToColor()
 {
-	FillColor = pickedColor;
+	InterfaceMode = MODE_COLOR;
+	CreateColorPalette();
 }
-*/
+
+void GUI::CreateColorPalette()
+{
+	InterfaceMode = MODE_COLOR;
+	///TODO: write code to create Play mode menu
+	string MenuIconImages[COLOR_COUNT];
+	MenuIconImages[C_BLUE] = "images\\colors\\blue.jpg";
+	MenuIconImages[C_RED] = "images\\colors\\red.jpg";
+
+
+	//Draw menu icon one image at a time
+	for (int i = 0; i < COLOR_COUNT; i++)
+		pWind->DrawImage(MenuIconImages[i], (width * 0.9) + (i * 30), (height - 48), 30, 30);
+	//pWind->DrawImage(MenuIconImages[i], (width/2)+(i * 10), height - StatusBarHeight-5, (width / 2) + (i * 10)+10, height - StatusBarHeight +5);
+}
+color GUI::getColor()
+{
+	int x, y;
+
+	//pWind->SetBrush(RED);
+	//pWind->DrawRectangle(width * 0.9, height - 18, (width * 0.9)+ 30 * COLOR_COUNT, height - 48);
+
+	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+	//[1] If user clicks on the Toolbar
+	if (y >= height - 48 && y < height - 18 && x >= width * 0.9 && x < (width * 0.9) + 30 * COLOR_COUNT)
+	{
+		//Check whick Menu icon was clicked
+		//==> This assumes that menu icons are lined up horizontally <==
+		int ClickedIconOrder = ((x - width * 0.9) / 30);
+		//Divide x coord of the point clicked by the menu icon width (int division)
+		//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+		switch (ClickedIconOrder)
+		{
+		case C_RED: return RED;
+		case C_BLUE: return BLUE;
+
+		default: return ROYALBLUE;	//A click on empty place in desgin toolbar
+		}
+	}
+	else return SEAGREEN;
+}
+
+void GUI::switchToDraw()
+{
+	InterfaceMode = MODE_DRAW;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreateDrawToolBar();
+	CreateStatusBar();
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()
 {
