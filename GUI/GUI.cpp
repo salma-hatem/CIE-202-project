@@ -16,7 +16,7 @@ GUI::GUI()
 	MenuIconWidth = 80;
 
 	DrawColor = BLUE;	//default Drawing color
-	FillColor = GREEN;	//default Filling color
+	FillColor = WHITE;	//default Filling color
 	MsgColor = BLACK;		//Messages color
 	BkGrndColor = WHITE;	//Background color
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use if for highlight only
@@ -93,6 +93,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_SQU: return DRAW_SQR;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_PEN: return CHNG_DRAW_CLR;
+			case ICON_FILL: return CHNG_FILL_CLR;
 			case ICON_DELETE: return DEL;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;

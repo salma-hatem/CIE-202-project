@@ -156,6 +156,9 @@
     <ClCompile Include="operations\opSwitch.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opChngFillClr.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -270,6 +273,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opSwitch.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opChngFillClr.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
