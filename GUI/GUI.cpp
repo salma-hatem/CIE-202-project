@@ -299,7 +299,8 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 
 }
 ///////////////////////////////////
-
+/*
+// temp draw square
 void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 {
 	color DrawingClr;
@@ -321,6 +322,34 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	int diffY = P2.y - P1.y;
 	P2.x = P1.x + diffY;
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+*/
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)    //shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);    //Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+
+	double length, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	length = pow(dxsq + dysq, 0.5);
+	pWind->DrawRectangle(P1.x, P1.y, (P1.x) + length, (P1.y) + length, style);
 
 }
 //test switch function ---> need to make an op class instead??
