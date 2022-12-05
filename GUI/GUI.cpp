@@ -14,6 +14,7 @@ GUI::GUI()
 	StatusBarHeight = 50;
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
+	ColorIconWidth = 30;
 
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = WHITE;	//default Filling color
@@ -458,7 +459,7 @@ void GUI::CreateColorPalette()
 
 	//Draw menu icon one image at a time
 	for (int i = 0; i < COLOR_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], (width * 0.9) + (i * 30), (height - 48), 30, 30);
+		pWind->DrawImage(MenuIconImages[i], (width * 0.9) + (i * ColorIconWidth), (height - (StatusBarHeight - 2)), ColorIconWidth, ColorIconWidth);
 	//pWind->DrawImage(MenuIconImages[i], (width/2)+(i * 10), height - StatusBarHeight-5, (width / 2) + (i * 10)+10, height - StatusBarHeight +5);
 }
 color GUI::getColor()
@@ -470,7 +471,7 @@ color GUI::getColor()
 
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 	//[1] If user clicks on the Toolbar
-	if (y >= height - 48 && y < height - 18 && x >= width * 0.9 && x < (width * 0.9) + 30 * COLOR_COUNT)
+	if (y >= height - (StatusBarHeight - 2) && y < height - (StatusBarHeight-ColorIconWidth-2) && x >= width * 0.9 && x < (width * 0.9) + ColorIconWidth * COLOR_COUNT)
 	{
 		//Check whick Menu icon was clicked
 		//==> This assumes that menu icons are lined up horizontally <==

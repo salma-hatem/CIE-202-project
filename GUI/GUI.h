@@ -87,7 +87,8 @@ class GUI
 		x2,y2,
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-		MenuIconWidth;		//Width of each icon in toolbar menu
+		MenuIconWidth,		//Width of each icon in toolbar menu
+		ColorIconWidth;
 
 
 	color DrawColor;		//Drawing color
