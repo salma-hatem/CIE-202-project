@@ -15,6 +15,7 @@ GUI::GUI()
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
 	ColorIconWidth = 30;
+	ColorPosition=10;
 
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = WHITE;	//default Filling color
@@ -455,11 +456,17 @@ void GUI::CreateColorPalette()
 	string MenuIconImages[COLOR_COUNT];
 	MenuIconImages[C_BLUE] = "images\\colors\\blue.jpg";
 	MenuIconImages[C_RED] = "images\\colors\\red.jpg";
-
+	MenuIconImages[C_YELLOW] = "images\\colors\\yellow.jpg";
+	MenuIconImages[C_GREEN] = "images\\colors\\green.jpg";
+	MenuIconImages[C_ORANGE] = "images\\colors\\orange.jpg";
+	MenuIconImages[C_PLUM] = "images\\colors\\plum.jpg";
+	MenuIconImages[C_LIGHTBLUE] = "images\\colors\\light_blue.jpg";
+	MenuIconImages[C_WHITE] = "images\\colors\\white.jpg";
+	MenuIconImages[C_BLACK] = "images\\colors\\black.jpg";
 
 	//Draw menu icon one image at a time
 	for (int i = 0; i < COLOR_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], (width * 0.9) + (i * ColorIconWidth), (height - (StatusBarHeight - 2)), ColorIconWidth, ColorIconWidth);
+		pWind->DrawImage(MenuIconImages[i], ColorPosition + (i * ColorIconWidth), (height - (StatusBarHeight - 2)), ColorIconWidth, ColorIconWidth);
 	//pWind->DrawImage(MenuIconImages[i], (width/2)+(i * 10), height - StatusBarHeight-5, (width / 2) + (i * 10)+10, height - StatusBarHeight +5);
 }
 color GUI::getColor()
@@ -471,11 +478,11 @@ color GUI::getColor()
 
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 	//[1] If user clicks on the Toolbar
-	if (y >= height - (StatusBarHeight - 2) && y < height - (StatusBarHeight-ColorIconWidth-2) && x >= width * 0.9 && x < (width * 0.9) + ColorIconWidth * COLOR_COUNT)
+	if (y >= height - (StatusBarHeight - 2) && y < height - (StatusBarHeight - ColorIconWidth - 2) && x>= ColorPosition && x < 10 + ColorIconWidth * COLOR_COUNT)
 	{
 		//Check whick Menu icon was clicked
 		//==> This assumes that menu icons are lined up horizontally <==
-		int ClickedIconOrder = ((x - width * 0.9) / 30);
+		int ClickedIconOrder = ((x - ColorPosition) / 30);
 		//Divide x coord of the point clicked by the menu icon width (int division)
 		//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
 
@@ -483,6 +490,14 @@ color GUI::getColor()
 		{
 		case C_RED: return RED;
 		case C_BLUE: return BLUE;
+		case C_ORANGE: return ORANGE;
+		case C_GREEN: return GREEN;
+		case C_YELLOW: return YELLOW;
+		case C_PLUM: return PLUM;
+		case C_LIGHTBLUE: return LIGHTBLUE;
+		case C_WHITE: return WHITE;
+		case C_BLACK: return BLACK;
+
 
 		default: return ROYALBLUE;	//A click on empty place in desgin toolbar
 		}

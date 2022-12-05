@@ -75,7 +75,14 @@ class GUI
 	{
 		C_BLUE,
 		C_RED,
-		COLOR_COUNT
+		C_GREEN,
+		C_YELLOW,
+		C_ORANGE,
+		C_PLUM,
+		C_LIGHTBLUE,
+		C_WHITE,
+		C_BLACK,
+		COLOR_COUNT,
 	};
 
 
@@ -88,7 +95,8 @@ class GUI
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth,		//Width of each icon in toolbar menu
-		ColorIconWidth;
+		ColorIconWidth,
+		ColorPosition;
 
 
 	color DrawColor;		//Drawing color
