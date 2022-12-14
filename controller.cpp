@@ -74,6 +74,12 @@ operation* controller::createOperation(operationType OpType)
 		case TO_PLAY:
 			pOp = new opSwitch(this);
 			break;
+		case DRAW_POLY:
+
+			break;
+		case SELECT:
+
+			break;
 			
 	}
 	return pOp;

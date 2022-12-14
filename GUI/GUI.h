@@ -43,12 +43,13 @@ class GUI
 		ICON_TRI,		//Triangle icon in menu
 		ICON_SQU,		//Square icon in menu
 		ICON_LINE,		//Line icon in menu
+		ICON_POLY,		//Polygon icon in menu
 		ICON_PEN,		//Pen icon in menu
 		ICON_FILL,		//Fill icon in menu
+		ICON_SELECT,    //Select icon in menu
 		ICON_DELETE,	//Delete icon in menu
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
-
 		ICON_SWITCH,	//Switch icon in menu
 
 		//TODO: Add more icons names here
