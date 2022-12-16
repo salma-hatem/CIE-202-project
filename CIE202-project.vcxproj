@@ -175,6 +175,8 @@
     <ClCompile Include="operations\opChngFillClr.cpp" />
     <ClCompile Include="operations\opDelete.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />
+    <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
@@ -217,6 +219,8 @@
     <ClInclude Include="operations\opDelete.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opSwitch.h" />
+    <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
     <ClInclude Include="Shapes\Graph.h" />
@@ -225,6 +229,9 @@
     <ClInclude Include="Shapes\Rect.h" />
     <ClInclude Include="Shapes\Square.h" />
     <ClInclude Include="Shapes\Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Shapes\Drawing.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
