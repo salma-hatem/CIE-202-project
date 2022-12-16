@@ -159,6 +159,12 @@
     <ClCompile Include="operations\opChngFillClr.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opSave.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opLoad.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -278,6 +284,12 @@
     <ClInclude Include="operations\opChngFillClr.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="operations\opSave.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opLoad.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">
@@ -292,5 +304,10 @@
     <Filter Include="GUI">
       <UniqueIdentifier>{cc4dfad3-3220-4da0-a755-b6f30c107ea1}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Shapes\Drawing.txt">
+      <Filter>Shapes&amp;Graph</Filter>
+    </Text>
   </ItemGroup>
 </Project>

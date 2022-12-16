@@ -8,7 +8,8 @@
 #include "operations\opChngDrawClr.h"
 #include "operations\opChngFillClr.h"
 #include "operations\opSwitch.h"
-
+#include "operations\opSave.h"
+#include "operations\opLoad.h"
 //Constructor
 controller::controller()
 {
@@ -53,7 +54,11 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_SQR:
 			pOp = new opAddSquare(this);
 			break;
+		case SAVE:
+			pOp = new opSave(this);
 
+		case LOAD:
+		//	pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
 			
@@ -73,12 +78,6 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case TO_PLAY:
 			pOp = new opSwitch(this);
-			break;
-		case DRAW_POLY:
-
-			break;
-		case SELECT:
-
 			break;
 			
 	}
