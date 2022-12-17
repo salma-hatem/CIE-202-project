@@ -160,6 +160,9 @@
       <Filter>Operations</Filter>
     </ClCompile>
     <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opExit.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -280,6 +283,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opExit.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

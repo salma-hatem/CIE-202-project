@@ -104,3 +104,13 @@ void Graph::Delete() {
 	//make the shape's saved= false
 
 }
+
+bool Graph::getIsAllSaved() const
+{
+	bool saved = true;
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		saved = saved && shapesList[i]->IsAllSaved();
+	}
+	return saved;
+}

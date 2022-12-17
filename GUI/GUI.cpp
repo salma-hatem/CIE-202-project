@@ -521,6 +521,17 @@ void GUI::switchToDraw()
 	CreateStatusBar();
 }
 
+bool GUI::SaveOrExit()
+{
+	string answer = GetSrting();
+	while (answer != "y" && answer != "n")
+	{
+		answer = GetSrting();
+	}
+	if (answer == "y") return true;
+	else return false;
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

@@ -24,5 +24,7 @@ public:
 	void load(ifstream& inputfile);	//Load all shapes from a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
 	shape* getSelectedShape();
+	bool getIsAllSaved() const;
+
 	
 };

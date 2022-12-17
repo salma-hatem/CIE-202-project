@@ -155,6 +155,7 @@ public:
 	void CreateColorPalette(); //draw color palette
 	color getColor(); //detect which
 	void switchToDraw(); //switch back to play
+	bool SaveOrExit(); //asks user whether they want to save
 
 	~GUI();
 };

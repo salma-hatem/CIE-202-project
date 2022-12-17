@@ -9,6 +9,7 @@
 #include "operations\opChngFillClr.h"
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
+#include "operations\opExit.h"
 //#include "operations\opLoad.h"
 
 //Constructor
@@ -58,9 +59,10 @@ operation* controller::createOperation(operationType OpType)
 
 		case SAVE:
 			pOp = new opSave(this);
+			break;
 		case EXIT:
 			///create Exitoperation here
-			
+			pOp = new opExit(this);
 			break;
 
 		case DEL:

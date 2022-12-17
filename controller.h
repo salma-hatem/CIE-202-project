@@ -12,6 +12,7 @@ class controller
 
 	Graph* pGraph;	//pointe to the grapg
 	GUI* pGUI;		//Pointer to UI class
+
 	
 
 public:	
