@@ -21,11 +21,12 @@ void Circle::Save(ofstream& outfile) {
 	
 	//GUI* pSr;
 	//pSr->getCrntDrawColor();
-	outfile << "Circle " << "ID " <<point1.x-point1.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	//outfile << "Circle " << "ID " <<point1.x-point1.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	
 
-	//string draw = ShpGfxInfo.DrawClr_s;
-	//outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	outfile << "Circle " << " Id (can't think of one)"<<" "<< draw<<" "<<fill << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	//outfile << ShpGfxInfo.DrawClr.ucGreen << ShpGfxInfo.BorderWdth << endl;
 	SetShapeSaved(true);
 	SetAllSaved(ShapeSaved());

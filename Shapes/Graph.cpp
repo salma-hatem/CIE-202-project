@@ -78,7 +78,6 @@ void Graph::Save(ofstream& outfile) {
 	
 
 	shapesList[0]->InitializeAllSaved();
-	
 	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);

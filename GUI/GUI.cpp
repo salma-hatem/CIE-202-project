@@ -571,7 +571,7 @@ color GUI::getColor(string draw_fill)
 		{
 		case C_RED: 
 			if (draw_fill == "draw") DrawColor_s = "RED";
-			else FillColor_s = "RED";
+			if (draw_fill == "fill") FillColor_s = "RED";
 			return RED;
 		case C_BLUE:
 			if (draw_fill == "draw") DrawColor_s = "BLUE";
@@ -610,7 +610,12 @@ color GUI::getColor(string draw_fill)
 		default: return ROYALBLUE;	//for testing purposes
 		}
 	}
-	else return SEAGREEN;
+	else 
+	{
+		return SEAGREEN; 
+		if (draw_fill == "draw") DrawColor_s = "SEAGREEN";
+		else FillColor_s = "SEAGREEN";
+	}
 }
 
 
