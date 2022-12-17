@@ -18,7 +18,7 @@ void opChngFillClr::Execute()
 	pUI->switchToColor();
 
 	color pickedcolor;
-	pickedcolor = pUI->getColor();
+	pickedcolor = pUI->getColor("fill");
 
 	pUI->changeFillColor(pickedcolor);
 	pUI->switchToDraw();

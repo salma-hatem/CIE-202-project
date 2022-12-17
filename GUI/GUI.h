@@ -21,6 +21,8 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool isFilled;	//shape Filled or not
 	int BorderWdth;	//Width of shape borders
 	bool isSelected;	//true if the shape is selected.
+	string DrawClr_s;
+	string FillClr_s;
 };
 
 
@@ -109,6 +111,7 @@ class GUI
 	color StatusBarColor;	//Status bar color
 	int PenWidth;			//width of the pen that draws shapes
 
+	string DrawColor_s, FillColor_s; 
 	/// Add more members if needed
 
 
@@ -139,13 +142,14 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo)const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo)const;
 	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
-
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
+	string getCrntDrawColor_s() const;
+	string getCrntFillColor_s() const;
 	int getCrntPenWidth() const;		//get current pen width
 	void switchToPlay(); //switches the play mode
 	void changePenColor(color pickedColor); //changes pen color to picked color
@@ -156,8 +160,9 @@ public:
 
 	void switchToColor(); //colorPalette
 	void CreateColorPalette(); //draw color palette
-	color getColor(); //detect which
+	color getColor(string draw_fill); //detect which
 	void switchToDraw(); //switch back to play
+	bool SaveOrExit(); //asks user whether they want to save
 
 	~GUI();
 };

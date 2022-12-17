@@ -22,10 +22,20 @@ void Line::Save(ofstream& outfile) {
 	SetAllSaved(true);
 }
 
-bool Line::ShapeSaved() const {
-	return Saved;
-}
 
-void Line::SetShapeSaved(bool s) {
+
+void Line::SetShapeSaved(bool s)
+{
 	Saved = s;
 }
+
+bool Line::point_included(int x, int y) {
+	double original_slope = (point2.y - point1.y) / (point2.x - point1.x);
+	double new_slope = (y - point1.y) / (x - point1.x);
+	if (new_slope == original_slope || new_slope == -original_slope) {
+		return true;
+	}
+	else { return false; }
+}
+
+//return Saved;

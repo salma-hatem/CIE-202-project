@@ -27,3 +27,19 @@ bool Rect::ShapeSaved() const {
 void Rect::SetShapeSaved(bool s) {
 	Saved = s;
 }
+
+bool Rect::point_included(int x, int y) {
+
+	if ((Corner1.x < Corner2.x && Corner1.y < Corner2.y) && (x > Corner1.x && x<Corner2.x && y>Corner1.y && y < Corner2.y)) {
+		return true;
+	}
+	else if ((Corner1.x < Corner2.x && Corner1.y > Corner2.y) && (x > Corner1.x && x<Corner2.x && y>Corner2.y && y < Corner1.y)) {
+		return true;
+	}
+	else if ((Corner1.x > Corner2.x && Corner1.y < Corner2.y) && (x > Corner2.x && x<Corner1.x && y>Corner1.y && y < Corner2.y))
+		return true;
+	else if ((Corner1.x > Corner2.x && Corner1.y > Corner2.y) && (x > Corner2.x && x<Corner1.x && y>Corner2.y && y < Corner1.y))
+		return true;
+	else
+		return false;
+}

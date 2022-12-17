@@ -19,7 +19,7 @@ void opChngDrawClr::Execute()
 	pUI->switchToColor();
 
 	color pickedcolor;
-	pickedcolor = pUI->getColor();
+	pickedcolor = pUI->getColor("draw");
 
 	pUI->changePenColor(pickedcolor);
 	pUI->switchToDraw();
