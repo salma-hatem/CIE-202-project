@@ -43,3 +43,16 @@ bool Rect::point_included(int x, int y) {
 	else
 		return false;
 }
+string Rect::shapeInfo()
+{
+	int area;
+	Point center;
+	string text;
+
+	area = abs(Corner2.x - Corner1.x) * abs(Corner2.y - Corner1.y);
+	center.x = abs(Corner1.x - Corner2.x) / 2;
+	center.y = abs(Corner1.y - Corner2.y) / 2;
+
+	text = "Area of the recrangle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	return text;
+}

@@ -17,3 +17,5 @@ public:
 	virtual void Save(ofstream& outfile);
 };
 
+	string shapeInfo();
+};
