@@ -54,14 +54,53 @@ shape* Graph::getSelectedShape() {
 	return selectedShape;
 }
 
-void Graph:: Delete(){
+void Graph::Save(ofstream& outfile) {
+	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
+
+	//GET THE SHAPES LIST 
+	//LOOP THROUGH THE ELEMENTS
+
+	//GUI* pOi;
+
+	shapesList[0]->InitializeAllSaved();
+	if (shapesList[0]->IsAllSaved()) {
+		outfile << " all saved is intialized with true";
+	}
+
+	outfile << "Draw color " << " fill color " << " pen width ";
+
+	outfile << shapesList.size() << endl;
+	for (int i = 0;i < shapesList.size();i++) {
+		shapesList[i]->Save(outfile);
+
+
+		//if (!shapesList[i]->IsAllSaved()) { //if there's a shape that isn't saved
+
+			//GUI*->
+		//}
+
+	}
+
+	//delete pOi;
+	//pOi = nullptr;
+	//Loop through the selected shape vector and call the save function in each shape
+
+	//CALL THE SAVE FUNCTION IN EACH ELEMENT AND GIVE IT THE FILE AS A PARAMETER0
+	//close the file 
+
+
+}
+
+void Graph::Delete() {
 	/*int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), selectedShape);  //serach for selectedShape 
-	if (num != shapesList.end()) { //the selected shape is in the shapesList 
+	auto num = find(shapesList.begin(), shapesList.end(), selectedShape);  //serach for selectedShape
+	if (num != shapesList.end()) { //the selected shape is in the shapesList
 		 index = num - shapesList.begin(); //get the index of selectedshape
 	};
 	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
+	shapesList[0]->SetAllSaved(false);
 	shapesList.erase(shapesList.begin());
-
+	//switch the zero to the index of selected shape
+	//make the shape's saved= false
 
 }

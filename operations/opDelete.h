@@ -10,7 +10,7 @@ public:
 	opDelete(controller* pCont);
 	virtual ~opDelete();
 
-	//Add rectangle to the controller
+	//delete a shape
 	virtual void Execute();
 
 };

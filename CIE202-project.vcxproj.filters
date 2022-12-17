@@ -159,6 +159,7 @@
     <ClCompile Include="operations\opChngFillClr.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opSave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -278,6 +279,7 @@
     <ClInclude Include="operations\opChngFillClr.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="operations\opSave.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

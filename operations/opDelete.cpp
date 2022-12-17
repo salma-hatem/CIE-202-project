@@ -17,7 +17,5 @@ void opDelete::Execute()
 
 	//call function Delete from Graph
 	 
-	
-	
 	pGr->Delete();
 }

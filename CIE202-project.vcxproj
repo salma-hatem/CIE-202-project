@@ -174,6 +174,7 @@
     <ClCompile Include="operations\opChngDrawClr.cpp" />
     <ClCompile Include="operations\opChngFillClr.cpp" />
     <ClCompile Include="operations\opDelete.cpp" />
+    <ClCompile Include="operations\opSave.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />
     <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="operations\opChngFillClr.h" />
     <ClInclude Include="operations\opDelete.h" />
     <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="operations\opSave.h" />
     <ClInclude Include="operations\opSwitch.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
