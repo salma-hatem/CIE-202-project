@@ -78,8 +78,13 @@ void Graph::Save(ofstream& outfile) {
 	
 
 	shapesList[0]->InitializeAllSaved();
+
+	GUI* pGR;
+	string draw = pGR->getCrntDrawColor_s();
 	
-	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
+	outfile << draw << " " << pGR->getCrntFillColor_s() << " " << pGR->getCrntPenWidth() << endl;
+	outfile<< shapesList.size() << endl;
+
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
 
@@ -102,15 +107,15 @@ void Graph::Save(ofstream& outfile) {
 }
 
 void Graph::Delete() {
-	/*int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), selectedShape);  //serach for selectedShape
+	int index = 0;
+	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
 	if (num != shapesList.end()) { //the selected shape is in the shapesList
 		 index = num - shapesList.begin(); //get the index of selectedshape
 	};
 	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[0]->SetAllSaved(false);
-	shapesList.erase(shapesList.begin());
-	//switch the zero to the index of selected shape
+	shapesList[index]->SetAllSaved(false);
+	//shapesList.erase(shapesList.begin());
+	//switch the zero to the index of selected shape11
 	//make the shape's saved= false
 
 }
@@ -124,9 +129,13 @@ bool Graph::getIsAllSaved() const
 	}
 	return saved;
 }
-}
+
 
 void load(ifstream& inputfile)	//Load all shapes from a file
 {
-
+	vector <string> v;
+	string line;
+	while (getline(inputfile, line)) {
+		v.push_back(line);
+	}
 }

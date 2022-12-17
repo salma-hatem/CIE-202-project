@@ -32,6 +32,6 @@ void shape::InitializeAllSaved() {
 
 void shape::SetAllSaved(bool s) {
 
-	AllSaved = AllSaved && s;
+	AllSaved = s;
 
 }

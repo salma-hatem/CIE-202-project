@@ -16,5 +16,5 @@ public:
 	bool ShapeSaved() const; // returns if circle is saved or not
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
 	virtual bool point_included(int x, int y);
-	virtual void Save(ofstream& outfile) ;
+	virtual void Save(ofstream& outfile);
 };

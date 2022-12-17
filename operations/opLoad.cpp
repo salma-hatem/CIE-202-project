@@ -29,7 +29,7 @@ void opLoad::Execute()
 	file.open(file_name, ios::out);
 	//call function Save from Graph
 
-	//pGr->load(file);
+	pGr->load(file);
 
 	file.close();
 	pGi->PrintMessage("Your work is loaded ");

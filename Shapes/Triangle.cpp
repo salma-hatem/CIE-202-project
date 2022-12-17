@@ -24,7 +24,13 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 
 void Triangle::Save(ofstream& outfile) {
 	//char info[100];
-	outfile << "TRI " << "ID " << point1.x - point2.x <<" " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	outfile << "TRI " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
+
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }

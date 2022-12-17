@@ -25,7 +25,7 @@ void opExit::Execute()
 		if (save)
 		{
 			ofstream file;
-			pUI->PrintMessage("Which would you like to save in?");
+			pUI->PrintMessage("Which file would you like to save in?");
 			string name = pUI->GetSrting();
 			file.open(name, ios::out);
 			pGr->Save(file);

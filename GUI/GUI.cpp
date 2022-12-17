@@ -606,7 +606,11 @@ color GUI::getColor(string draw_fill)
 		default: return ROYALBLUE;	//for testing purposes
 		}
 	}
-	else return SEAGREEN;
+	else {
+		return SEAGREEN;
+		if (draw_fill == "draw") DrawColor_s = "SEAGREEN";
+		else FillColor_s = "SEAGREEN";
+	}
 }
 
 

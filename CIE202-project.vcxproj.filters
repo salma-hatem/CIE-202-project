@@ -58,6 +58,7 @@
     <ClCompile Include="Shapes\Square.cpp" />
     <ClCompile Include="Shapes\Triangle.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
+    <ClCompile Include="operations\opLoad.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -104,5 +105,6 @@
     <ClInclude Include="Shapes\Square.h" />
     <ClInclude Include="Shapes\Triangle.h" />
     <ClInclude Include="operations\opSelect.h" />
+    <ClInclude Include="operations\opLoad.h" />
   </ItemGroup>
 </Project>

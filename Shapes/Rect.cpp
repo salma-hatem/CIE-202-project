@@ -16,7 +16,13 @@ void Rect::Draw(GUI* pUI) const
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 }
 void Rect::Save(ofstream& outfile) {
-	outfile << "Rect " << "ID " << Corner1.x - Corner2.x<<" " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+
+	outfile << "Rect " << "ID " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }
