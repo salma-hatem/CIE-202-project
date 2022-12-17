@@ -1,0 +1,5 @@
+Draw color  fill color 1 4
+Line Id 470 198 522 242
+TRI Id 289 236 294 389 339 293
+Rect  id 1002  282 829 400
+Circle 1721 429 668 451

@@ -5,6 +5,7 @@ Triangle::Triangle(Point P1, Point P2,Point P3, GfxInfo shapeGfxInfo) :shape(sha
 	point1 = P1;
 	point2 = P2;
 	point3 = P3;
+	Saved = false;
 }
 
 Triangle::~Triangle()
@@ -21,6 +22,12 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 	return triangle_area;
 }
 
+void Triangle::Save(ofstream& outfile) {
+	//char info[100];
+	outfile << "TRI " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	SetShapeSaved(true);
+	SetAllSaved(true);
+}
 
 bool Triangle::point_included(int x, int y) {
 	double triangle_area = trianglearea(point1.x, point2.x, point3.x, point1.y, point2.y, point3.y);
@@ -34,8 +41,11 @@ bool Triangle::point_included(int x, int y) {
 	
 	else
 		return false;
-	
 }
+bool Triangle::ShapeSaved() const {
+	return Saved;
+}
+	
 string Triangle::shapeInfo()
 {
 	string text;
@@ -43,4 +53,7 @@ string Triangle::shapeInfo()
 	
 	text = "Area of the recrangle is " + to_string(triangle_area);
 	return text;
+}
+void Triangle::SetShapeSaved(bool s) {
+	Saved = s;
 }

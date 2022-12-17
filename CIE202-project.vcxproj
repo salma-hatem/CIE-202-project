@@ -171,11 +171,16 @@
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
+    <ClCompile Include="operations\opChngDrawClr.cpp" />
+    <ClCompile Include="operations\opChngFillClr.cpp" />
+    <ClCompile Include="operations\opDelete.cpp" />
+    <ClCompile Include="operations\opExit.cpp" />
+    <ClCompile Include="operations\opSave.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
+    <ClCompile Include="operations\opSwitch.cpp" />
     <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
-    <ClCompile Include="Shapes\regpolygon.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
     <ClCompile Include="Shapes\Square.cpp" />
@@ -210,23 +215,22 @@
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
+    <ClInclude Include="operations\opChngDrawClr.h" />
+    <ClInclude Include="operations\opChngFillClr.h" />
+    <ClInclude Include="operations\opDelete.h" />
     <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="operations\opExit.h" />
+    <ClInclude Include="operations\opSave.h" />
     <ClInclude Include="operations\opSelect.h" />
+    <ClInclude Include="operations\opSwitch.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Line.h" />
-    <ClInclude Include="Shapes\regpolygon.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
     <ClInclude Include="Shapes\Square.h" />
     <ClInclude Include="Shapes\Triangle.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="CIE202-project.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

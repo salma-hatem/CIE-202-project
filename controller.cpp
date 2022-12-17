@@ -5,7 +5,18 @@
 #include "operations\opSelect.h"
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
-
+#include "operations\opAddLine.h"
+#include "operations\opAddTriangle.h"
+#include "operations\opAddCircle.h"
+#include "operations\opAddSquare.h"
+#include "operations\opDelete.h"
+#include "operations\opChngDrawClr.h"
+#include "operations\opChngFillClr.h"
+#include "operations\opSwitch.h"
+#include "operations\opSave.h"
+#include "operations\opExit.h"
+//#include "operations\opLoad.h"
+#include "operations\opLoad.h"
 
 //Constructor
 controller::controller()
@@ -27,6 +38,7 @@ operationType controller::GetUseroperation() const
 operation* controller::createOperation(operationType OpType)
 {
 	operation* pOp = nullptr;
+
 	
 	//According to operation Type, create the corresponding operation object
 	switch (OpType)
@@ -34,13 +46,14 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
 			break;
-		case DRAW_SQR:
-			pOp = new opAddSquare(this);
-			break;
 
 		case DRAW_LINE:
 			///create AddLineoperation here
 			pOp = new opAddLine(this);
+			break;
+		case DRAW_SQR:
+			///create AddLineoperation here
+			pOp = new opAddSquare(this);
 			break;
 
 		case DRAW_TRI:
@@ -50,10 +63,19 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
+		case SAVE:
+			pOp = new opSave(this);
+			break;
 
+		case LOAD: 
+			//pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
-			
+			pOp = new opExit(this);
+			break;
+
+		case DEL:
+			pOp = new opDelete(this);
 			break;
 		case SELECT:
 			pOp = new opSelect(this);
@@ -61,8 +83,20 @@ operation* controller::createOperation(operationType OpType)
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
-	}
+		case CHNG_DRAW_CLR:
+			pOp = new opChngDrawClr(this);
+			break;
+		case CHNG_FILL_CLR:
+			pOp = new opChngFillClr(this);
+			break;
+		case TO_PLAY:
+			pOp = new opSwitch(this);
+			break;
+		case DRAW_POLY:
 
+			break;
+			
+	}
 	return pOp;
 	
 }
@@ -85,6 +119,7 @@ Graph* controller::getGraph() const
 {
 	return pGraph;
 }
+
 
 
 

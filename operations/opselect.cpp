@@ -7,7 +7,6 @@ opSelect::opSelect(controller* pCont) :operation(pCont)
 {}
 opSelect::~opSelect()
 {}
-
 //Execute the operation
 void opSelect::Execute()
 {
