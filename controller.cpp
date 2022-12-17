@@ -1,23 +1,11 @@
 #include "controller.h"
 #include "operations\opAddRect.h"
 #include "operations\opAddLine.h"
-<<<<<<< HEAD
 #include "operations\opAddSquare.h"
 #include "operations\opSelect.h"
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
 
-=======
-#include "operations\opAddTriangle.h"
-#include "operations\opAddCircle.h"
-#include "operations\opAddSquare.h"
-#include "operations\opDelete.h"
-#include "operations\opChngDrawClr.h"
-#include "operations\opChngFillClr.h"
-#include "operations\opSwitch.h"
-#include "operations\opSave.h"
-//#include "operations\opLoad.h"
->>>>>>> origin/salma
 
 //Constructor
 controller::controller()
@@ -32,54 +20,24 @@ controller::controller()
 operationType controller::GetUseroperation() const
 {
 	//Ask the input to get the operation from the user.
-	return pGUI->GetUseroperation();
+	return pGUI->GetUseroperation();		
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Creates an operation and executes it
 operation* controller::createOperation(operationType OpType)
 {
 	operation* pOp = nullptr;
-
-<<<<<<< HEAD
-=======
 	
->>>>>>> origin/salma
 	//According to operation Type, create the corresponding operation object
 	switch (OpType)
 	{
-	case DRAW_RECT:
-		pOp = new opAddRect(this);
-		break;
-	case DRAW_SQR:
-		pOp = new opAddSquare(this);
-		break;
+		case DRAW_RECT:
+			pOp = new opAddRect(this);
+			break;
+		case DRAW_SQR:
+			pOp = new opAddSquare(this);
+			break;
 
-<<<<<<< HEAD
-	case DRAW_LINE:
-		///create AddLineoperation here
-		pOp = new opAddLine(this);
-		break;
-
-	case DRAW_TRI:
-		///create AddTriangleoperation here
-		pOp = new opAddTriangle(this);
-		break;
-	case DRAW_CIRC:
-		pOp = new opAddCircle(this);
-		break;
-
-	case EXIT:
-		///create Exitoperation here
-
-		break;
-	case SELECT:
-		pOp = new opSelect(this);
-		break;
-
-	case STATUS:	//a click on the status bar ==> no operation
-		break;
-	}
-=======
 		case DRAW_LINE:
 			///create AddLineoperation here
 			pOp = new opAddLine(this);
@@ -92,43 +50,21 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
-		case DRAW_SQR:
-			pOp = new opAddSquare(this);
-			break;
 
-		case SAVE:
-			pOp = new opSave(this);
 		case EXIT:
 			///create Exitoperation here
 			
 			break;
-
-		case DEL:
-			pOp = new opDelete(this);
+		case SELECT:
+			pOp = new opSelect(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
-		case CHNG_DRAW_CLR:
-			pOp = new opChngDrawClr(this);
-			break;
-		case CHNG_FILL_CLR:
-			pOp = new opChngFillClr(this);
-			break;
-		case TO_PLAY:
-			pOp = new opSwitch(this);
-			break;
-		case DRAW_POLY:
->>>>>>> origin/salma
-
-			break;
-		case SELECT:
-
-			break;
-			
 	}
-	return pOp;
 
+	return pOp;
+	
 }
 //==================================================================================//
 //							Interface Management Functions							//
@@ -136,15 +72,13 @@ operation* controller::createOperation(operationType OpType)
 
 //Draw all shapes on the user interface
 void controller::UpdateInterface() const
-{
+{	
 	pGraph->Draw(pGUI);
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the UI
-GUI* controller::GetUI() const
-{
-	return pGUI;
-}
+GUI *controller::GetUI() const
+{	return pGUI; }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the Graph
 Graph* controller::getGraph() const
@@ -154,13 +88,12 @@ Graph* controller::getGraph() const
 
 
 
-
 //Destructor
 controller::~controller()
 {
 	delete pGUI;
 	delete pGraph;
-
+	
 }
 
 
@@ -178,7 +111,7 @@ void controller::Run()
 
 		//2. Create an operation coresspondingly
 		operation* pOpr = createOperation(OpType);
-
+		 
 		//3. Execute the created operation
 		if (pOpr)
 		{

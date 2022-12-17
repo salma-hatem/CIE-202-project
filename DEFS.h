@@ -9,20 +9,12 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAW_RECT,		//Draw Rectangle
 	DRAW_TRI,		//Draw Triangle
 	DRAW_CIRC,		//Draw Circle
-	DRAW_SQR ,       //Draw Square
-<<<<<<< HEAD
-=======
-	DRAW_POLY,      //Draws a Polygon
->>>>>>> origin/salma
+	DRAW_SQR,		//Draw Square
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
 	CHNG_BK_CLR,	//Change background color
-	DEL,			//Delete a shape(s)
-<<<<<<< HEAD
 	SELECT,
-=======
-	SELECT,         //Selects an object
->>>>>>> origin/salma
+	DEL,			//Delete a shape(s)
 	MOVE,			//Move a shape(s)
 	RESIZE,			//Resize a shape(s)
 	ROTATE,			//Rotate a shape(s)
@@ -31,6 +23,7 @@ enum operationType //The operations supported (you can add more if needed)
 	SAVE,			//Save the whole graph to a file
 	LOAD,			//Load a graph from a file
 	EXIT,			//Exit the application
+
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
