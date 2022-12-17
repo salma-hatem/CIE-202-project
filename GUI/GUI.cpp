@@ -27,6 +27,8 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use if for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
+	DrawColor_s = "BLUE";
+	FillColor_s = "WHITE";
 
 
 	//Create the output window
@@ -292,6 +294,15 @@ int GUI::getCrntPenWidth() const		//get current pen width
 	return PenWidth;
 }
 
+string GUI::getCrntDrawColor_s() const 
+{
+	return DrawColor_s;
+}
+string GUI::getCrntFillColor_s() const 
+{
+	return FillColor_s;
+}
+
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
@@ -325,8 +336,9 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	color DrawingClr;
 	if (RectGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
-	else
+	else 
 		DrawingClr = RectGfxInfo.DrawClr;
+	
 
 	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
 
@@ -511,12 +523,9 @@ void GUI::CreateColorPalette()
 		pWind->DrawImage(MenuIconImages[i], ColorPosition + (i * ColorIconWidth), (height - (StatusBarHeight - 2)), ColorIconWidth, ColorIconWidth);
 	//pWind->DrawImage(MenuIconImages[i], (width/2)+(i * 10), height - StatusBarHeight-5, (width / 2) + (i * 10)+10, height - StatusBarHeight +5);
 }
-color GUI::getColor()
+color GUI::getColor(string draw_fill)
 {
 	int x, y;
-
-	//pWind->SetBrush(RED);
-	//pWind->DrawRectangle(width * 0.9, height - 18, (width * 0.9)+ 30 * COLOR_COUNT, height - 48);
 
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 	//[1] If user clicks on the Toolbar
@@ -530,22 +539,50 @@ color GUI::getColor()
 
 		switch (ClickedIconOrder)
 		{
-		case C_RED: return RED;
-		case C_BLUE: return BLUE;
-		case C_ORANGE: return ORANGE;
-		case C_GREEN: return GREEN;
-		case C_YELLOW: return YELLOW;
-		case C_PLUM: return PLUM;
-		case C_LIGHTBLUE: return LIGHTBLUE;
-		case C_WHITE: return WHITE;
-		case C_BLACK: return BLACK;
+		case C_RED: 
+			if (draw_fill == "draw") DrawColor_s = "RED";
+			else FillColor_s = "RED";
+			return RED;
+		case C_BLUE:
+			if (draw_fill == "draw") DrawColor_s = "BLUE";
+			else FillColor_s = "BLUE";
+			return BLUE;
+		case C_ORANGE: 
+			if (draw_fill == "draw") DrawColor_s = "ORANGE";
+			else FillColor_s = "ORANGE";
+			return ORANGE;
+		case C_GREEN: 
+			if (draw_fill == "draw") DrawColor_s = "GREEN";
+			else FillColor_s = "GREEN";
+			return GREEN;
+		case C_YELLOW: 
+			if (draw_fill == "draw") DrawColor_s = "YELLOW";
+			else FillColor_s = "YELLOW";
+			return YELLOW;
+		case C_PLUM: 
+			if (draw_fill == "draw") DrawColor_s = "PLUM";
+			else FillColor_s = "PLUM";
+			return PLUM;
+		case C_LIGHTBLUE: 
+			if (draw_fill == "draw") DrawColor_s = "LIGHTBLUE";
+			else FillColor_s = "LIGHTBLUE";
+			return LIGHTBLUE;
+		case C_WHITE:
+			if (draw_fill == "draw") DrawColor_s = "WHITE";
+			else FillColor_s = "WHITE";
+			return WHITE;
+		case C_BLACK: 
+			if (draw_fill == "draw") DrawColor_s = "BLACK";
+			else FillColor_s = "BLACK";
+			return BLACK;
 
 
-		default: return ROYALBLUE;	//A click on empty place in desgin toolbar
+		default: return ROYALBLUE;	//for testing purposes
 		}
 	}
 	else return SEAGREEN;
 }
+
 
 void GUI::switchToDraw()
 {

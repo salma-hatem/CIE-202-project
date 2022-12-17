@@ -37,6 +37,8 @@ void opAddCircle::Execute()
 	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
 	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	CircleGfxInfo.DrawClr_s = pUI->getCrntDrawColor_s();
+	CircleGfxInfo.FillClr_s = pUI->getCrntDrawColor_s();
 
 
 	CircleGfxInfo.isFilled = true;	//default is filled
