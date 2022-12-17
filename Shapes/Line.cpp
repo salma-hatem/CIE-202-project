@@ -17,7 +17,7 @@ void Line::Draw(GUI* pUI) const
 }
 
 void Line::Save(ofstream& outfile) {
-	outfile << "Line" << " Id " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	outfile << "Line " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }

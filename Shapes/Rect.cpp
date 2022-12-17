@@ -16,7 +16,7 @@ void Rect::Draw(GUI* pUI) const
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 }
 void Rect::Save(ofstream& outfile) {
-	outfile << "Rect " << " id " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	outfile << "Rect " << "ID " << Corner1.x - Corner1.x << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }

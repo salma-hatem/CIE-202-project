@@ -22,12 +22,13 @@ public:
 
 	void InitializeAllSaved(); //initalizes all saved to the value of the first shape (saved ot not)
 	bool IsAllSaved() const;		//getter to know if all shapes are saved
-	void SetAllSaved(bool s);		//sets the boolean to true if all the shapes are saved
+	virtual void SetAllSaved(bool s);		//sets the boolean to true if all the shapes are saved
 
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
+
 
 	///The following functions should be supported by the shape class
 	///It should be overridden by each inherited shape

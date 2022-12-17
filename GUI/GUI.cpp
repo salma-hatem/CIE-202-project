@@ -267,6 +267,30 @@ color GUI::getCrntDrawColor() const	//get current drwawing color
 {
 	return DrawColor;
 }
+
+/*string GUI::getDrawclr() const //gets a string according to draw color
+{
+	 color currentclr = getCrntDrawColor();
+
+	
+	switch (currentclr)
+	{
+	case RED: return "Red";
+	/*case C_BLUE: return BLUE;
+	case C_ORANGE: return ORANGE;
+	case C_GREEN: return GREEN;
+	case C_YELLOW: return YELLOW;
+	case C_PLUM: return PLUM;
+	case C_LIGHTBLUE: return LIGHTBLUE;
+	case C_WHITE: return WHITE;
+	case C_BLACK: return BLACK;
+
+
+	default: return "ROYALBLUE";	//A click on empty place in desgin toolbar
+	}
+
+}*/
+
 //////////////////////////////////////////////////////////////////////////////////////////
 
 color GUI::getCrntFillColor() const	//get current filling color
@@ -274,6 +298,8 @@ color GUI::getCrntFillColor() const	//get current filling color
 	return FillColor;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+
+//string getFillclr(); //gets a string according to fill color
 
 int GUI::getCrntPenWidth() const		//get current pen width
 {

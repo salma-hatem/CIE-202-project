@@ -60,16 +60,13 @@ void Graph::Save(ofstream& outfile) {
 	//GET THE SHAPES LIST 
 	//LOOP THROUGH THE ELEMENTS
 
-	//GUI* pOi;
+
+	
+	
 
 	shapesList[0]->InitializeAllSaved();
-	if (shapesList[0]->IsAllSaved()) {
-		outfile << " all saved is intialized with true";
-	}
-
-	outfile << "Draw color " << " fill color " << " pen width ";
-
-	outfile << shapesList.size() << endl;
+	
+	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
 

@@ -151,6 +151,9 @@ public:
 	void changePenColor(color pickedColor); //changes pen color to picked color
 	void changeFillColor(color pickedColor); //changes fill color to picked color
 
+//	string getDrawclr() const ; //gets a string according to draw color
+	//string getFillclr() const ; //gets a string according to fill color
+
 	void switchToColor(); //colorPalette
 	void CreateColorPalette(); //draw color palette
 	color getColor(); //detect which

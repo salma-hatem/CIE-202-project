@@ -159,7 +159,12 @@
     <ClCompile Include="operations\opChngFillClr.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opSave.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opLoad.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -280,6 +285,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opLoad.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

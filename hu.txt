@@ -1,0 +1,5 @@
+ all saved is intialized with trueDraw color  fill color  pen width 4
+Circle  Id (can't think of one)963 225 940 318
+TRI Id 165 503 217 494 159 446
+Line Id 423 485 517 531
+Line Id 657 392 570 438

@@ -13,5 +13,6 @@ public:
 	virtual void Draw(GUI* pUI) const;
 	bool ShapeSaved() const; // returns if Shape is saved or not
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
+	virtual void Save(ofstream& outfile);
 };
 
