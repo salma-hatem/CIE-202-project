@@ -39,7 +39,11 @@ void opAddCircle::Execute()
 	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
 
+<<<<<<< HEAD
 	CircleGfxInfo.isFilled = false;	//default is not filled
+=======
+	CircleGfxInfo.isFilled = true;	//default is filled
+>>>>>>> origin/salma
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 

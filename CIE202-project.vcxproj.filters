@@ -147,9 +147,25 @@
     <ClCompile Include="operations\opAddSquare.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="operations\opselect.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+=======
+    <ClCompile Include="operations\opChngDrawClr.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opDelete.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opSwitch.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opChngFillClr.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opSave.cpp" />
+>>>>>>> origin/salma
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -257,9 +273,25 @@
     <ClInclude Include="operations\opAddSquare.h">
       <Filter>Operations</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="operations\opselect.h">
       <Filter>Operations</Filter>
     </ClInclude>
+=======
+    <ClInclude Include="operations\opChngDrawClr.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opDelete.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opSwitch.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opChngFillClr.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opSave.h" />
+>>>>>>> origin/salma
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

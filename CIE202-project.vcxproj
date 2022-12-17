@@ -171,7 +171,15 @@
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="operations\opselect.cpp" />
+=======
+    <ClCompile Include="operations\opChngDrawClr.cpp" />
+    <ClCompile Include="operations\opChngFillClr.cpp" />
+    <ClCompile Include="operations\opDelete.cpp" />
+    <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opSwitch.cpp" />
+>>>>>>> origin/salma
     <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
@@ -209,8 +217,17 @@
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
+<<<<<<< HEAD
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opselect.h" />
+=======
+    <ClInclude Include="operations\opChngDrawClr.h" />
+    <ClInclude Include="operations\opChngFillClr.h" />
+    <ClInclude Include="operations\opDelete.h" />
+    <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opSwitch.h" />
+>>>>>>> origin/salma
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
     <ClInclude Include="Shapes\Graph.h" />

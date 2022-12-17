@@ -38,7 +38,11 @@ void opAddSquare::Execute()
 	SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
 
+<<<<<<< HEAD
 	SquareGfxInfo.isFilled = false;	//default is not filled
+=======
+	SquareGfxInfo.isFilled = true;	//default is not filled
+>>>>>>> origin/salma
 	SquareGfxInfo.isSelected = false;	//defualt is not selected
 
 

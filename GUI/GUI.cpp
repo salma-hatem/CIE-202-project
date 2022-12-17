@@ -17,9 +17,11 @@ GUI::GUI()
 	StatusBarHeight = 50;
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
+	ColorIconWidth = 30;
+	ColorPosition=10;
 
 	DrawColor = BLUE;	//default Drawing color
-	FillColor = GREEN;	//default Filling color
+	FillColor = WHITE;	//default Filling color
 	MsgColor = BLACK;		//Messages color
 	BkGrndColor = WHITE;	//Background color
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use if for highlight only
@@ -93,6 +95,7 @@ operationType GUI::GetUseroperation() const
 
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
+<<<<<<< HEAD
 			case ICON_TRI:  return DRAW_TRI;
 			case ICON_SQU:  return DRAW_SQR;
 			case ICON_LINE: return DRAW_LINE;
@@ -103,6 +106,19 @@ operationType GUI::GetUseroperation() const
 				case ICON_LOAD: return LOAD;*/
 			case ICON_SWITCH: return TO_PLAY; //switches from draw to play ONLY
 
+=======
+			case ICON_TRI: return DRAW_TRI;
+			case ICON_SQU: return DRAW_SQR;
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_POLY: return DRAW_POLY;
+			case ICON_PEN: return CHNG_DRAW_CLR;
+			case ICON_FILL: return CHNG_FILL_CLR;
+			case ICON_DELETE: return DEL;
+			case ICON_SAVE: return SAVE;
+			case ICON_LOAD: return LOAD;
+			case ICON_SELECT: return SELECT;
+			case ICON_SWITCH: return TO_PLAY;
+>>>>>>> origin/salma
 			case ICON_EXIT: return EXIT;
 
 
@@ -125,8 +141,31 @@ operationType GUI::GetUseroperation() const
 	{
 		///TODO:
 		//perform checks similar to Draw mode checks above
-		//and return the correspoding operation
-		return TO_PLAY;	//just for now. This should be updated
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			//Check whick Menu icon was clicked
+			//==> This assumes that menu icons are lined up horizontally <==
+			int ClickedIconOrder = (x / MenuIconWidth);
+			//Divide x coord of the point clicked by the menu icon width (int division)
+			//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+			switch (ClickedIconOrder)
+			{
+			case ICON_EXIT_P: return EXIT;
+
+			default: return EMPTY;	//A click on empty place in desgin toolbar
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= ToolBarHeight && y < height - StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+		return STATUS;
+		//return TO_PLAY;	//just for now. This should be updated
 	}
 
 }
@@ -181,12 +220,19 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
 	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
+	MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
+<<<<<<< HEAD
 	/*MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";*/
+=======
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
+>>>>>>> origin/salma
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 
@@ -209,6 +255,20 @@ void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+	string MenuIconImages[PLAY_ICON_COUNT];
+	MenuIconImages[ICON_START] = "images\\MenuIcons\\Menu_Start.jpg";
+	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
+
+
+	//Draw menu icon one image at a time
+	for (int i = 0; i < PLAY_ICON_COUNT; i++)
+		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+
+
+
+	//Draw a line under the toolbar
+	pWind->SetPen(LIGHTSEAGREEN, 3);
+	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -304,6 +364,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }
+<<<<<<< HEAD
 //test switch function ---> need to make an op class instead??
 
 //void GUI::switchToPlay()
@@ -322,6 +383,80 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 //}
 
 void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const {
+=======
+///////////////////////////////////
+/*
+// temp draw square
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	int diffY = P2.y - P1.y;
+	P2.x = P1.x + diffY;
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+*/
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)    //shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);    //Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+
+	double length, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	length = pow(dxsq + dysq, 0.5);
+	pWind->DrawRectangle(P1.x, P1.y, (P1.x) + length, (P1.y) + length, style);
+
+}
+//test switch function ---> need to make an op class instead??
+
+void GUI::switchToPlay() 
+{
+	InterfaceMode = MODE_PLAY;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreatePlayToolBar();
+	CreateStatusBar();
+}
+
+void GUI::changePenColor(color pickedColor)
+{
+	DrawColor = pickedColor;
+}
+
+void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const{
+>>>>>>> origin/salma
 	color DrawingClr;
 	if (LineGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -340,7 +475,11 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const {
 		style = FRAME;
 	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
 }
+<<<<<<< HEAD
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const {
+=======
+void GUI::DrawTriangle(Point P1, Point P2,Point P3, GfxInfo TriangleGfxInfo) const {
+>>>>>>> origin/salma
 	color DrawingClr;
 	if (TriangleGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -357,7 +496,11 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 	}
 	else
 		style = FRAME;
+<<<<<<< HEAD
 	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+=======
+	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x,P3.y, style);
+>>>>>>> origin/salma
 }
 
 void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
@@ -384,10 +527,93 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
 }
 
 
+<<<<<<< HEAD
 //void GUI::changeFillColor(color pickedColor)
 //{
 //	FillColor = pickedColor;
 //}
+=======
+void GUI::changeFillColor(color pickedColor)
+{
+	FillColor = pickedColor;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// color palette
+
+void GUI::switchToColor()
+{
+	InterfaceMode = MODE_COLOR;
+	CreateColorPalette();
+}
+
+void GUI::CreateColorPalette()
+{
+	InterfaceMode = MODE_COLOR;
+	///TODO: write code to create Play mode menu
+	string MenuIconImages[COLOR_COUNT];
+	MenuIconImages[C_BLUE] = "images\\colors\\blue.jpg";
+	MenuIconImages[C_RED] = "images\\colors\\red.jpg";
+	MenuIconImages[C_YELLOW] = "images\\colors\\yellow.jpg";
+	MenuIconImages[C_GREEN] = "images\\colors\\green.jpg";
+	MenuIconImages[C_ORANGE] = "images\\colors\\orange.jpg";
+	MenuIconImages[C_PLUM] = "images\\colors\\plum.jpg";
+	MenuIconImages[C_LIGHTBLUE] = "images\\colors\\light_blue.jpg";
+	MenuIconImages[C_WHITE] = "images\\colors\\white.jpg";
+	MenuIconImages[C_BLACK] = "images\\colors\\black.jpg";
+
+	//Draw menu icon one image at a time
+	for (int i = 0; i < COLOR_COUNT; i++)
+		pWind->DrawImage(MenuIconImages[i], ColorPosition + (i * ColorIconWidth), (height - (StatusBarHeight - 2)), ColorIconWidth, ColorIconWidth);
+	//pWind->DrawImage(MenuIconImages[i], (width/2)+(i * 10), height - StatusBarHeight-5, (width / 2) + (i * 10)+10, height - StatusBarHeight +5);
+}
+color GUI::getColor()
+{
+	int x, y;
+
+	//pWind->SetBrush(RED);
+	//pWind->DrawRectangle(width * 0.9, height - 18, (width * 0.9)+ 30 * COLOR_COUNT, height - 48);
+
+	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+	//[1] If user clicks on the Toolbar
+	if (y >= height - (StatusBarHeight - 2) && y < height - (StatusBarHeight - ColorIconWidth - 2) && x>= ColorPosition && x < 10 + ColorIconWidth * COLOR_COUNT)
+	{
+		//Check whick Menu icon was clicked
+		//==> This assumes that menu icons are lined up horizontally <==
+		int ClickedIconOrder = ((x - ColorPosition) / 30);
+		//Divide x coord of the point clicked by the menu icon width (int division)
+		//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+		switch (ClickedIconOrder)
+		{
+		case C_RED: return RED;
+		case C_BLUE: return BLUE;
+		case C_ORANGE: return ORANGE;
+		case C_GREEN: return GREEN;
+		case C_YELLOW: return YELLOW;
+		case C_PLUM: return PLUM;
+		case C_LIGHTBLUE: return LIGHTBLUE;
+		case C_WHITE: return WHITE;
+		case C_BLACK: return BLACK;
+
+
+		default: return ROYALBLUE;	//A click on empty place in desgin toolbar
+		}
+	}
+	else return SEAGREEN;
+}
+
+void GUI::switchToDraw()
+{
+	InterfaceMode = MODE_DRAW;
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
+	pWind->DrawRectangle(0, 0, width, height);
+	CreateDrawToolBar();
+	CreateStatusBar();
+}
+>>>>>>> origin/salma
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

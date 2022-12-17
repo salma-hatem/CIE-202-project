@@ -6,6 +6,7 @@
 #include "..\Defs.h"
 
 #include <string>
+#include <fstream>
 using namespace std;
 
 struct Point	//To be used for shapes points
@@ -30,7 +31,8 @@ class GUI
 	enum GUI_MODE	//Graphical user interface mode
 	{
 		MODE_DRAW,	//Drawing mode (startup mode)
-		MODE_PLAY	//Playing mode
+		MODE_PLAY,	//Playing mode
+		MODE_COLOR
 	};
 
 	enum DrawMenuIcon //The icons of the Draw menu (you should add more icons)
@@ -39,6 +41,7 @@ class GUI
 		//If you want to change the menu icons order, change the order here
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
+<<<<<<< HEAD
 		ICON_TRI,
 		ICON_SQU,
 		ICON_LINE,
@@ -46,6 +49,19 @@ class GUI
 		ICON_FILL,
 		ICON_DELETE,
 		ICON_SWITCH,
+=======
+		ICON_TRI,		//Triangle icon in menu
+		ICON_SQU,		//Square icon in menu
+		ICON_LINE,		//Line icon in menu
+		ICON_POLY,		//Polygon icon in menu
+		ICON_PEN,		//Pen icon in menu
+		ICON_FILL,		//Fill icon in menu
+		ICON_SELECT,    //Select icon in menu
+		ICON_DELETE,	//Delete icon in menu
+		ICON_SAVE,		//save icon in menu
+		ICON_LOAD,		//Load icon in menu
+		ICON_SWITCH,	//Switch icon in menu
+>>>>>>> origin/salma
 
 		//TODO: Add more icons names here
 
@@ -59,11 +75,26 @@ class GUI
 	{
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
-
+		ICON_START,
+		ICON_EXIT_P,
 		//TODO: Add more icons names here
 
 		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
 
+	};
+
+	enum Colors_CP
+	{
+		C_BLUE,
+		C_RED,
+		C_GREEN,
+		C_YELLOW,
+		C_ORANGE,
+		C_PLUM,
+		C_LIGHTBLUE,
+		C_WHITE,
+		C_BLACK,
+		COLOR_COUNT,
 	};
 
 
@@ -71,11 +102,18 @@ class GUI
 
 	int	width, height,	//Window width and height
 		wx, wy,			//Window starting coordinates
+<<<<<<< HEAD
 		x1, y1,
 		x2, y2,
+=======
+		x1,y1,
+		x2,y2,
+>>>>>>> origin/salma
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-		MenuIconWidth;		//Width of each icon in toolbar menu
+		MenuIconWidth,		//Width of each icon in toolbar menu
+		ColorIconWidth,
+		ColorPosition;
 
 
 	color DrawColor;		//Drawing color
@@ -116,6 +154,10 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo)const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo)const;
 	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/salma
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
@@ -123,7 +165,14 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+	void switchToPlay(); //switches the play mode
+	void changePenColor(color pickedColor); //changes pen color to picked color
+	void changeFillColor(color pickedColor); //changes fill color to picked color
 
+	void switchToColor(); //colorPalette
+	void CreateColorPalette(); //draw color palette
+	color getColor(); //detect which
+	void switchToDraw(); //switch back to play
 
 	~GUI();
 };

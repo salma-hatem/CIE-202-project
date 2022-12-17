@@ -1,21 +1,33 @@
 #include "Triangle.h"
 
+<<<<<<< HEAD
 Triangle::Triangle(Point P1, Point P2, Point P3, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+=======
+Triangle::Triangle(Point P1, Point P2,Point P3, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+>>>>>>> origin/salma
 {
 	point1 = P1;
 	point2 = P2;
 	point3 = P3;
+<<<<<<< HEAD
+=======
+	Saved = false;
+>>>>>>> origin/salma
 }
 
 Triangle::~Triangle()
 {}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/salma
 void Triangle::Draw(GUI* pUI) const
 {
 	//Call Output::DrawLine to draw a Triangle on the screen	
 	pUI->DrawTriangle(point1, point2, point3, ShpGfxInfo);
 }
+<<<<<<< HEAD
 double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 	double triangle_area = abs(x1 * (y2 - y3) - y1 * (x2 - x3) + ((x2 * y3) - (y2 * x3))) / 2;
 	return triangle_area;
@@ -35,4 +47,20 @@ bool Triangle::point_included(int x, int y) {
 	else
 		return false;
 
+=======
+
+void Triangle::Save(ofstream& outfile) {
+	//char info[100];
+	outfile << "TRI" << " Id " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	SetShapeSaved(true);
+	SetAllSaved(true);
+
+}
+bool Triangle::ShapeSaved() const {
+	return Saved;
+}
+
+void Triangle::SetShapeSaved(bool s) {
+	Saved = s;
+>>>>>>> origin/salma
 }
