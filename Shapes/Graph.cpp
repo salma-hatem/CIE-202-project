@@ -101,3 +101,8 @@ void Graph::Delete() {
 	//make the shape's saved= false
 
 }
+
+void load(ifstream& inputfile)	//Load all shapes from a file
+{
+
+}

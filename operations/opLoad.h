@@ -1,4 +1,3 @@
-/*#pragma once
 #pragma once
 #include "operation.h"
 #include <fstream>
@@ -13,4 +12,4 @@ public:
 	//saves all shapes
 	virtual void Execute();
 
-};*/
+};

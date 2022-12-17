@@ -1,15 +1,15 @@
-/*#include "opSave.h"
+#include "opLoad.h"
 #include "..\controller.h"
 
 
 
-opSave::opSave(controller* pCont) :operation(pCont)
+opLoad::opLoad(controller* pCont) :operation(pCont)
 {}
-opSave::~opSave() // 
+opLoad::~opLoad() // 
 {}
 
 //Execute the operation
-void opSave::Execute()
+void opLoad::Execute()
 
 {
 	GUI* pGi = pControl->GetUI();
@@ -20,17 +20,17 @@ void opSave::Execute()
 
 	//create a file 
 	//get the name of the file from the user since you have a
-	pGi->PrintMessage("write the name of the file to save in ");
+	pGi->PrintMessage("write the name of the file to load from ");
 
 	string file_name = pGi->GetSrting();
 
-	ofstream file;
+	ifstream file;
 
 	file.open(file_name, ios::out);
 	//call function Save from Graph
 
-	pGr->Save(file);
+	//pGr->load(file);
 
 	file.close();
-	pGi->PrintMessage("Your work is saved! ");
-}*/
+	pGi->PrintMessage("Your work is loaded ");
+}

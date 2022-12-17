@@ -21,7 +21,7 @@ void Circle::Save(ofstream& outfile) {
 	
 	//GUI* pSr;
 	//pSr->getCrntDrawColor();
-	outfile << "Circle " << "ID " <<point1.x-point1.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	outfile << "Circle " << "ID " <<point1.x-point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	
 
 	SetShapeSaved(true);

@@ -19,7 +19,7 @@ void Triangle::Draw(GUI* pUI) const
 
 void Triangle::Save(ofstream& outfile) {
 	//char info[100];
-	outfile << "TRI " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	outfile << "TRI " << "ID " << point1.x - point2.x <<" " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
 	SetShapeSaved(true);
 	SetAllSaved(true);
 

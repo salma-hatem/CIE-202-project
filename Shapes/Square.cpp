@@ -17,7 +17,7 @@ void Square::Draw(GUI* pUI) const
 }
 
 void Square::Save(ofstream& outfile) {
-	outfile << "SQU " << "ID " << Corner1.x - Corner1.x << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	outfile << "SQU " << "ID " << Corner1.x - Corner2.x <<" " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
 	SetShapeSaved(true);
 	SetAllSaved(true);
 
