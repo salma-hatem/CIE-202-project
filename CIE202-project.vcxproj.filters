@@ -147,6 +147,9 @@
     <ClCompile Include="operations\opAddSquare.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opselect.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -252,6 +255,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opAddSquare.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opselect.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>

@@ -39,16 +39,13 @@ class GUI
 		//If you want to change the menu icons order, change the order here
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
-		ICON_TRI,		//Triangle icon in menu
-		ICON_SQU,		//Square icon in menu
-		ICON_LINE,		//Line icon in menu
-		ICON_PEN,		//Pen icon in menu
-		ICON_FILL,		//Fill icon in menu
-		ICON_DELETE,	//Delete icon in menu
-		ICON_SAVE,		//save icon in menu
-		ICON_LOAD,		//Load icon in menu
-
-		ICON_SWITCH,	//Switch icon in menu
+		ICON_TRI,
+		ICON_SQU,
+		ICON_LINE,
+		ICON_PEN,
+		ICON_FILL,
+		ICON_DELETE,
+		ICON_SWITCH,
 
 		//TODO: Add more icons names here
 
@@ -74,8 +71,8 @@ class GUI
 
 	int	width, height,	//Window width and height
 		wx, wy,			//Window starting coordinates
-		x1,y1,
-		x2,y2,
+		x1, y1,
+		x2, y2,
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
@@ -119,7 +116,6 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo)const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo)const;
 	void DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const;
-
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
@@ -127,9 +123,6 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
-	void switchToPlay(); //switches the play mode
-	void changePenColor(color pickedColor); //changes pen color to picked color
-	void changeFillColor(color pickedColor); //changes fill color to picked color
 
 
 	~GUI();

@@ -18,7 +18,7 @@ Graph::~Graph()
 void Graph::Addshape(shape* pShp)
 {
 	//Add a new shape to the shapes vector
-	shapesList.push_back(pShp);	
+	shapesList.push_back(pShp);
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
@@ -28,15 +28,29 @@ void Graph::Draw(GUI* pUI) const
 	for (auto shapePointer : shapesList)
 		shapePointer->Draw(pUI);
 }
+shape* Graph::getselectedshape()const {
+	return selectedShape;
+}
 
-
-shape* Graph::Getshape(int x, int y) const
+shape* Graph::Getshape(int x, int y)
 {
 	//If a shape is found return a pointer to it.
 	//if this point (x,y) does not belong to any shape return NULL
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer)
+		if ((*shapePointer)->point_included(x, y))
+		{
+			selectedShape = (*shapePointer);
+			return selectedShape;
+			break;
 
-
-	///Add your code here to search for a shape given a point x,y	
-
+		}
 	return nullptr;
 }
+void Graph::UnselectAll()
+{
+	for (auto shapePointer : shapesList)
+		shapePointer->SetSelected(false);
+	selectedShape = nullptr;
+}
+
+
