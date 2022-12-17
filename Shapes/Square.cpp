@@ -14,3 +14,4 @@ void Square::Draw(GUI* pUI) const
 	//Call Output::DrawRect to draw a rectangle on the screen	
 	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
 }
+//aaa
