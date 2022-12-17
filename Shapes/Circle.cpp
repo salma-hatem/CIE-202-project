@@ -5,6 +5,7 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
+
 }
 
 Circle::~Circle()
@@ -17,11 +18,14 @@ void Circle::Draw(GUI* pUI) const
 }
 
 void Circle::Save(ofstream& outfile) {
-
+	
 	//GUI* pSr;
 	//pSr->getCrntDrawColor();
+	outfile << "Circle " << "ID " <<point1.x-point1.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	
+
 	//string draw = ShpGfxInfo.DrawClr_s;
-	outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	//outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	//outfile << ShpGfxInfo.DrawClr.ucGreen << ShpGfxInfo.BorderWdth << endl;
 	SetShapeSaved(true);
 	SetAllSaved(ShapeSaved());

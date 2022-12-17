@@ -16,6 +16,7 @@
 #include "operations\opSave.h"
 #include "operations\opExit.h"
 //#include "operations\opLoad.h"
+#include "operations\opLoad.h"
 
 //Constructor
 controller::controller()
@@ -45,13 +46,14 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
 			break;
-		case DRAW_SQR:
-			pOp = new opAddSquare(this);
-			break;
 
 		case DRAW_LINE:
 			///create AddLineoperation here
 			pOp = new opAddLine(this);
+			break;
+		case DRAW_SQR:
+			///create AddLineoperation here
+			pOp = new opAddSquare(this);
 			break;
 
 		case DRAW_TRI:
@@ -64,6 +66,9 @@ operation* controller::createOperation(operationType OpType)
 		case SAVE:
 			pOp = new opSave(this);
 			break;
+
+		case LOAD: 
+			//pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
 			pOp = new opExit(this);

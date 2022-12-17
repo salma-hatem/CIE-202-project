@@ -1,7 +1,7 @@
 #include "shape.h"
 
 shape::shape(GfxInfo shapeGfxInfo)
-{ 
+{  
 	ShpGfxInfo = shapeGfxInfo;	//Default status is non-filled.
 	AllSaved = false;
 }
@@ -29,6 +29,7 @@ void shape::InitializeAllSaved() {
 	AllSaved = true;
 
 }
+
 void shape::SetAllSaved(bool s) {
 
 	AllSaved = AllSaved && s;

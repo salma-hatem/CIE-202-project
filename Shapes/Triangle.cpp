@@ -24,7 +24,7 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 
 void Triangle::Save(ofstream& outfile) {
 	//char info[100];
-	outfile << "TRI" << " Id " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	outfile << "TRI " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }
