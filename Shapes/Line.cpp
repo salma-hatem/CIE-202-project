@@ -22,3 +22,12 @@ bool Line::point_included(int x, int y) {
 	}
 	else { return false; }
 }
+string Line::shapeInfo()
+{
+	double length= sqrt(pow(point1.x-point2.x,2)+pow(point1.y - point2.y, 2));
+	string text;
+
+
+	text = "the length of the line is " + to_string(length);
+	return text;
+}

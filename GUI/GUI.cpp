@@ -273,8 +273,12 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	}
 	else
 		style = FRAME;
-	double length;
-	length = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
+
+
+	double length, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	length = pow(dxsq + dysq, 0.5);
 	pWind->DrawRectangle(P1.x, P1.y, (P1.x) + length, (P1.y) + length, style);
 
 }

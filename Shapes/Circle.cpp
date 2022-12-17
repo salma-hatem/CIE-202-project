@@ -23,3 +23,15 @@ bool Circle::point_included(int x, int y) {
 	else
 		return false;
 }
+string Circle::shapeInfo()
+{
+	int area;
+	Point center;
+	string text;
+	double pi = 3.14159265359;
+
+	double radius = sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
+	area = pi * radius * radius;
+	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(point1.x) + "," + to_string(point1.y) + ")";
+	return text;
+}

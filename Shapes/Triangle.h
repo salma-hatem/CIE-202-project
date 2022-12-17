@@ -13,6 +13,7 @@ public:
 	virtual void Draw(GUI* pUI) const;
 	double trianglearea(int, int, int, int, int, int);
 	virtual bool point_included(int x, int y);
+	string shapeInfo();
 };
 
 #pragma once
