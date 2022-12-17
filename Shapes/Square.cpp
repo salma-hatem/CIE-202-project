@@ -50,7 +50,6 @@ string Square::shapeInfo()
 	text = "Area of the square is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
-}
 void Square::SetShapeSaved(bool s) {
 	Saved = s;
 }

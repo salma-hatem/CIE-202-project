@@ -46,7 +46,6 @@ bool Triangle::ShapeSaved() const {
 	return Saved;
 }
 	
-}
 string Triangle::shapeInfo()
 {
 	string text;
