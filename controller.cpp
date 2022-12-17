@@ -8,6 +8,8 @@
 #include "operations\opChngDrawClr.h"
 #include "operations\opChngFillClr.h"
 #include "operations\opSwitch.h"
+#include "operations\opSave.h"
+//#include "operations\opLoad.h"
 
 //Constructor
 controller::controller()
@@ -54,6 +56,8 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddSquare(this);
 			break;
 
+		case SAVE:
+			pOp = new opSave(this);
 		case EXIT:
 			///create Exitoperation here
 			
