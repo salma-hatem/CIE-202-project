@@ -352,8 +352,12 @@ void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
 	}
 	else
 		style = FRAME;
-	double length;
-	length = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
+
+
+	double length, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	length = pow(dxsq + dysq, 0.5);
 	pWind->DrawRectangle(P1.x, P1.y, (P1.x) + length, (P1.y) + length, style);
 
 }*/
@@ -567,7 +571,7 @@ color GUI::getColor(string draw_fill)
 		{
 		case C_RED: 
 			if (draw_fill == "draw") DrawColor_s = "RED";
-			else FillColor_s = "RED";
+			if (draw_fill == "fill") FillColor_s = "RED";
 			return RED;
 		case C_BLUE:
 			if (draw_fill == "draw") DrawColor_s = "BLUE";
@@ -606,8 +610,9 @@ color GUI::getColor(string draw_fill)
 		default: return ROYALBLUE;	//for testing purposes
 		}
 	}
-	else {
-		return SEAGREEN;
+	else 
+	{
+		return SEAGREEN; 
 		if (draw_fill == "draw") DrawColor_s = "SEAGREEN";
 		else FillColor_s = "SEAGREEN";
 	}

@@ -17,4 +17,7 @@ public:
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
 	virtual bool point_included(int x, int y);
 	virtual void Save(ofstream& outfile);
+	virtual bool point_included(int x, int y);
+	virtual void Save(ofstream& outfile) ;
+	string shapeInfo(); 
 };

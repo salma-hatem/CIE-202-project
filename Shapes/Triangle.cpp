@@ -52,6 +52,14 @@ bool Triangle::ShapeSaved() const {
 	return Saved;
 }
 	
+string Triangle::shapeInfo()
+{
+	string text;
+	double triangle_area = trianglearea(point1.x, point2.x, point3.x, point1.y, point2.y, point3.y);
+	
+	text = "Area of the recrangle is " + to_string(triangle_area);
+	return text;
+}
 void Triangle::SetShapeSaved(bool s) {
 	Saved = s;
 }
