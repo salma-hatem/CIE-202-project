@@ -34,7 +34,7 @@ public:
 	///It should be overridden by each inherited shape
 
 	///Decide the parameters that you should pass to each function	
-
+	virtual bool point_included(int x, int y) = 0;
 
 	//virtual void Rotate() = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape

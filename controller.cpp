@@ -1,6 +1,11 @@
 #include "controller.h"
 #include "operations\opAddRect.h"
 #include "operations\opAddLine.h"
+#include "operations\opAddSquare.h"
+#include "operations\opSelect.h"
+#include "operations\opAddTriangle.h"
+#include "operations\opAddCircle.h"
+#include "operations\opAddLine.h"
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
 #include "operations\opAddSquare.h"
@@ -9,6 +14,8 @@
 #include "operations\opChngFillClr.h"
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
+#include "operations\opExit.h"
+//#include "operations\opLoad.h"
 #include "operations\opLoad.h"
 
 //Constructor
@@ -44,6 +51,10 @@ operation* controller::createOperation(operationType OpType)
 			///create AddLineoperation here
 			pOp = new opAddLine(this);
 			break;
+		case DRAW_SQR:
+			///create AddLineoperation here
+			pOp = new opAddSquare(this);
+			break;
 
 		case DRAW_TRI:
 			///create AddTriangleoperation here
@@ -52,22 +63,22 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
-		case DRAW_SQR:
-			pOp = new opAddSquare(this);
-			break;
-
 		case SAVE:
 			pOp = new opSave(this);
+			break;
 
 		case LOAD: 
 			//pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
-			
+			pOp = new opExit(this);
 			break;
 
 		case DEL:
 			pOp = new opDelete(this);
+			break;
+		case SELECT:
+			pOp = new opSelect(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
@@ -82,9 +93,6 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opSwitch(this);
 			break;
 		case DRAW_POLY:
-
-			break;
-		case SELECT:
 
 			break;
 			
