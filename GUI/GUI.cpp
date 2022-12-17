@@ -1,3 +1,6 @@
+
+
+
 #include "GUI.h"
 
 GUI::GUI()
@@ -55,15 +58,15 @@ string GUI::GetSrting() const
 	while (1)
 	{
 		ktype = pWind->WaitKeyPress(Key);
-		if (ktype == ESCAPE )	//ESCAPE key is pressed
+		if (ktype == ESCAPE)	//ESCAPE key is pressed
 			return "";	//returns nothing as user has cancelled label
 		if (Key == 13)	//ENTER key is pressed
 			return Label;
 		if (Key == 8)	//BackSpace is pressed
-			if( Label.size() > 0)	
+			if (Label.size() > 0)
 				Label.resize(Label.size() - 1);
 			else
-				Key = '\0';		
+				Key = '\0';
 		else
 			Label += Key;
 		PrintMessage(Label);
@@ -89,6 +92,7 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
+
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_TRI: return DRAW_TRI;
@@ -103,6 +107,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_SELECT: return SELECT;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;
+
+
+
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -163,6 +170,7 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 	pW->SetBrush(BkGrndColor);
 	pW->SetPen(BkGrndColor, 1);
 	pW->DrawRectangle(0, ToolBarHeight, w, h);
+
 	return pW;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -171,6 +179,7 @@ void GUI::CreateStatusBar() const
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearStatusBar() const
@@ -179,9 +188,10 @@ void GUI::ClearStatusBar() const
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::CreateDrawToolBar() 
+void GUI::CreateDrawToolBar()
 {
 	InterfaceMode = MODE_DRAW;
 
@@ -206,7 +216,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	
+
 
 	//TODO: Prepare images for each menu icon and add it to the list
 
@@ -223,7 +233,7 @@ void GUI::CreateDrawToolBar()
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void GUI::CreatePlayToolBar() 
+void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
@@ -250,6 +260,7 @@ void GUI::ClearDrawArea() const
 	pWind->SetBrush(BkGrndColor);
 	pWind->DrawRectangle(0, ToolBarHeight, width, height - StatusBarHeight);
 
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -260,6 +271,7 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->SetPen(MsgColor, 50);
 	pWind->SetFont(24, BOLD, BY_NAME, "Arial");
 	pWind->DrawString(10, height - (int)(0.75 * StatusBarHeight), msg);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -284,6 +296,30 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //								shapes Drawing Functions								//
 //======================================================================================//
 
+/*
+void GUI::DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const
+{
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	double length;
+	length = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
+	pWind->DrawRectangle(P1.x, P1.y, (P1.x) + length, (P1.y) + length, style);
+
+}*/
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
 	color DrawingClr;
@@ -531,6 +567,90 @@ bool GUI::SaveOrExit()
 	if (answer == "y") return true;
 	else return false;
 }
+//test switch function ---> need to make an op class instead??
+
+//void GUI::switchToPlay()
+//{
+//	InterfaceMode = MODE_PLAY;
+//	pWind->SetPen(BkGrndColor, 1);
+//	pWind->SetBrush(BkGrndColor);
+//	pWind->DrawRectangle(0, 0, width, height);
+//	CreatePlayToolBar();
+//	CreateStatusBar();
+//}
+//
+//void GUI::changePenColor(color pickedColor)
+//{
+//	DrawColor = pickedColor;
+//}
+/*
+void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGfxInfo) const {
+	color DrawingClr;
+	if (LineGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = LineGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, LineGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (LineGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(LineGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+}
+void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const {
+	color DrawingClr;
+	if (TriangleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = TriangleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, TriangleGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (TriangleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(TriangleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+}
+
+void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
+	color DrawingClr;
+	if (CircleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = CircleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
+	drawstyle style;
+	if (CircleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(CircleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+	double redius, dxsq, dysq;
+	dxsq = pow(P1.x - P2.x, 2);
+	dysq = pow(P1.y - P2.y, 2);
+	redius = pow(dxsq + dysq, 0.5);
+	pWind->DrawCircle(P1.x, P1.y, redius, style);
+}*/
+
+
+//void GUI::changeFillColor(color pickedColor)
+//{
+//	FillColor = pickedColor;
+//}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -538,4 +658,3 @@ GUI::~GUI()
 {
 	delete pWind;
 }
-

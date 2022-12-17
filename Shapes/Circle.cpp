@@ -33,3 +33,13 @@ bool Circle::ShapeSaved() const {
 void Circle::SetShapeSaved(bool s) {
 	Saved = s;
 }
+
+bool Circle::point_included(int x, int y) {
+
+	double radius = sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
+	double d = sqrt(pow(x - point1.x, 2) + pow(y - point1.y, 2));	 //distance formula for the circle
+	if (d <= radius)
+		return true;
+	else
+		return false;
+}

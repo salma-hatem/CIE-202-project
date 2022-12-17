@@ -1,6 +1,11 @@
 #include "controller.h"
 #include "operations\opAddRect.h"
 #include "operations\opAddLine.h"
+#include "operations\opAddSquare.h"
+#include "operations\opSelect.h"
+#include "operations\opAddTriangle.h"
+#include "operations\opAddCircle.h"
+#include "operations\opAddLine.h"
 #include "operations\opAddTriangle.h"
 #include "operations\opAddCircle.h"
 #include "operations\opAddSquare.h"
@@ -40,6 +45,9 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
 			break;
+		case DRAW_SQR:
+			pOp = new opAddSquare(this);
+			break;
 
 		case DRAW_LINE:
 			///create AddLineoperation here
@@ -53,10 +61,6 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
-		case DRAW_SQR:
-			pOp = new opAddSquare(this);
-			break;
-
 		case SAVE:
 			pOp = new opSave(this);
 			break;
@@ -67,6 +71,9 @@ operation* controller::createOperation(operationType OpType)
 
 		case DEL:
 			pOp = new opDelete(this);
+			break;
+		case SELECT:
+			pOp = new opSelect(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
@@ -81,9 +88,6 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opSwitch(this);
 			break;
 		case DRAW_POLY:
-
-			break;
-		case SELECT:
 
 			break;
 			

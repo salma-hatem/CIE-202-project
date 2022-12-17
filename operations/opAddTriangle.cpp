@@ -28,7 +28,7 @@ void opAddTriangle::Execute()
 	//Read 2nd point and store in point P2
 	pUI->GetPointClicked(P2.x, P2.y);
 
-	msg = "Second Point is at (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
+	msg = "Second Point is at (" + to_string(P2.x) + ", " + to_string(P2.y) + " )";
 	msg += " ... Click at third point";
 	pUI->PrintMessage(msg);
 	//Read 3nd point and store in point P3
