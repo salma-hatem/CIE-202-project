@@ -14,9 +14,6 @@ void opLoad::Execute()
 {
 	GUI* pGi = pControl->GetUI();
 	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
-
-
 
 	//create a file 
 	//get the name of the file from the user since you have a
@@ -29,7 +26,10 @@ void opLoad::Execute()
 	file.open(file_name, ios::out);
 	//call function Save from Graph
 
-	pGr->load(file);
+	shape* pSH = pControl->load(file);
+
+	
+
 
 	file.close();
 	pGi->PrintMessage("Your work is loaded ");

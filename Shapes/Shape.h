@@ -2,7 +2,7 @@
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
 #include <fstream>
-
+#include <sstream>
 
 //Base class for all shapes
 class shape

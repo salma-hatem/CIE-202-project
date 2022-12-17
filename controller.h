@@ -26,10 +26,12 @@ public:
 	void Run();
 	
 	Graph* getGraph() const;
-	
+	Shape* Save(ofstream& outfile);	//Save all shapes to a file
+	shape* load(ifstream& inputfile);	//Load all shapes from a file
 	// -- Interface Management Functions
 	GUI *GetUI() const; //Return pointer to the UI
 	void UpdateInterface() const;	//Redraws all the drawing window	
+	
 
 };
 

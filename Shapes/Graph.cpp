@@ -131,11 +131,4 @@ bool Graph::getIsAllSaved() const
 }
 
 
-void load(ifstream& inputfile)	//Load all shapes from a file
-{
-	vector <string> v;
-	string line;
-	while (getline(inputfile, line)) {
-		v.push_back(line);
-	}
-}
+

@@ -15,7 +15,6 @@
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
 #include "operations\opExit.h"
-//#include "operations\opLoad.h"
 #include "operations\opLoad.h"
 
 //Constructor
@@ -160,4 +159,30 @@ void controller::Run()
 
 	} while (OpType != EXIT);
 
+}
+
+shape* load(ifstream& inputfile)	//Load all shapes from a file
+{
+
+	string line, word;
+
+	istringstream iss;
+	while (!inputfile.eof()) {
+		getline(inputfile, line); //getting each line
+		if (inputfile.good()) {
+			vector <string> each_line;
+			iss.clear();
+			iss.str(line);
+			while (iss.good()) {
+				iss >> word;
+				each_line.push_back(word);
+
+			}
+			if (each_line[0] == "Circle") {
+
+			}
+
+
+		}
+	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include <fstream>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -22,8 +23,7 @@ public:
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
 	shape* getselectedshape() const;
 	void UnselectAll();
-	void Save(ofstream& outfile);	//Save all shapes to a file
-	void load(ifstream& inputfile);	//Load all shapes from a file
+	
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;
