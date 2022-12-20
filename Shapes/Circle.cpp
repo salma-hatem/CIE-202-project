@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include <math.h>
 
 Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -21,11 +22,11 @@ void Circle::Save(ofstream& outfile) {
 	
 	//GUI* pSr;
 	//pSr->getCrntDrawColor();
-	string draw = ShpGfxInfo.DrawClr_s;
-	string fill=  ShpGfxInfo.FillClr_s;
-	int pen_Width= ShpGfxInfo.BorderWdth;
+	//string draw = ShpGfxInfo.DrawClr_s;
+	//string fill=  ShpGfxInfo.FillClr_s;
+	//int pen_Width= ShpGfxInfo.BorderWdth;
 	outfile << "Circle " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y;
-	outfile << draw << " " << fill <<" "<< pen_Width << endl;
+	//outfile << draw << " " << fill <<" "<< pen_Width << endl;
 	
 
 	
@@ -51,4 +52,20 @@ bool Circle::point_included(int x, int y) {
 		return true;
 	else
 		return false;
+}
+
+string Circle::shapeInfo()
+{
+	int area;
+	Point center;
+	string text;
+	const double pi = 3.14;
+	double radius = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+	
+	area = pi * pow(radius, 2);
+	center.x = abs(point1.x - point2.x) / 2;
+	center.y = abs(point1.y - point2.y) / 2;
+
+	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	return text;
 }
