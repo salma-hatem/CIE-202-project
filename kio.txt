@@ -1,6 +1,0 @@
-Draw color  fill color 14
-Line Id 429 177 497 220
-SQU  id 225  157 145 306
-Circle 1798 223 760 297
-W
-Rect  id 638  470 803 449

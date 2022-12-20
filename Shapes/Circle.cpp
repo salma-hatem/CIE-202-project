@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include <math.h>
 
 Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -21,15 +22,18 @@ void Circle::Save(ofstream& outfile) {
 	
 	//GUI* pSr;
 	//pSr->getCrntDrawColor();
-	//outfile << "Circle " << "ID " <<point1.x-point1.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	//string draw = ShpGfxInfo.DrawClr_s;
+	//string fill=  ShpGfxInfo.FillClr_s;
+	//int pen_Width= ShpGfxInfo.BorderWdth;
+	outfile << "Circle " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y;
+	//outfile << draw << " " << fill <<" "<< pen_Width << endl;
 	
 
-	string draw = ShpGfxInfo.DrawClr_s;
-	string fill = ShpGfxInfo.FillClr_s;
-	outfile << "Circle " << " Id (can't think of one)"<<" "<< draw<<" "<<fill << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	
+	//outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
 	//outfile << ShpGfxInfo.DrawClr.ucGreen << ShpGfxInfo.BorderWdth << endl;
 	SetShapeSaved(true);
-	SetAllSaved(ShapeSaved());
+	SetAllSaved(true);
 }
 
 bool Circle::ShapeSaved() const {
@@ -49,15 +53,19 @@ bool Circle::point_included(int x, int y) {
 	else
 		return false;
 }
+
 string Circle::shapeInfo()
 {
 	int area;
 	Point center;
 	string text;
-	double pi = 3.14159265359;
+	const double pi = 3.14;
+	double radius = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+	
+	area = pi * pow(radius, 2);
+	center.x = abs(point1.x - point2.x) / 2;
+	center.y = abs(point1.y - point2.y) / 2;
 
-	double radius = sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
-	area = pi * radius * radius;
-	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(point1.x) + "," + to_string(point1.y) + ")";
+	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }

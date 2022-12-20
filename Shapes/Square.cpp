@@ -17,7 +17,13 @@ void Square::Draw(GUI* pUI) const
 }
 
 void Square::Save(ofstream& outfile) {
-	outfile << "SQU " << "ID " << Corner1.x - Corner1.x << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << endl;
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	outfile << "SQU " << "ID " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
 	SetShapeSaved(true);
 	SetAllSaved(true);
 

@@ -101,15 +101,15 @@ void Graph::Save(ofstream& outfile) {
 }
 
 void Graph::Delete() {
-	/*int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), selectedShape);  //serach for selectedShape
+	int index = 0;
+	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
 	if (num != shapesList.end()) { //the selected shape is in the shapesList
 		 index = num - shapesList.begin(); //get the index of selectedshape
 	};
 	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[0]->SetAllSaved(false);
-	shapesList.erase(shapesList.begin());
-	//switch the zero to the index of selected shape
+	shapesList[index]->SetAllSaved(false);
+	//shapesList.erase(shapesList.begin());
+	//switch the zero to the index of selected shape11
 	//make the shape's saved= false
 
 }

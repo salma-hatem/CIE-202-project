@@ -1,7 +1,9 @@
 #pragma once
 #include "Shape.h"
 #include <fstream>
+#include <sstream>
 #include <vector>
+
 using namespace std;
 
 //forward decl
@@ -22,7 +24,7 @@ public:
 	shape* getselectedshape() const;
 	void UnselectAll();
 	void Save(ofstream& outfile);	//Save all shapes to a file
-	void load(ifstream& inputfile);	//Load all shapes from a file
+	void Load(ifstream& inputfile);	//Save all shapes to a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;

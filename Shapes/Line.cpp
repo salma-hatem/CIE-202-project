@@ -17,7 +17,14 @@ void Line::Draw(GUI* pUI) const
 }
 
 void Line::Save(ofstream& outfile) {
-	outfile << "Line " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	
+	outfile << "Line " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y;
+	outfile << draw << " " << "No-Fill" << " " << pen_Width << endl;
+
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }

@@ -2,7 +2,7 @@
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
 #include <fstream>
-
+#include <sstream>
 
 //Base class for all shapes
 class shape
@@ -43,7 +43,7 @@ public:
 	//virtual void Move() = 0;		//Move the shape
 
 	virtual void Save(ofstream &outfile) = 0;	//Save the shape parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
+	//virtual Load(ifstream & Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
 };

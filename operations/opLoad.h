@@ -1,5 +1,4 @@
 /*#pragma once
-#pragma once
 #include "operation.h"
 #include <fstream>
 //Add Rectangle operation class
