@@ -91,9 +91,9 @@ operation* controller::createOperation(operationType OpType)
 		case TO_PLAY:
 			pOp = new opSwitch(this);
 			break;
-		case DRAW_POLY:
+		//case DRAW_POLY:
 
-			break;
+		//	break;
 			
 	}
 	return pOp;
@@ -161,7 +161,7 @@ void controller::Run()
 
 }
 
-shape* load(ifstream& inputfile)	//Load all shapes from a file
+/*shape* load(ifstream& inputfile)	//Load all shapes from a file
 {
 
 	string line, word;
@@ -185,4 +185,5 @@ shape* load(ifstream& inputfile)	//Load all shapes from a file
 
 		}
 	}
-}
+	return nullptr;
+}*/

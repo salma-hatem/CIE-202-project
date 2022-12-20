@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "operation.h"
 #include <fstream>
 //Add Rectangle operation class
@@ -12,4 +12,4 @@ public:
 	//saves all shapes
 	virtual void Execute();
 
-};
+};*/

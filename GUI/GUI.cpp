@@ -100,7 +100,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_SQU: return DRAW_SQR;
 			case ICON_LINE: return DRAW_LINE;
-			case ICON_POLY: return DRAW_POLY;
+			//case ICON_POLY: return DRAW_POLY;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
 			case ICON_DELETE: return DEL;
@@ -209,7 +209,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\Menu_Tri.jpg";
 	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\Menu_Squ.jpg";
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
-	MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
+	//MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";

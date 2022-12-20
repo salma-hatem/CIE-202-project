@@ -23,7 +23,8 @@ public:
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
 	shape* getselectedshape() const;
 	void UnselectAll();
-	
+	void Save(ofstream& outfile);	//Save all shapes to a file
+	void Load(ifstream& inputfile);	//Save all shapes to a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;
