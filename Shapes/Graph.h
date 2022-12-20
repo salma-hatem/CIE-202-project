@@ -15,10 +15,13 @@ class Graph
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	// vector for a single selected shape
+	vector <shape*> clipboard; //clipboard for copied shape
 public:										
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
+	void AddToClipboard(shape* pFig); //add a pointer to the shape in the vector
+	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
 	shape* getselectedshape() const;

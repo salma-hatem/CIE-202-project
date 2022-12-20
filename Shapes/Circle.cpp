@@ -9,6 +9,7 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 
 }
 
+
 Circle::~Circle()
 {}
 
@@ -69,3 +70,8 @@ string Circle::shapeInfo()
 	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
+/*
+Circle* Circle:: duplicate()
+{
+	Circle *c=new Circle()
+}*/

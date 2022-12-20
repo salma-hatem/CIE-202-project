@@ -27,6 +27,18 @@ void Graph::Addshape(shape* pShp)
 	//Add a new shape to the shapes vector
 	shapesList.push_back(pShp);	
 }
+
+
+void Graph::AddToClipboard(shape* pFig)
+{
+	clipboard.clear();
+	clipboard.push_back(pFig);
+}
+shape* Graph::GetClipboard()
+{
+	return clipboard[0];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
 void Graph::Draw(GUI* pUI) const

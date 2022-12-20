@@ -27,6 +27,7 @@ public:
 
 	virtual string shapeInfo() = 0;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
+	//virtual shape* duplicate(shape*) = 0;
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
