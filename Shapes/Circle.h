@@ -19,5 +19,7 @@ public:
 	virtual bool point_included(int x, int y);
 	virtual void Save(ofstream& outfile) ;
 	string shapeInfo(); 
+	Point getP1(); //returns point1
+	Point getP2(); //returns point2
 	//virtual Circle* duplicate(shape*);
 };

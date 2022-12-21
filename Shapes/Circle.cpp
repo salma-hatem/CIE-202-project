@@ -6,7 +6,7 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
-
+	type = "circle";
 }
 
 
@@ -75,3 +75,12 @@ Circle* Circle:: duplicate()
 {
 	Circle *c=new Circle()
 }*/
+
+Point Circle::getP1()
+{
+	return point1;
+}
+Point Circle::getP2()
+{
+	return point2;
+}

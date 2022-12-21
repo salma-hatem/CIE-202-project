@@ -135,3 +135,11 @@ bool Graph::getIsAllSaved() const
 	}
 	return saved;
 }
+
+void Graph::setselectedshape()
+{
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
+	}
+}

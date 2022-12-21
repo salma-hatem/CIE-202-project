@@ -16,6 +16,8 @@
 #include "operations\opSave.h"
 #include "operations\opExit.h"
 #include "operations\opLoad.h"
+#include "operations\opPaste.h"
+#include "operations\opCopy.h"
 
 //Constructor
 controller::controller()
@@ -63,7 +65,8 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddCircle(this);
 			break;
 		case SAVE:
-			pOp = new opSave(this);
+			//pOp = new opSave(this);
+			pOp = new opCopy(this);
 			break;
 
 		case LOAD: 
@@ -74,7 +77,8 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DEL:
-			pOp = new opDelete(this);
+			pOp = new opPaste(this);
+			//pOp = new opDelete(this);
 			break;
 		case SELECT:
 			pOp = new opSelect(this);

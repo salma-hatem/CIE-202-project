@@ -11,6 +11,7 @@ protected:
 	int ID;		//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
 	bool AllSaved;
+	string type; //type of the shape
 	
 	/// Add more parameters if needed.
 
@@ -31,7 +32,8 @@ public:
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
-
+	string getType(); //return the type of the shape
+	GfxInfo getInfo(); //returns shape struct parameters
 
 	///The following functions should be supported by the shape class
 	///It should be overridden by each inherited shape
@@ -47,5 +49,6 @@ public:
 	//virtual Load(ifstream & Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
+	Point pointshift(Point p); //shifts the coordinates of the point
 };
 

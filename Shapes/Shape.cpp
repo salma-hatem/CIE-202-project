@@ -35,3 +35,17 @@ void shape::SetAllSaved(bool s) {
 	AllSaved = s;
 
 }
+
+string shape::getType()
+{
+	return type;
+}
+GfxInfo shape::getInfo()
+{
+	return ShpGfxInfo;
+}
+Point shape::pointshift(Point p)
+{
+	p.x += 20;p.y += 20;
+	return p;
+}

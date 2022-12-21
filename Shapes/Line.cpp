@@ -5,6 +5,7 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
+	type = "line";
 }
 
 Line::~Line()
