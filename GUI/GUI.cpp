@@ -19,6 +19,8 @@ GUI::GUI()
 	MenuIconWidth = 80;
 	ColorIconWidth = 30;
 	ColorPosition=10;
+	SideMenuWidth = 50;
+	SideMenuPosition = 20;
 
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = WHITE;	//default Filling color
@@ -38,6 +40,7 @@ GUI::GUI()
 
 	CreateDrawToolBar();
 	CreateStatusBar();
+	CreateSideToolBar();
 }
 
 
@@ -102,9 +105,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
-			case ICON_COPY: return COPY;
-			case ICON_PASTE: return PASTE;
-			case ICON_DELETE: return DEL;
+			//case ICON_COPY: return COPY;
+			//case ICON_PASTE: return PASTE;
+			//case ICON_DELETE: return DEL;
 			case ICON_SAVE: return SAVE;
 			case ICON_LOAD: return LOAD;
 			case ICON_SELECT: return SELECT;
@@ -117,6 +120,7 @@ operationType GUI::GetUseroperation() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
+		if(y>= ToolBarHeight + SideMenuPosition + SideMenuWidth)
 
 		//[2] User clicks on the drawing area
 		if (y >= ToolBarHeight && y < height - StatusBarHeight)
@@ -213,9 +217,9 @@ void GUI::CreateDrawToolBar()
 	//MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
-	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
-	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	//MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
+	//MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
+	//MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
@@ -258,6 +262,17 @@ void GUI::CreatePlayToolBar()
 	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void GUI::CreateSideToolBar()
+{
+	string SideMenuIconImages[SIDE_ICON_COUNT];
+	SideMenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
+	SideMenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
+	SideMenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+
+	for (int i = 0; i < SIDE_ICON_COUNT; i++)
+		pWind->DrawImage(SideMenuIconImages[i], 0, ToolBarHeight+SideMenuPosition+(i*SideMenuWidth), SideMenuWidth, SideMenuWidth);
+
+}
 
 void GUI::ClearDrawArea() const
 {
