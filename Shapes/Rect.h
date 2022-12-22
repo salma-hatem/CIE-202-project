@@ -16,5 +16,6 @@ public:
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
 	virtual void Save(ofstream& outfile);
 	string shapeInfo();
+	shape* duplicate(shape*);
 };
 

@@ -63,3 +63,18 @@ string Triangle::shapeInfo()
 void Triangle::SetShapeSaved(bool s) {
 	Saved = s;
 }
+
+
+shape* Triangle::duplicate(shape* ptr)
+{
+	Triangle* PTR = (Triangle*)ptr;
+	Point p1, p2,p3;
+	p1 = pointshift(point1);
+	p2 = pointshift(point2);
+	p3 = pointshift(point3);
+	shape* C = new Triangle(p1, p2, p3 , ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
+}

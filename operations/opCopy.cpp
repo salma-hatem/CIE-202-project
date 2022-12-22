@@ -15,4 +15,6 @@ void opCopy::Execute()
 	pGr->setselectedshape();
 	shape* clip = pGr->getselectedshape();
 	pGr->AddToClipboard(clip);
+	GUI* pUI = pControl->GetUI();
+	pUI->PrintMessage("Shape added to clipboard!");
 }

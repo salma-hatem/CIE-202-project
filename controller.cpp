@@ -65,8 +65,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddCircle(this);
 			break;
 		case SAVE:
-			//pOp = new opSave(this);
-			pOp = new opCopy(this);
+			pOp = new opSave(this);
 			break;
 
 		case LOAD: 
@@ -77,8 +76,13 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DEL:
+			pOp = new opDelete(this);
+			break;
+		case COPY:
+			pOp = new opCopy(this);
+			break;
+		case PASTE:
 			pOp = new opPaste(this);
-			//pOp = new opDelete(this);
 			break;
 		case SELECT:
 			pOp = new opSelect(this);

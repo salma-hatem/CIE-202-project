@@ -62,3 +62,17 @@ string Rect::shapeInfo()
 	text = "Area of the recrangle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
+
+
+shape* Rect::duplicate(shape* ptr)
+{
+	Rect* PTR = (Rect*)ptr;
+	Point p1, p2;
+	p1 = pointshift(Corner1);
+	p2 = pointshift(Corner2);
+	Rect* C = new Rect(p1, p2, ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
+}

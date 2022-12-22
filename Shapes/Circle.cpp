@@ -6,7 +6,6 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
-	type = "circle";
 }
 
 
@@ -70,17 +69,17 @@ string Circle::shapeInfo()
 	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
-/*
-Circle* Circle:: duplicate()
-{
-	Circle *c=new Circle()
-}*/
 
-Point Circle::getP1()
+
+shape* Circle::duplicate(shape* ptr)
 {
-	return point1;
-}
-Point Circle::getP2()
-{
-	return point2;
+	Circle* PTR = (Circle*)ptr;
+	Point p1, p2;
+	p1 = pointshift(point1);
+	p2 = pointshift(point2);
+	shape* C = new Circle(p1, p2, ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
 }

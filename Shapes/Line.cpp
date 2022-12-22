@@ -5,7 +5,6 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
-	type = "line";
 }
 
 Line::~Line()
@@ -53,4 +52,17 @@ string Line::shapeInfo()
 
 	text = "the length of the line is " + to_string(length);
 	return text;
+}
+
+shape* Line::duplicate(shape* ptr)
+{
+	Line* PTR = (Line*)ptr;
+	Point p1, p2;
+	p1 = pointshift(point1);
+	p2 = pointshift(point2);
+	Line* C = new Line(p1, p2, ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
 }
