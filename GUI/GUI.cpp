@@ -232,10 +232,12 @@ void GUI::CreateDrawToolBar()
 	//MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-	//MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
-	//MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
 	//MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
+	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
+	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
+	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
@@ -283,6 +285,8 @@ void GUI::CreateSideToolBar()
 	string SideMenuIconImages[SIDE_ICON_COUNT];
 	SideMenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
 	SideMenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
+	SideMenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
+	SideMenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
 	SideMenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
 
 	for (int i = 0; i < SIDE_ICON_COUNT; i++)

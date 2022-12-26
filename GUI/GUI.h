@@ -48,10 +48,11 @@ class GUI
 		ICON_LINE,		//Line icon in menu
 		ICON_PEN,		//Pen icon in menu
 		ICON_FILL,		//Fill icon in menu
+		ICON_UNDO,
+		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
-		//ICON_COPY,		//copy icon in menu
-		//ICON_PASTE,		//paste icon in menu
-		//ICON_DELETE,	//Delete icon in menu
+		ICON_DUPLICATE,
+		ICON_SCRAMBLE,
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
@@ -68,8 +69,8 @@ class GUI
 		//ICON_MOVE,
 		ICON_COPY,		//copy icon in menu
 		ICON_PASTE,		//paste icon in menu
-		//ICON_ROTATE,
-		//ICON_RESIZE,
+		ICON_RESIZE,
+		ICON_ROTATE,
 		ICON_DELETE,	//Delete icon in menu
 		SIDE_ICON_COUNT
 	};
