@@ -120,14 +120,29 @@ operationType GUI::GetUseroperation() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
-		if(y>= ToolBarHeight + SideMenuPosition + SideMenuWidth)
+		//if(y>= ToolBarHeight + SideMenuPosition + SideMenuWidth)
+
+		
+		
+		if (y >= ToolBarHeight + SideMenuPosition && y < ToolBarHeight + SideMenuPosition + (SIDE_ICON_COUNT * SideMenuWidth) && x < SideMenuWidth)
+		{
+			int ClickedIconOrder = ((y- (ToolBarHeight + SideMenuPosition)) / SideMenuWidth);
+			switch (ClickedIconOrder)
+			{
+			case ICON_COPY: return COPY;
+			case ICON_PASTE: return PASTE;
+			case ICON_DELETE: return DEL;
+			default: return EMPTY;
+			}
+
+		}
 
 		//[2] User clicks on the drawing area
+
 		if (y >= ToolBarHeight && y < height - StatusBarHeight)
 		{
 			return DRAWING_AREA;
 		}
-
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
@@ -264,6 +279,7 @@ void GUI::CreatePlayToolBar()
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateSideToolBar()
 {
+	InterfaceMode = MODE_DRAW;
 	string SideMenuIconImages[SIDE_ICON_COUNT];
 	SideMenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
 	SideMenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
@@ -278,7 +294,8 @@ void GUI::ClearDrawArea() const
 {
 	pWind->SetPen(BkGrndColor, 1);
 	pWind->SetBrush(BkGrndColor);
-	pWind->DrawRectangle(0, ToolBarHeight, width, height - StatusBarHeight);
+	SideMenuWidth,
+		pWind->DrawRectangle(SideMenuWidth, ToolBarHeight+2, width, height - StatusBarHeight);
 
 
 }
@@ -644,6 +661,7 @@ void GUI::switchToDraw()
 	pWind->SetBrush(BkGrndColor);
 	pWind->DrawRectangle(0, 0, width, height);
 	CreateDrawToolBar();
+	CreateSideToolBar();
 	CreateStatusBar();
 }
 
