@@ -48,5 +48,6 @@ public:
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
 	virtual shape* duplicate(shape *)=0;
 	Point pointshift(Point p); //shifts the coordinates of the point
+	virtual void resize(double) = 0;
 };
 

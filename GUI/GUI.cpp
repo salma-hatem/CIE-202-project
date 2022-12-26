@@ -130,6 +130,7 @@ operationType GUI::GetUseroperation() const
 			switch (ClickedIconOrder)
 			{
 			case ICON_COPY: return COPY;
+			case ICON_RESIZE: return RESIZE;
 			case ICON_PASTE: return PASTE;
 			case ICON_DELETE: return DEL;
 			default: return EMPTY;

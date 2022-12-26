@@ -73,3 +73,12 @@ shape* Square::duplicate(shape* ptr)
 	SetSelected(false);
 	return C;
 }
+
+
+void Square::resize(double factor)
+{
+	int diffX = Corner1.x - Corner2.x;
+	int diffY = Corner1.y - Corner2.y;
+	Corner2.x = Corner1.x - diffX * factor;
+	Corner2.y = Corner1.y - diffY * factor;
+}

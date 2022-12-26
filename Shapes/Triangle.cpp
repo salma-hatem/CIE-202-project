@@ -78,3 +78,16 @@ shape* Triangle::duplicate(shape* ptr)
 	SetSelected(false);
 	return C;
 }
+
+
+void Triangle::resize(double factor)
+{
+	int diffX1 = point1.x - point2.x;
+	int diffY1 = point1.y - point2.y;
+	point2.x = point1.x - diffX1 * factor;
+	point2.y = point1.y - diffY1 * factor;
+	int diffX2 = point1.x - point3.x;
+	int diffY2 = point1.y - point3.y;
+	point3.x = point1.x - diffX2 * factor;
+	point3.y = point1.y - diffY2 * factor;
+}

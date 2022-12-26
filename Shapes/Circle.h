@@ -20,4 +20,5 @@ public:
 	virtual void Save(ofstream& outfile) ;
 	string shapeInfo(); 
 	shape* duplicate(shape*);
+	void resize(double) override;
 };

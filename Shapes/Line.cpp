@@ -66,3 +66,12 @@ shape* Line::duplicate(shape* ptr)
 	SetSelected(false);
 	return C;
 }
+
+
+void Line::resize(double factor)
+{
+	int diffX = point1.x - point2.x;
+	int diffY = point1.y - point2.y;
+	point2.x = point1.x + -diffX * factor;
+	point2.y = point1.y + -diffY * factor;
+}
