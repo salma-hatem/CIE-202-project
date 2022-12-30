@@ -13,12 +13,15 @@ void opResize::Execute()
 {
 	
 	Graph* pGr = pControl->getGraph();
+	GUI* pUI = pControl->GetUI();
+	pUI->PrintMessage("Enter a factor (0.25 / 0.5 / 2 / 4): ");
+	double factor = pUI->getFactor();
 	shape* Shp = pGr->getselectedshape();
 	if (Shp)
 	{
-		Shp->resize(2);
+		Shp->resize(factor);
 	}
-	GUI* pUI = pControl->GetUI();
+	
 	pUI->PrintMessage("Resized!");
 	Shp->SetSelected(false);
 }

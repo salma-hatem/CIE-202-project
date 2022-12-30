@@ -178,6 +178,7 @@ public:
 	color getColor(string draw_fill); //detect which
 	void switchToDraw(); //switch back to play
 	bool SaveOrExit(); //asks user whether they want to save
+	double getFactor(); //asks choose a factor
 
 	~GUI();
 };

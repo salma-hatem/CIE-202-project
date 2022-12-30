@@ -680,6 +680,20 @@ bool GUI::SaveOrExit()
 	if (answer == "y") return true;
 	else return false;
 }
+
+double GUI::getFactor()
+{
+	string factor = GetSrting();
+	while (factor != "0.25" && factor != "0.5" && factor != "2" && factor != "4")
+	{
+		factor = GetSrting();
+	}
+	if (factor == "0.25") return 0.25;
+	if (factor == "0.5") return 0.5;
+	if (factor == "2") return 2;
+	if (factor == "4") return 4;
+}
+
 //test switch function ---> need to make an op class instead??
 
 //void GUI::switchToPlay()
