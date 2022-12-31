@@ -59,3 +59,26 @@ string Square::shapeInfo()
 void Square::SetShapeSaved(bool s) {
 	Saved = s;
 }
+
+
+shape* Square::duplicate(shape* ptr)
+{
+	Square* PTR = (Square*)ptr;
+	Point p1, p2;
+	p1 = pointshift(Corner1);
+	p2 = pointshift(Corner2);
+	shape* C = new Square(p1, p2, ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
+}
+
+
+void Square::resize(double factor)
+{
+	int diffX = Corner1.x - Corner2.x;
+	int diffY = Corner1.y - Corner2.y;
+	Corner2.x = Corner1.x - diffX * factor;
+	Corner2.y = Corner1.y - diffY * factor;
+}

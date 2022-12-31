@@ -19,6 +19,8 @@ GUI::GUI()
 	MenuIconWidth = 80;
 	ColorIconWidth = 30;
 	ColorPosition=10;
+	SideMenuWidth = 50;
+	SideMenuPosition = 20;
 
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = WHITE;	//default Filling color
@@ -38,6 +40,7 @@ GUI::GUI()
 
 	CreateDrawToolBar();
 	CreateStatusBar();
+	CreateSideToolBar();
 }
 
 
@@ -100,10 +103,11 @@ operationType GUI::GetUseroperation() const
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_SQU: return DRAW_SQR;
 			case ICON_LINE: return DRAW_LINE;
-			//case ICON_POLY: return DRAW_POLY;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
-			case ICON_DELETE: return DEL;
+			//case ICON_COPY: return COPY;
+			//case ICON_PASTE: return PASTE;
+			//case ICON_DELETE: return DEL;
 			case ICON_SAVE: return SAVE;
 			case ICON_LOAD: return LOAD;
 			case ICON_SELECT: return SELECT;
@@ -116,13 +120,30 @@ operationType GUI::GetUseroperation() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
+		//if(y>= ToolBarHeight + SideMenuPosition + SideMenuWidth)
+
+		
+		
+		if (y >= ToolBarHeight + SideMenuPosition && y < ToolBarHeight + SideMenuPosition + (SIDE_ICON_COUNT * SideMenuWidth) && x < SideMenuWidth)
+		{
+			int ClickedIconOrder = ((y- (ToolBarHeight + SideMenuPosition)) / SideMenuWidth);
+			switch (ClickedIconOrder)
+			{
+			case ICON_COPY: return COPY;
+			case ICON_RESIZE: return RESIZE;
+			case ICON_PASTE: return PASTE;
+			case ICON_DELETE: return DEL;
+			default: return EMPTY;
+			}
+
+		}
 
 		//[2] User clicks on the drawing area
+
 		if (y >= ToolBarHeight && y < height - StatusBarHeight)
 		{
 			return DRAWING_AREA;
 		}
-
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
@@ -212,8 +233,12 @@ void GUI::CreateDrawToolBar()
 	//MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	//MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
+	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
+	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
+	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
@@ -255,12 +280,27 @@ void GUI::CreatePlayToolBar()
 	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void GUI::CreateSideToolBar()
+{
+	InterfaceMode = MODE_DRAW;
+	string SideMenuIconImages[SIDE_ICON_COUNT];
+	SideMenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_Copy.jpg";
+	SideMenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_Paste.jpg";
+	SideMenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
+	SideMenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
+	SideMenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+
+	for (int i = 0; i < SIDE_ICON_COUNT; i++)
+		pWind->DrawImage(SideMenuIconImages[i], 0, ToolBarHeight+SideMenuPosition+(i*SideMenuWidth), SideMenuWidth, SideMenuWidth);
+
+}
 
 void GUI::ClearDrawArea() const
 {
 	pWind->SetPen(BkGrndColor, 1);
 	pWind->SetBrush(BkGrndColor);
-	pWind->DrawRectangle(0, ToolBarHeight, width, height - StatusBarHeight);
+	SideMenuWidth,
+		pWind->DrawRectangle(SideMenuWidth, ToolBarHeight+2, width, height - StatusBarHeight);
 
 
 }
@@ -626,6 +666,7 @@ void GUI::switchToDraw()
 	pWind->SetBrush(BkGrndColor);
 	pWind->DrawRectangle(0, 0, width, height);
 	CreateDrawToolBar();
+	CreateSideToolBar();
 	CreateStatusBar();
 }
 
@@ -639,6 +680,20 @@ bool GUI::SaveOrExit()
 	if (answer == "y") return true;
 	else return false;
 }
+
+double GUI::getFactor()
+{
+	string factor = GetSrting();
+	while (factor != "0.25" && factor != "0.5" && factor != "2" && factor != "4")
+	{
+		factor = GetSrting();
+	}
+	if (factor == "0.25") return 0.25;
+	if (factor == "0.5") return 0.5;
+	if (factor == "2") return 2;
+	if (factor == "4") return 4;
+}
+
 //test switch function ---> need to make an op class instead??
 
 //void GUI::switchToPlay()

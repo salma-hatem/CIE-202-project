@@ -16,6 +16,9 @@
 #include "operations\opSave.h"
 #include "operations\opExit.h"
 #include "operations\opLoad.h"
+#include "operations\opPaste.h"
+#include "operations\opCopy.h"
+#include "operations\opResize.h"
 
 //Constructor
 controller::controller()
@@ -76,6 +79,12 @@ operation* controller::createOperation(operationType OpType)
 		case DEL:
 			pOp = new opDelete(this);
 			break;
+		case COPY:
+			pOp = new opCopy(this);
+			break;
+		case PASTE:
+			pOp = new opPaste(this);
+			break;
 		case SELECT:
 			pOp = new opSelect(this);
 			break;
@@ -91,7 +100,9 @@ operation* controller::createOperation(operationType OpType)
 		case TO_PLAY:
 			pOp = new opSwitch(this);
 			break;
-		//case DRAW_POLY:
+		case RESIZE:
+			pOp = new opResize(this);
+			break;
 
 		//	break;
 			

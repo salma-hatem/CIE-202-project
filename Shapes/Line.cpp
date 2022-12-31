@@ -53,3 +53,25 @@ string Line::shapeInfo()
 	text = "the length of the line is " + to_string(length);
 	return text;
 }
+
+shape* Line::duplicate(shape* ptr)
+{
+	Line* PTR = (Line*)ptr;
+	Point p1, p2;
+	p1 = pointshift(point1);
+	p2 = pointshift(point2);
+	Line* C = new Line(p1, p2, ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
+}
+
+
+void Line::resize(double factor)
+{
+	int diffX = point1.x - point2.x;
+	int diffY = point1.y - point2.y;
+	point2.x = point1.x + -diffX * factor;
+	point2.y = point1.y + -diffY * factor;
+}

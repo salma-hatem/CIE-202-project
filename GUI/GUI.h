@@ -46,11 +46,13 @@ class GUI
 		ICON_TRI,		//Triangle icon in menu
 		ICON_SQU,		//Square icon in menu
 		ICON_LINE,		//Line icon in menu
-		//ICON_POLY,		//Polygon icon in menu
 		ICON_PEN,		//Pen icon in menu
 		ICON_FILL,		//Fill icon in menu
+		ICON_UNDO,
+		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
-		ICON_DELETE,	//Delete icon in menu
+		ICON_DUPLICATE,
+		ICON_SCRAMBLE,
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
@@ -61,6 +63,16 @@ class GUI
 
 		DRAW_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
 
+	};
+	enum SideMenuIcon
+	{
+		//ICON_MOVE,
+		ICON_COPY,		//copy icon in menu
+		ICON_PASTE,		//paste icon in menu
+		ICON_RESIZE,
+		ICON_ROTATE,
+		ICON_DELETE,	//Delete icon in menu
+		SIDE_ICON_COUNT
 	};
 
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
@@ -100,7 +112,9 @@ class GUI
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth,		//Width of each icon in toolbar menu
 		ColorIconWidth,
-		ColorPosition;
+		ColorPosition,
+		SideMenuWidth,
+		SideMenuPosition;
 
 
 	color DrawColor;		//Drawing color
@@ -132,6 +146,7 @@ public:
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar();	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
+	void CreateSideToolBar();
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
@@ -163,6 +178,7 @@ public:
 	color getColor(string draw_fill); //detect which
 	void switchToDraw(); //switch back to play
 	bool SaveOrExit(); //asks user whether they want to save
+	double getFactor(); //asks choose a factor
 
 	~GUI();
 };

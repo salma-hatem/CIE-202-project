@@ -27,10 +27,10 @@ public:
 
 	virtual string shapeInfo() = 0;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
+	//virtual shape* duplicate(shape*) = 0;
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
-
 
 	///The following functions should be supported by the shape class
 	///It should be overridden by each inherited shape
@@ -46,5 +46,8 @@ public:
 	//virtual Load(ifstream & Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
+	virtual shape* duplicate(shape *)=0;
+	Point pointshift(Point p); //shifts the coordinates of the point
+	virtual void resize(double) = 0;
 };
 

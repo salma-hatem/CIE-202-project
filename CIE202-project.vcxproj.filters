@@ -59,6 +59,9 @@
     <ClCompile Include="Shapes\Triangle.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
+    <ClCompile Include="operations\opPaste.cpp" />
+    <ClCompile Include="operations\opCopy.cpp" />
+    <ClCompile Include="operations\opResize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -106,5 +109,8 @@
     <ClInclude Include="Shapes\Triangle.h" />
     <ClInclude Include="operations\opSelect.h" />
     <ClInclude Include="operations\opLoad.h" />
+    <ClInclude Include="operations\opPaste.h" />
+    <ClInclude Include="operations\opCopy.h" />
+    <ClInclude Include="operations\opResize.h" />
   </ItemGroup>
 </Project>

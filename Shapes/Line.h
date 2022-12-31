@@ -16,5 +16,7 @@ public:
 	virtual bool point_included(int x, int y);
 	virtual void Save(ofstream& outfile);
 	string shapeInfo();
+	shape* duplicate(shape*);
+	void resize(double) override;
 };
 
