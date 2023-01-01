@@ -6,6 +6,7 @@ Triangle::Triangle(Point P1, Point P2,Point P3, GfxInfo shapeGfxInfo) :shape(sha
 	point2 = P2;
 	point3 = P3;
 	Saved = false;
+
 }
 
 Triangle::~Triangle()
@@ -23,16 +24,20 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 }
 
 void Triangle::Save(ofstream& outfile) {
-	//char info[100];
+	
 	string draw = ShpGfxInfo.DrawClr_s;
 	string fill = ShpGfxInfo.FillClr_s;
 	int pen_Width = ShpGfxInfo.BorderWdth;
-	outfile << "TRI " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
+	outfile << "TRI " << "ID" << " " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
 
 	outfile << draw << " " << fill << " " << pen_Width << endl;
 
 	SetShapeSaved(true);
 	SetAllSaved(true);
+}
+
+void Triangle::Load(ifstream& Infile) {
+
 }
 
 bool Triangle::point_included(int x, int y) {

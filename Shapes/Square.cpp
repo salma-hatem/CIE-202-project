@@ -5,6 +5,7 @@ Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	Corner1 = P1;
 	Corner2 = P2;
 	Saved = false;
+
 }
 
 Square::~Square()
@@ -20,12 +21,15 @@ void Square::Save(ofstream& outfile) {
 	string draw = ShpGfxInfo.DrawClr_s;
 	string fill = ShpGfxInfo.FillClr_s;
 	int pen_Width = ShpGfxInfo.BorderWdth;
-	outfile << "SQU " << "ID " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	outfile << "SQU " << "ID" << " " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
 
 	outfile << draw << " " << fill << " " << pen_Width << endl;
 
 	SetShapeSaved(true);
 	SetAllSaved(true);
+
+}
+void Square::Load(ifstream& Infile) {
 
 }
 

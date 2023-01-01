@@ -70,7 +70,8 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case LOAD: 
-			//pOp = new opLoad(this);
+			pOp = new opLoad(this);
+			break;
 		case EXIT:
 			///create Exitoperation here
 			pOp = new opExit(this);

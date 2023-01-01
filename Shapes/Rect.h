@@ -15,6 +15,7 @@ public:
 	bool ShapeSaved() const; // returns if Shape is saved or not
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
 	virtual void Save(ofstream& outfile);
+	virtual void Load(ifstream& Infile);
 	string shapeInfo();
 	shape* duplicate(shape*);
 	void resize(double) override;

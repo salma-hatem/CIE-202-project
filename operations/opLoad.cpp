@@ -1,4 +1,4 @@
-/*#include "opLoad.h"
+#include "opLoad.h"
 #include "..\controller.h"
 
 
@@ -26,13 +26,21 @@ void opLoad::Execute()
 
 	file.open(file_name, ios::out);
 	//call function Save from Graph
+	
+	if (file) {
+		//the file exists
+		pGr->Load(file);
 
-
+		file.close();
+		pGi->PrintMessage("Your work is loaded ");
+	}
+	else {
+		pGi->PrintMessage("The file doesn't exist");
+	}
 	//shape* pSH = pControl->load(file);
 
 	
 
 
-	file.close();
-	pGi->PrintMessage("Your work is loaded ");
-}*/
+	
+}

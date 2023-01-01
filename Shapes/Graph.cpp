@@ -1,5 +1,7 @@
+#include <iostream>
 #include "Graph.h"
 #include "../GUI/GUI.h"
+using namespace std;
 
 
 
@@ -75,56 +77,80 @@ void Graph::UnselectAll()
 
 //return nullptr;
 
-shape* Graph::getSelectedShape() {
-	return selectedShape;
-}
+
 
 void Graph::Save(ofstream& outfile) {
-	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
+	
 
 	//GET THE SHAPES LIST 
 	//LOOP THROUGH THE ELEMENTS
 
-
-	
-	
-
 	shapesList[0]->InitializeAllSaved();
-	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
+
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
 
-
-		//if (!shapesList[i]->IsAllSaved()) { //if there's a shape that isn't saved
-
-			//GUI*->
-		//}
-
+		
 	}
-
-	//delete pOi;
-	//pOi = nullptr;
-	//Loop through the selected shape vector and call the save function in each shape
-
-	//CALL THE SAVE FUNCTION IN EACH ELEMENT AND GIVE IT THE FILE AS A PARAMETER0
-	//close the file 
 
 
 }
 
 void Graph::Delete() {
+	if (!shapesList.empty()){
 	int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
+	auto num = find(shapesList.begin(), shapesList.end(), getselectedshape());  //serach for selectedShape
 	if (num != shapesList.end()) { //the selected shape is in the shapesList
-		 index = num - shapesList.begin(); //get the index of selectedshape
-	};
-	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[index]->SetAllSaved(false);
+		index = num - shapesList.begin(); //get the index of selectedshape
+		shapesList[index]->SetAllSaved(false);
+
+	}
+	shapesList.erase(remove(shapesList.begin(), shapesList.end(), getselectedshape()), shapesList.end());//remove the selected shape from the shapesList*/
 	//shapesList.erase(shapesList.begin());
 	//switch the zero to the index of selected shape11
 	//make the shape's saved= false
 
+
 }
+}
+
+void Graph:: Load(ifstream& inputfile) {
+
+	//slice the file into lines and each line into an array of wo crds
+	//if statement to know which shape it is
+	//create the shapes with the same parameters 
+	//append these shapes into shapeslist
+	string str_line;
+	//vector<string> lines;
+
+	while (getline(inputfile, str_line)) {
+
+		//lines.push_back(str_line);
+		stringstream ss(str_line);
+		istream_iterator<string> begin(ss);
+		istream_iterator<string> end;
+		vector<string> line_words(begin, end);
+		if (line_words[0] == "Circle") {
+			cout << "found a circle" << endl;
+		}
+		else if (line_words[0] == "Line") {
+			cout << "found a line" << endl;
+		}
+		else if (line_words[0] == "TRI") {
+			cout << "found a triangle" << endl;
+		}
+		else if (line_words[0] == "SQU") {
+			cout << "found a square" << endl;
+		}
+		else if (line_words[0] == "Rect") {
+			cout << "found a rectangle" << endl;
+		}
+
+	}
+	 
+}
+
+
 
 bool Graph::getIsAllSaved() const
 {

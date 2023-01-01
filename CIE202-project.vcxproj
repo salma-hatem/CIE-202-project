@@ -177,6 +177,7 @@
     <ClCompile Include="operations\opDelete.cpp" />
     <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
+    <ClCompile Include="operations\opMove.cpp" />
     <ClCompile Include="operations\opPaste.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opExit.h" />
     <ClInclude Include="operations\opLoad.h" />
+    <ClInclude Include="operations\opMove.h" />
     <ClInclude Include="operations\opPaste.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opSave.h" />
