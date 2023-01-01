@@ -38,7 +38,7 @@ public:
 	///Decide the parameters that you should pass to each function	
 	virtual bool point_included(int x, int y) = 0;
 
-	//virtual void Rotate() = 0;	//Rotate the shape
+	virtual void Rotate(GUI* pUI) = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 

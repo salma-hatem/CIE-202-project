@@ -44,6 +44,24 @@ bool Line::point_included(int x, int y) {
 	}
 	else { return false; }
 }
+ 
+void Line::Rotate(GUI* pUI) {
+	Point c;
+	c.x = (point1.x + point2.x) / 2;
+	c.y = (point1.y + point2.y) / 2;
+	double sparx1 = point1.x;
+	double sparx2 = point2.x;
+	double spary1 = point1.y;
+	double spary2 = point2.y;
+	
+	point1.x = -spary1 + c.y + c.x;
+	point1.y = sparx1 - c.x + c.y;
+	point2.x = -spary2 + c.y + c.x;
+	point2.y = sparx2 - c.x + c.y;
+
+	//Call Output::DrawLine to draw a Line on the screen	
+	pUI->DrawLine(point1, point2, ShpGfxInfo);
+}
 string Line::shapeInfo()
 {
 	double length= sqrt(pow(point1.x-point2.x,2)+pow(point1.y - point2.y, 2));

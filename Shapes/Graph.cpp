@@ -60,11 +60,21 @@ shape* Graph::Getshape(int x, int y)
 		{
 			selectedShape = (*shapePointer);
 			return selectedShape;
-			break;
 		
 		}
 		return nullptr;
 	}
+//shape* Graph::getrotatedshape(int x, int y) {
+//	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
+//		if ((*shapePointer)->point_included(x, y))
+//		{
+//			rotatedShape = (*shapePointer);
+//			return rotatedShape;
+//		}
+//	}
+//	return nullptr;
+//}
+
 void Graph::UnselectAll()
 {
 	for (auto shapePointer : shapesList)
@@ -74,6 +84,34 @@ void Graph::UnselectAll()
 
 
 //return nullptr;
+
+
+void Graph::Save(ofstream& outfile) {
+	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
+
+	//GET THE SHAPES LIST 
+	//LOOP THROUGH THE ELEMENTS
+
+
+	
+	
+
+	shapesList[0]->InitializeAllSaved();
+	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
+	for (int i = 0;i < shapesList.size();i++) {
+		shapesList[i]->Save(outfile);
+
+
+		//if (!shapesList[i]->IsAllSaved()) { //if there's a shape that isn't saved
+
+			//GUI*->
+		//}
+
+	}
+
+	//delete pOi;
+	//pOi = nullptr;
+	//Loop through the selected shape vector and call the save function in each shape
 
 shape* Graph::getSelectedShape() {
 	return selectedShape;

@@ -59,6 +59,7 @@ string Square::shapeInfo()
 void Square::SetShapeSaved(bool s) {
 	Saved = s;
 }
+<<<<<<< Updated upstream
 
 
 shape* Square::duplicate(shape* ptr)
@@ -81,4 +82,9 @@ void Square::resize(double factor)
 	int diffY = Corner1.y - Corner2.y;
 	Corner2.x = Corner1.x - diffX * factor;
 	Corner2.y = Corner1.y - diffY * factor;
+=======
+void Square::Rotate(GUI* pUI) {
+	// it will change nothing in the square 
+	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+>>>>>>> Stashed changes
 }

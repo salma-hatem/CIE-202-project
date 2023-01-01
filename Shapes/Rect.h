@@ -16,7 +16,11 @@ public:
 	void SetShapeSaved(bool s); // sets if the shape is saved or not
 	virtual void Save(ofstream& outfile);
 	string shapeInfo();
+<<<<<<< Updated upstream
 	shape* duplicate(shape*);
 	void resize(double) override;
+=======
+	virtual void Rotate(GUI* pUI);
+>>>>>>> Stashed changes
 };
 

@@ -15,7 +15,11 @@ class Graph
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	// vector for a single selected shape
+<<<<<<< Updated upstream
 	vector <shape*> clipboard; //clipboard for copied shape
+=======
+	shape* rotatedShape;
+>>>>>>> Stashed changes
 public:										
 	Graph();
 	~Graph();
@@ -24,6 +28,7 @@ public:
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
+	shape* getrotatedshape(int x, int y);
 	shape* getselectedshape() const;
 	void UnselectAll();
 	void Save(ofstream& outfile);	//Save all shapes to a file

@@ -15,6 +15,12 @@
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
 #include "operations\opExit.h"
+<<<<<<< Updated upstream
+=======
+#include "operations\opRotate.h"
+
+//#include "operations\opLoad.h"
+>>>>>>> Stashed changes
 #include "operations\opLoad.h"
 #include "operations\opPaste.h"
 #include "operations\opCopy.h"
