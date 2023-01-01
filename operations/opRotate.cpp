@@ -28,4 +28,3 @@ void opRotate::Execute()
 	}
 
 }
-

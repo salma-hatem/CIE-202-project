@@ -179,6 +179,7 @@
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opPaste.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
+    <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />

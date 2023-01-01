@@ -63,7 +63,6 @@ string Triangle::shapeInfo()
 void Triangle::SetShapeSaved(bool s) {
 	Saved = s;
 }
-<<<<<<< Updated upstream
 
 
 shape* Triangle::duplicate(shape* ptr)
@@ -91,7 +90,8 @@ void Triangle::resize(double factor)
 	int diffY2 = point1.y - point3.y;
 	point3.x = point1.x - diffX2 * factor;
 	point3.y = point1.y - diffY2 * factor;
-=======
+}
+
 void Triangle::Rotate(GUI* pUI) {
 	Point c;
 	c.x = (point1.x + point2.x+ point3.x) / 3;
@@ -111,5 +111,4 @@ void Triangle::Rotate(GUI* pUI) {
 	point3.y = sparx3 - c.x + c.y;
 
 	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
->>>>>>> Stashed changes
 }

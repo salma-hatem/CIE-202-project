@@ -86,18 +86,15 @@ void Graph::UnselectAll()
 //return nullptr;
 
 
-void Graph::Save(ofstream& outfile) {
+void Graph::Save(ofstream& outfile)
+{
 	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
 
 	//GET THE SHAPES LIST 
 	//LOOP THROUGH THE ELEMENTS
 
-
-	
-	
-
 	shapesList[0]->InitializeAllSaved();
-	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
+	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth << " " << shapesList.size() << endl;
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
 
@@ -112,43 +109,13 @@ void Graph::Save(ofstream& outfile) {
 	//delete pOi;
 	//pOi = nullptr;
 	//Loop through the selected shape vector and call the save function in each shape
+}
 
-shape* Graph::getSelectedShape() {
+shape* Graph::getSelectedShape() 
+{
 	return selectedShape;
 }
 
-void Graph::Save(ofstream& outfile) {
-	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
-
-	//GET THE SHAPES LIST 
-	//LOOP THROUGH THE ELEMENTS
-
-
-	
-	
-
-	shapesList[0]->InitializeAllSaved();
-	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
-	for (int i = 0;i < shapesList.size();i++) {
-		shapesList[i]->Save(outfile);
-
-
-		//if (!shapesList[i]->IsAllSaved()) { //if there's a shape that isn't saved
-
-			//GUI*->
-		//}
-
-	}
-
-	//delete pOi;
-	//pOi = nullptr;
-	//Loop through the selected shape vector and call the save function in each shape
-
-	//CALL THE SAVE FUNCTION IN EACH ELEMENT AND GIVE IT THE FILE AS A PARAMETER0
-	//close the file 
-
-
-}
 
 void Graph::Delete() {
 	int index = 0;

@@ -15,16 +15,11 @@
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
 #include "operations\opExit.h"
-<<<<<<< Updated upstream
-=======
-#include "operations\opRotate.h"
-
-//#include "operations\opLoad.h"
->>>>>>> Stashed changes
 #include "operations\opLoad.h"
 #include "operations\opPaste.h"
 #include "operations\opCopy.h"
 #include "operations\opResize.h"
+#include "operations\opRotate.h"
 
 //Constructor
 controller::controller()
@@ -109,6 +104,10 @@ operation* controller::createOperation(operationType OpType)
 		case RESIZE:
 			pOp = new opResize(this);
 			break;
+		case ROTATE:
+			pOp = new opRotate(this);
+			break;
+
 
 		//	break;
 			

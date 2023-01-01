@@ -69,7 +69,6 @@ string Circle::shapeInfo()
 	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
-<<<<<<< Updated upstream
 
 
 shape* Circle::duplicate(shape* ptr)
@@ -89,12 +88,13 @@ void Circle::resize(double factor)
 {
 	int diffX = point1.x - point2.x;
 	int diffY = point1.y - point2.y;
-	point2.x = point1.x + diffX*factor;
+	point2.x = point1.x + diffX * factor;
 	point2.y = point1.y + diffY * factor;
-=======
+}
+
 void Circle::Rotate(GUI* pUI) {
 	
 	//Call Output::Draw the same circle because the rotation will change nothing in it
 	pUI->DrawCircle(point1, point2, ShpGfxInfo);
->>>>>>> Stashed changes
+
 }

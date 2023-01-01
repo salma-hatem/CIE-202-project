@@ -15,11 +15,8 @@ class Graph
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	// vector for a single selected shape
-<<<<<<< Updated upstream
 	vector <shape*> clipboard; //clipboard for copied shape
-=======
 	shape* rotatedShape;
->>>>>>> Stashed changes
 public:										
 	Graph();
 	~Graph();

@@ -62,8 +62,6 @@ string Rect::shapeInfo()
 	text = "Area of the recrangle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
 	return text;
 }
-<<<<<<< Updated upstream
-
 
 shape* Rect::duplicate(shape* ptr)
 {
@@ -85,7 +83,8 @@ void Rect::resize(double factor)
 	int diffY = Corner1.y - Corner2.y;
 	Corner2.x = Corner1.x + -diffX * factor;
 	Corner2.y = Corner1.y + -diffY * factor;
-=======
+}
+
 void Rect::Rotate(GUI* pUI) {
 	Point c;
 	c.x = (Corner1.x + Corner2.x) / 2;
@@ -101,5 +100,5 @@ void Rect::Rotate(GUI* pUI) {
 	Corner2.y = sparx2 - c.x + c.y;
 		
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
->>>>>>> Stashed changes
+
 }
