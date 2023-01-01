@@ -27,6 +27,18 @@ void Graph::Addshape(shape* pShp)
 	//Add a new shape to the shapes vector
 	shapesList.push_back(pShp);	
 }
+
+
+void Graph::AddToClipboard(shape* pFig)
+{
+	clipboard.clear();
+	clipboard.push_back(pFig);
+}
+shape* Graph::GetClipboard()
+{
+	return clipboard[0];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
 void Graph::Draw(GUI* pUI) const
@@ -48,11 +60,21 @@ shape* Graph::Getshape(int x, int y)
 		{
 			selectedShape = (*shapePointer);
 			return selectedShape;
-			break;
 		
 		}
 		return nullptr;
 	}
+//shape* Graph::getrotatedshape(int x, int y) {
+//	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
+//		if ((*shapePointer)->point_included(x, y))
+//		{
+//			rotatedShape = (*shapePointer);
+//			return rotatedShape;
+//		}
+//	}
+//	return nullptr;
+//}
+
 void Graph::UnselectAll()
 {
 	for (auto shapePointer : shapesList)
@@ -63,9 +85,6 @@ void Graph::UnselectAll()
 
 //return nullptr;
 
-shape* Graph::getSelectedShape() {
-	return selectedShape;
-}
 
 void Graph::Save(ofstream& outfile) {
 	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
@@ -78,7 +97,6 @@ void Graph::Save(ofstream& outfile) {
 	
 
 	shapesList[0]->InitializeAllSaved();
-	
 	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth <<" "<< shapesList.size() << endl;
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
@@ -102,15 +120,15 @@ void Graph::Save(ofstream& outfile) {
 }
 
 void Graph::Delete() {
-	/*int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), selectedShape);  //serach for selectedShape
+	int index = 0;
+	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
 	if (num != shapesList.end()) { //the selected shape is in the shapesList
 		 index = num - shapesList.begin(); //get the index of selectedshape
 	};
 	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[0]->SetAllSaved(false);
-	shapesList.erase(shapesList.begin());
-	//switch the zero to the index of selected shape
+	shapesList[index]->SetAllSaved(false);
+	//shapesList.erase(shapesList.begin());
+	//switch the zero to the index of selected shape11
 	//make the shape's saved= false
 
 }
@@ -123,4 +141,12 @@ bool Graph::getIsAllSaved() const
 		saved = saved && shapesList[i]->IsAllSaved();
 	}
 	return saved;
+}
+
+void Graph::setselectedshape()
+{
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
+	}
 }

@@ -24,7 +24,13 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 
 void Triangle::Save(ofstream& outfile) {
 	//char info[100];
-	outfile << "TRI " << "ID " << point1.x - point1.x << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << endl;
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	outfile << "TRI " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
+
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }
@@ -56,4 +62,54 @@ string Triangle::shapeInfo()
 }
 void Triangle::SetShapeSaved(bool s) {
 	Saved = s;
+}
+<<<<<<< Updated upstream
+
+
+shape* Triangle::duplicate(shape* ptr)
+{
+	Triangle* PTR = (Triangle*)ptr;
+	Point p1, p2,p3;
+	p1 = pointshift(point1);
+	p2 = pointshift(point2);
+	p3 = pointshift(point3);
+	shape* C = new Triangle(p1, p2, p3 , ShpGfxInfo);
+	C->SetSelected(false);
+	C->SetAllSaved(false);
+	SetSelected(false);
+	return C;
+}
+
+
+void Triangle::resize(double factor)
+{
+	int diffX1 = point1.x - point2.x;
+	int diffY1 = point1.y - point2.y;
+	point2.x = point1.x - diffX1 * factor;
+	point2.y = point1.y - diffY1 * factor;
+	int diffX2 = point1.x - point3.x;
+	int diffY2 = point1.y - point3.y;
+	point3.x = point1.x - diffX2 * factor;
+	point3.y = point1.y - diffY2 * factor;
+=======
+void Triangle::Rotate(GUI* pUI) {
+	Point c;
+	c.x = (point1.x + point2.x+ point3.x) / 3;
+	c.y = (point1.y + point2.y+ point3.y) / 3;
+	double sparx1 = point1.x;
+	double sparx2 = point2.x;
+	double spary1 = point1.y;
+	double spary2 = point2.y;
+	double sparx3 = point3.x;
+	double spary3 = point3.y;
+
+	point1.x = -spary1 + c.y + c.x;
+	point1.y = sparx1 - c.x + c.y;
+	point2.x = -spary2 + c.y + c.x;
+	point2.y = sparx2 - c.x + c.y;
+	point3.x = -spary3 + c.y + c.x;
+	point3.y = sparx3 - c.x + c.y;
+
+	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
+>>>>>>> Stashed changes
 }

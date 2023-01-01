@@ -32,6 +32,12 @@ void shape::InitializeAllSaved() {
 
 void shape::SetAllSaved(bool s) {
 
-	AllSaved = AllSaved && s;
+	AllSaved = s;
 
+}
+
+Point shape::pointshift(Point p)
+{
+	p.x += 20;p.y += 20;
+	return p;
 }

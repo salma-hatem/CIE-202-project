@@ -1,5 +1,0 @@
-Draw color  fill color 1 4
-SQU  id 562  230 492 288
-Circle ID 192 191 225 264 319
-Rect  id 831  197 821 268
-Circle ID 431 430 415 486 430

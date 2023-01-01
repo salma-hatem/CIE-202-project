@@ -10,10 +10,12 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAW_TRI,		//Draw Triangle
 	DRAW_CIRC,		//Draw Circle
 	DRAW_SQR ,       //Draw Square
-	DRAW_POLY,      //Draws a Polygon
+	Rotate,      //Draws a Polygon
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
 	CHNG_BK_CLR,	//Change background color
+	COPY,			//copy shape
+	PASTE,			//paste shape
 	DEL,			//Delete a shape(s)
 	SELECT,         //Selects an object
 	MOVE,			//Move a shape(s)

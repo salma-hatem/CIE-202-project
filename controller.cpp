@@ -15,8 +15,16 @@
 #include "operations\opSwitch.h"
 #include "operations\opSave.h"
 #include "operations\opExit.h"
+<<<<<<< Updated upstream
+=======
+#include "operations\opRotate.h"
+
 //#include "operations\opLoad.h"
+>>>>>>> Stashed changes
 #include "operations\opLoad.h"
+#include "operations\opPaste.h"
+#include "operations\opCopy.h"
+#include "operations\opResize.h"
 
 //Constructor
 controller::controller()
@@ -66,7 +74,6 @@ operation* controller::createOperation(operationType OpType)
 		case SAVE:
 			pOp = new opSave(this);
 			break;
-
 		case LOAD: 
 			//pOp = new opLoad(this);
 		case EXIT:
@@ -76,6 +83,12 @@ operation* controller::createOperation(operationType OpType)
 
 		case DEL:
 			pOp = new opDelete(this);
+			break;
+		case COPY:
+			pOp = new opCopy(this);
+			break;
+		case PASTE:
+			pOp = new opPaste(this);
 			break;
 		case SELECT:
 			pOp = new opSelect(this);
@@ -92,9 +105,20 @@ operation* controller::createOperation(operationType OpType)
 		case TO_PLAY:
 			pOp = new opSwitch(this);
 			break;
-		case DRAW_POLY:
-
+<<<<<<< Updated upstream
+		case RESIZE:
+			pOp = new opResize(this);
 			break;
+
+		//	break;
+=======
+		case Rotate:
+			pOp = new opRotate(this);
+			break;
+		/*case DRAW_POLY:
+
+			break;*/
+>>>>>>> Stashed changes
 			
 	}
 	return pOp;
@@ -161,3 +185,30 @@ void controller::Run()
 	} while (OpType != EXIT);
 
 }
+
+/*shape* load(ifstream& inputfile)	//Load all shapes from a file
+{
+
+	string line, word;
+
+	istringstream iss;
+	while (!inputfile.eof()) {
+		getline(inputfile, line); //getting each line
+		if (inputfile.good()) {
+			vector <string> each_line;
+			iss.clear();
+			iss.str(line);
+			while (iss.good()) {
+				iss >> word;
+				each_line.push_back(word);
+
+			}
+			if (each_line[0] == "Circle") {
+
+			}
+
+
+		}
+	}
+	return nullptr;
+}*/

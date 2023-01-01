@@ -43,7 +43,7 @@ void opAddTriangle::Execute()
 	TriangleGfxInfo.FillClr = pUI->getCrntFillColor();
 	TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	TriangleGfxInfo.DrawClr_s = pUI->getCrntDrawColor_s();
-	TriangleGfxInfo.FillClr_s = pUI->getCrntDrawColor_s();
+	TriangleGfxInfo.FillClr_s = pUI->getCrntFillColor_s();
 
 
 	TriangleGfxInfo.isFilled = true;	//default is not filled

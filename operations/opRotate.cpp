@@ -1,14 +1,14 @@
-#include "opSelect.h"
+#include "opRotate.h"
 #include "..\shapes\Rect.h"
 #include "..\controller.h"
 #include "..\GUI\GUI.h"
 
-opSelect::opSelect(controller* pCont) :operation(pCont)
+opRotate::opRotate(controller* pCont) :operation(pCont)
 {}
-opSelect::~opSelect()
+opRotate::~opRotate()
 {}
 //Execute the operation
-void opSelect::Execute()
+void opRotate::Execute()
 {
 	Point P1;
 	//Get a Pointer to the Input / Output Interfaces
@@ -18,9 +18,7 @@ void opSelect::Execute()
 	pUI->GetPointClicked(P1.x, P1.y);
 	if (pGr->Getshape(P1.x, P1.y))
 	{
-		pUI->PrintMessage(pGr->Getshape(P1.x, P1.y)->shapeInfo());
-		pGr->UnselectAll(); 							//unselect everything 
-		pGr->Getshape(P1.x, P1.y)->SetSelected(true);		//make this shape is selected
+		pGr->Getshape(P1.x, P1.y)->Rotate(pUI);
 		
 	}
 	else

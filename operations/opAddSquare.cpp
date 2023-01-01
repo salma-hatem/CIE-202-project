@@ -37,7 +37,7 @@ void opAddSquare::Execute()
 	SquareGfxInfo.FillClr = pUI->getCrntFillColor();
 	SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	SquareGfxInfo.DrawClr_s = pUI->getCrntDrawColor_s();
-	SquareGfxInfo.FillClr_s = pUI->getCrntDrawColor_s();
+	SquareGfxInfo.FillClr_s = pUI->getCrntFillColor_s();
 
 
 	SquareGfxInfo.isFilled = true;	//default is not filled
