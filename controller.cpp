@@ -20,6 +20,7 @@
 #include "operations\opCopy.h"
 #include "operations\opResize.h"
 #include "operations\opRotate.h"
+#include "operations\opDuplicate.h"
 
 //Constructor
 controller::controller()
@@ -88,6 +89,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case SELECT:
 			pOp = new opSelect(this);
+			break;
+		case DUPL:
+			pOp = new opDuplicate(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation

@@ -63,6 +63,7 @@
     <ClCompile Include="operations\opCopy.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
+    <ClCompile Include="operations\opDuplicate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -113,5 +114,6 @@
     <ClInclude Include="operations\opPaste.h" />
     <ClInclude Include="operations\opCopy.h" />
     <ClInclude Include="operations\opResize.h" />
+    <ClInclude Include="operations\opDuplicate.h" />
   </ItemGroup>
 </Project>
