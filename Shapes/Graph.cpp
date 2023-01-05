@@ -148,3 +148,11 @@ void Graph::setselectedshape()
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
 }
+
+void Graph::scrambleGraph()
+{
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		shapesList[i]->scrambleShape();
+	}
+}

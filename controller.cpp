@@ -20,6 +20,7 @@
 #include "operations\opCopy.h"
 #include "operations\opResize.h"
 #include "operations\opRotate.h"
+#include "operations\opScramble.h"
 
 //Constructor
 controller::controller()
@@ -106,6 +107,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case ROTATE:
 			pOp = new opRotate(this);
+			break;
+		case SCRAMBLE:
+			pOp = new opScramble(this);
 			break;
 
 

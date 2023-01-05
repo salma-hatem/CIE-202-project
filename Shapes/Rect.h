@@ -19,5 +19,6 @@ public:
 	shape* duplicate(shape*);
 	void resize(double) override;
 	virtual void Rotate(GUI* pUI);
+	void scrambleShape();
 };
 

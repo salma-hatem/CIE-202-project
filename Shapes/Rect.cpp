@@ -102,3 +102,12 @@ void Rect::Rotate(GUI* pUI) {
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 
 }
+
+void Rect::scrambleShape()
+{
+	int diffX = Corner2.x - Corner1.x;
+	int diffY = Corner2.y - Corner1.y;
+	Corner1 = randPoint();
+	Corner2.x = Corner1.x + diffX;
+	Corner2.y = Corner1.y + diffY;
+}

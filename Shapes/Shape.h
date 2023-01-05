@@ -49,5 +49,7 @@ public:
 	virtual shape* duplicate(shape *)=0;
 	Point pointshift(Point p); //shifts the coordinates of the point
 	virtual void resize(double) = 0;
+	Point randPoint(); //generates coordinates of a random point
+	virtual void scrambleShape() = 0;
 };
 

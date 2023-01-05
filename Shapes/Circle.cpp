@@ -98,3 +98,12 @@ void Circle::Rotate(GUI* pUI) {
 	pUI->DrawCircle(point1, point2, ShpGfxInfo);
 
 }
+
+void Circle::scrambleShape()
+{
+	int diffX = point2.x - point1.x;
+	int diffY = point2.y - point1.y;
+	point1 = randPoint();
+	point2.x = point1.x + diffX;
+	point2.y = point1.y + diffY;
+}

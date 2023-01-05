@@ -93,3 +93,12 @@ void Line::resize(double factor)
 	point2.x = point1.x + -diffX * factor;
 	point2.y = point1.y + -diffY * factor;
 }
+
+void Line::scrambleShape()
+{
+	int diffX = point2.x - point1.x;
+	int diffY = point2.y - point1.y;
+	point1 = randPoint();
+	point2.x = point1.x + diffX;
+	point2.y = point1.y + diffY;
+}

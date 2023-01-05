@@ -20,6 +20,7 @@ enum operationType //The operations supported (you can add more if needed)
 	MOVE,			//Move a shape(s)
 	RESIZE,			//Resize a shape(s)
 	ROTATE,			//Rotate a shape(s)
+	SCRAMBLE,       //scrambles graph
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file

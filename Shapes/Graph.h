@@ -34,6 +34,6 @@ public:
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;
 	void setselectedshape();
-
+	void scrambleGraph(); //scrambles the graph
 	
 };

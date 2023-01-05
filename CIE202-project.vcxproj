@@ -181,6 +181,7 @@
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opScramble.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />
     <ClCompile Include="Shapes\Circle.cpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="operations\opPaste.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opScramble.h" />
     <ClInclude Include="operations\opSelect.h" />
     <ClInclude Include="operations\opSwitch.h" />
     <ClInclude Include="resource.h" />

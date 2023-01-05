@@ -112,3 +112,20 @@ void Triangle::Rotate(GUI* pUI) {
 
 	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
 }
+
+void Triangle::scrambleShape()
+{
+	int diffX1 = point2.x - point1.x;
+	int diffY1 = point2.y - point1.y;
+
+	int diffX2 = point3.x - point1.x;
+	int diffY2 = point3.y - point1.y;
+
+	point1 = randPoint();
+	point2.x = point1.x + diffX1;
+	point2.y = point1.y + diffY1;
+
+	point3.x = point1.x + diffX2;
+	point3.y = point1.y + diffY2;
+
+}
