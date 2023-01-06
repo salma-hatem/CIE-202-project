@@ -16,7 +16,8 @@ enum operationType //The operations supported (you can add more if needed)
 	COPY,			//copy shape
 	PASTE,			//paste shape
 	DEL,			//Delete a shape(s)
-	SELECT,         //Selects an object
+	SELECT,			//Selects an object
+	DUPL,
 	MOVE,			//Move a shape(s)
 	RESIZE,			//Resize a shape(s)
 	ROTATE,			//Rotate a shape(s)
