@@ -134,6 +134,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_RESIZE: return RESIZE;
 			case ICON_ROTATE: return ROTATE;
 			case ICON_PASTE: return PASTE;
+			case ICON_MOVE: return MOVE;
 			case ICON_DELETE: return DEL;
 			default: return EMPTY;
 			}
@@ -291,6 +292,8 @@ void GUI::CreateSideToolBar()
 	SideMenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
 	SideMenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
 	SideMenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	SideMenuIconImages[ICON_MOVE] = "images\\MenuIcons\\Menu_Move.jpg";
+
 
 	for (int i = 0; i < SIDE_ICON_COUNT; i++)
 		pWind->DrawImage(SideMenuIconImages[i], 0, ToolBarHeight+SideMenuPosition+(i*SideMenuWidth), SideMenuWidth, SideMenuWidth);

@@ -71,6 +71,7 @@ class GUI
 		ICON_PASTE,		//paste icon in menu
 		ICON_RESIZE,
 		ICON_ROTATE,
+		ICON_MOVE,
 		ICON_DELETE,	//Delete icon in menu
 		SIDE_ICON_COUNT
 	};
