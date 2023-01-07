@@ -51,8 +51,7 @@ class GUI
 		ICON_UNDO,
 		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
-		ICON_DUPLICATE,
-		ICON_SCRAMBLE,
+		ICON_STICK,
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
@@ -81,6 +80,7 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_START,
+		ICON_MATCH,
 		ICON_EXIT_P,
 		//TODO: Add more icons names here
 

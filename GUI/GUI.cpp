@@ -105,13 +105,13 @@ operationType GUI::GetUseroperation() const
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
-			case ICON_SCRAMBLE: return SCRAMBLE;
+			case ICON_STICK: return STICK;
 			case ICON_UNDO: return UNDO;
 			case ICON_REDO: return REDO;
 			case ICON_SAVE: return SAVE;
 			case ICON_LOAD: return LOAD;
 			case ICON_SELECT: return SELECT;
-			case ICON_DUPLICATE:return DUPL;
+			//case ICON_DUPLICATE:return DUPL;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;
 
@@ -164,6 +164,7 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
+			case ICON_MATCH:return MATCH;
 			case ICON_EXIT_P: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -240,8 +241,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
-	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
-	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
+	//MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\Menu_Stick.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
@@ -269,6 +270,7 @@ void GUI::CreatePlayToolBar()
 	///TODO: write code to create Play mode menu
 	string MenuIconImages[PLAY_ICON_COUNT];
 	MenuIconImages[ICON_START] = "images\\MenuIcons\\Menu_Start.jpg";
+	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\Menu_Match.jpg";
 	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 
