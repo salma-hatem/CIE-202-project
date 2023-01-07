@@ -222,8 +222,8 @@ void Triangle::scrambleShape(Point p, int col, int row)
 	}
 	int w = (*pmaxX).x - (*pminX).x;
 	int h = (*pmaxY).y - (*pminY).y;
-	int cx = (*pmaxX).x + w / 2;
-	int cy = (*pmaxY).y + h / 2;
+	int cx = (*pmaxX).x - w / 2;
+	int cy = (*pmaxY).y - h / 2;
 
 	int diffX1 = point1.x - cx; int diffY1 = point1.y - cy;
 	int diffX2 = point2.x - cx; int diffY2 = point2.y - cy;

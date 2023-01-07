@@ -123,6 +123,7 @@ void Rect::calculateWH()
 
 void Rect::scrambleShape(Point p, int col, int row)
 {
+	/*
 	Point* pmin;
 	Point* pmax;
 	if (Corner1.x < Corner2.x)
@@ -152,7 +153,44 @@ void Rect::scrambleShape(Point p, int col, int row)
 		(*pmin).x = row-5 + p.x; (*pmin).y = row - 5 + p.y;
 		(*pmax).x = (*pmin).x + diffX;
 		(*pmax).y = (*pmin).y + diffY;
+	}*/
+	Point* pminX; Point* pminY;
+	Point* pmaxX; Point* pmaxY;
+	if (Corner1.x < Corner2.x)
+	{
+		pminX = &Corner1;
+		pmaxX = &Corner2;
 	}
+	else
+	{
+		pminX = &Corner2;
+		pmaxX = &Corner1;
+	}
+
+	if (Corner1.y < Corner2.y)
+	{
+		pminY = &Corner1;
+		pmaxY = &Corner2;
+	}
+	else
+	{
+		pminY = &Corner2;
+		pmaxY = &Corner1;
+	}
+
+	int w = (*pmaxX).x - (*pminX).x;
+	int h = (*pmaxY).y - (*pminY).y;
+	int cx = (*pmaxX).x - w / 2;
+	int cy = (*pmaxY).y - h / 2;
+
+	int diffX1 = Corner1.x - cx; int diffY1 = Corner1.y - cy;
+	int diffX2 = Corner2.x - cx; int diffY2 = Corner2.y - cy;
+
+	int cardcx = p.x + col / 2;
+	int cardcy = p.y + row / 2;
+	cx = cardcx; cy = cardcy;
+	Corner1.x = cx + diffX1; Corner1.y = cy + diffY1;
+	Corner2.x = cx + diffX2; Corner2.y = cy + diffY2;
 }
 
 double Rect::getfactor(int col, int row)

@@ -113,6 +113,7 @@ void Line::calculateWH()
 
 void Line::scrambleShape(Point p, int col, int row)
 {
+	/*
 	int diffX = point2.x - point1.x;
 	int diffY = point2.y - point1.y;
 	if (point2.x > point1.x && point2.y > point1.y)
@@ -129,7 +130,44 @@ void Line::scrambleShape(Point p, int col, int row)
 		point2.x = 5 + p.x; point2.y = 5 + p.y;
 		point1.x = point2.x + diffX;
 		point1.y = point2.y + diffY;
+	}*/
+	Point* pminX; Point* pminY;
+	Point* pmaxX; Point* pmaxY;
+	if (point1.x < point2.x)
+	{
+		pminX = &point1;
+		pmaxX = &point2;
 	}
+	else
+	{
+		pminX = &point2;
+		pmaxX = &point1;
+	}
+
+	if (point1.y < point2.y)
+	{
+		pminY = &point1;
+		pmaxY = &point2;
+	}
+	else
+	{
+		pminY = &point2;
+		pmaxY = &point1;
+	}
+
+	int w = (*pmaxX).x - (*pminX).x;
+	int h = (*pmaxY).y - (*pminY).y;
+	int cx = (*pmaxX).x - w / 2;
+	int cy = (*pmaxY).y - h / 2;
+
+	int diffX1 = point1.x - cx; int diffY1 = point1.y - cy;
+	int diffX2 = point2.x - cx; int diffY2 = point2.y - cy;
+
+	int cardcx = p.x + col / 2;
+	int cardcy = p.y + row / 2;
+	cx = cardcx; cy = cardcy;
+	point1.x = cx + diffX1; point1.y = cy + diffY1;
+	point2.x = cx + diffX2; point2.y = cy + diffY2;
 }
 
 double Line::getfactor(int col, int row)
