@@ -17,15 +17,17 @@ private:
 	shape* selectedShape;	// vector for a single selected shape
 	vector <shape*> clipboard; //clipboard for copied shape
 	shape* rotatedShape;
+	vector <shape*> cardslist;
 public:										
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
+	void Addcard(shape* pShp);
+	shape* Getcardslist();
 	void AddToClipboard(shape* pFig); //add a pointer to the shape in the vector
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
-	shape* getrotatedshape(int x, int y);
 	shape* getselectedshape() const;
 	void UnselectAll();
 	void Save(ofstream& outfile);	//Save all shapes to a file
@@ -34,6 +36,10 @@ public:
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;
 	void setselectedshape();
+	void setshapeshidden();
+	void setshapeduphidded(int x, int y);
+	void Hide(GUI* pUI);
+	void UnHide(GUI* pUI);
 
 	
 };

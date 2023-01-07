@@ -49,5 +49,9 @@ public:
 	virtual shape* duplicate(shape *)=0;
 	Point pointshift(Point p); //shifts the coordinates of the point
 	virtual void resize(double) = 0;
+	virtual void Hidding(GUI* pUI)=0;
+	void sethidden(bool t);
+	bool gethidden();
+	//bool ishidden();
 };
 

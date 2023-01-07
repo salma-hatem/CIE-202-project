@@ -114,6 +114,8 @@ operationType GUI::GetUseroperation() const
 			case ICON_DUPLICATE:return DUPL;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;
+			case ICON_UNDO:return Hide;
+			case ICON_REDO: return UnHide;
 
 
 
@@ -197,6 +199,9 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 	pW->DrawRectangle(0, ToolBarHeight, w, h);
 
 	return pW;
+}
+window* GUI::getwind() {
+	return pWind;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateStatusBar() const

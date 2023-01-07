@@ -18,6 +18,7 @@ void opSelect::Execute()
 	pUI->GetPointClicked(P1.x, P1.y);
 	if (pGr->Getshape(P1.x, P1.y))
 	{
+		
 		pUI->PrintMessage(pGr->Getshape(P1.x, P1.y)->shapeInfo());
 		pGr->UnselectAll(); 							//unselect everything 
 		pGr->Getshape(P1.x, P1.y)->SetSelected(true);		//make this shape is selected

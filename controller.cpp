@@ -21,6 +21,8 @@
 #include "operations\opResize.h"
 #include "operations\opRotate.h"
 #include "operations\opDuplicate.h"
+#include "operations\opHide.h"
+#include "operations\opUnHide.h"
 
 //Constructor
 controller::controller()
@@ -111,6 +113,13 @@ operation* controller::createOperation(operationType OpType)
 		case ROTATE:
 			pOp = new opRotate(this);
 			break;
+		case Hide:
+			pOp = new opHide(this);
+			break;
+		case UnHide:
+			pOp = new opUnHide(this);
+			break;
+
 
 
 		//	break;
@@ -125,8 +134,9 @@ operation* controller::createOperation(operationType OpType)
 
 //Draw all shapes on the user interface
 void controller::UpdateInterface() const
-{	
+{
 	pGraph->Draw(pGUI);
+	
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the UI

@@ -28,7 +28,6 @@ void Graph::Addshape(shape* pShp)
 	shapesList.push_back(pShp);	
 }
 
-
 void Graph::AddToClipboard(shape* pFig)
 {
 	clipboard.clear();
@@ -38,14 +37,24 @@ shape* Graph::GetClipboard()
 {
 	return clipboard[0];
 }
+void Graph::Addcard(shape* pFig)
+{
+	cardslist.push_back(pFig);
+}
+shape* Graph::Getcardslist()
+{
+	return cardslist[0];
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
 void Graph::Draw(GUI* pUI) const
 {
 	pUI->ClearDrawArea();
-	for (auto shapePointer : shapesList)
+	for (auto shapePointer : shapesList) {
 		shapePointer->Draw(pUI);
+		shapePointer->Hidding(pUI);
+	}
 }
 shape* Graph::getselectedshape()const {
 	return selectedShape;
@@ -147,4 +156,35 @@ void Graph::setselectedshape()
 	{
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
+}
+void Graph::Hide(GUI* pUI) {
+	pUI->getwind()->DrawString(20,20, "ssss");
+	for (auto shapePointer : shapesList) {
+		shapePointer->Hidding(pUI);
+	
+	}
+	Draw(pUI);
+}
+
+void Graph::setshapeshidden() {
+	for (auto shapePointer : shapesList) {
+		shapePointer->sethidden(true);
+	
+	}
+}
+void Graph::setshapeduphidded(int x, int y) {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->point_included(x, y))
+		{
+			shapePointer->sethidden(false);
+		}
+	}
+
+}
+void Graph::UnHide(GUI* pUI) {
+
+	for (auto shapePointer : shapesList) {
+		shapePointer->sethidden(false);
+	}
+	Draw(pUI);
 }

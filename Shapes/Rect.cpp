@@ -102,3 +102,28 @@ void Rect::Rotate(GUI* pUI) {
 	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
 
 }
+void Rect::Hidding(GUI* pUI)  {
+	Point newpoint;
+	if (Corner1.x > Corner2.x) {
+		newpoint.x = Corner2.x;
+	}
+	else {
+		newpoint.x = Corner1.x;
+	}
+	if (Corner1.y > Corner2.y) {
+		newpoint.y = Corner2.y;
+	}
+	else {
+		newpoint.y = Corner1.y;
+	}
+	double width, height;
+	width = abs(Corner1.x - Corner2.x);
+	height = abs(Corner1.y - Corner2.y);
+	if (gethidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x,newpoint.y, width, height);
+	}
+	else {}
+
+}

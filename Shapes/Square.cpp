@@ -84,8 +84,19 @@ void Square::resize(double factor)
 	Corner2.y = Corner1.y - diffY * factor;
 }
 
-void Square::Rotate(GUI* pUI) {
+void Square::Rotate(GUI* pUI)  {
 	// it will change nothing in the square 
 	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+
+}
+void Square::Hidding(GUI* pUI) {
+	
+	double length = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
+	if (gethidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x, Corner1.y,length, length);
+	}
+	else {}
 
 }

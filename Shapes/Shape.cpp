@@ -41,3 +41,13 @@ Point shape::pointshift(Point p)
 	p.x += 20;p.y += 20;
 	return p;
 }
+void shape::sethidden(bool t) {
+	
+	ShpGfxInfo.isHidden = t;
+}
+bool shape::gethidden() {
+	return ShpGfxInfo.isHidden;
+}
+//bool shape::ishidden() {
+//	return false;
+//}

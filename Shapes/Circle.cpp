@@ -14,7 +14,7 @@ Circle::~Circle()
 
 void Circle::Draw(GUI* pUI) const
 {
-	//Call Output::DrawCircle to draw a Line on the screen	
+	//Call Output::DrawCircle to draw a circle on the screen	
 	pUI->DrawCircle(point1, point2, ShpGfxInfo);
 }
 
@@ -97,4 +97,26 @@ void Circle::Rotate(GUI* pUI) {
 	//Call Output::Draw the same circle because the rotation will change nothing in it
 	pUI->DrawCircle(point1, point2, ShpGfxInfo);
 
+}
+//
+//void Circle::Hide(GUI* pUI) {
+//	double radius = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+//	pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", point1.x+radius, point1.y+radius, (2*radius), (2*radius));
+//
+//}
+
+void Circle::Hidding(GUI* pUI) {
+	double radius = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+	Point newpoint1 ;
+	newpoint1.x = point1.x - radius;
+	newpoint1.y = point1.y - radius;
+	
+	//Call Output::DrawCircle to draw a circle on the screen	
+	if (gethidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2*radius, 2*radius);
+	}
+	else {}
+	
 }
