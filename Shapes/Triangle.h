@@ -22,6 +22,9 @@ public:
 	void resize(double) override;
 	virtual void Rotate(GUI* pUI);
 	void scrambleShape();
+	void scrambleShape(Point, int, int) override;
+	void calculateWH() override;
+	double getfactor(int col, int row) override;
 };
 
 //#pragma once

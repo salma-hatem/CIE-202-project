@@ -111,3 +111,57 @@ void Rect::scrambleShape()
 	Corner2.x = Corner1.x + diffX;
 	Corner2.y = Corner1.y + diffY;
 }
+
+
+
+
+void Rect::calculateWH()
+{
+	width = abs(Corner1.x - Corner2.x);
+	height = width;
+}
+
+void Rect::scrambleShape(Point p, int col, int row)
+{
+	Point* pmin;
+	Point* pmax;
+	if (Corner1.x < Corner2.x)
+	{
+		pmin = &Corner1;
+		pmax = &Corner2;
+	}
+	else
+	{
+		pmin = &Corner2;
+		pmax = &Corner1;
+	}
+	if (Corner1.y < Corner2.y)
+	{
+		int diffX = (*pmax).x - (*pmin).x;
+		int diffY = (*pmax).y - (*pmin).y;
+
+		(*pmin).x = 5 + p.x; (*pmin).y = 5 + p.y;
+		(*pmax).x = (*pmin).x + diffX;
+		(*pmax).y = (*pmin).y + diffY;
+	}
+	else
+	{
+		int diffX = -(*pmax).x + (*pmin).x;
+		int diffY = (*pmax).y - (*pmin).y;
+
+		(*pmin).x = row-5 + p.x; (*pmin).y = row - 5 + p.y;
+		(*pmax).x = (*pmin).x + diffX;
+		(*pmax).y = (*pmin).y + diffY;
+	}
+}
+
+double Rect::getfactor(int col, int row)
+{
+	double f1 = 1;
+	if (width > row) f1 = double(row) / width;
+
+	double f2 = 1;
+	if (height > col) f2 = double(col) / height;
+	if (f1 < f2) return f1;
+	else return f2;
+}

@@ -107,3 +107,31 @@ void Circle::scrambleShape()
 	point2.x = point1.x + diffX;
 	point2.y = point1.y + diffY;
 }
+
+
+void Circle::calculateWH()
+{
+	width = abs(2 * (point1.x - point2.x));
+	height = width;
+}
+
+void Circle::scrambleShape(Point p,int col, int row)
+{
+	int diffX = point2.x - point1.x;
+	int diffY = point2.y - point1.y;
+	int x = col / 2; int y = row / 2;
+	point1.x = x+p.x; point1.y = y+p.y;
+	point2.x = point1.x + diffX;
+	point2.y = point1.y + diffY;
+}
+
+double Circle::getfactor(int col, int row)
+{
+	double f1=1; 
+	if(width > row) f1= double(row) / width;
+
+	double f2=1; 
+	if (height > col) f2 = double(col) / height;
+	if (f1 < f2) return f1;
+	else return f2;
+}

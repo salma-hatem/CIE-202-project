@@ -1,7 +1,8 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
-
-
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 Graph::Graph()
 {
@@ -148,14 +149,52 @@ void Graph::setselectedshape()
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
 }
-
+/*
 void Graph::scrambleGraph()
 {
 	for (int i = 0; i < shapesList.size();i++)
 	{
 		shapesList[i]->scrambleShape();
 	}
+}*/
+
+void Graph::scrambleGraph()
+{
+	fillpositions();
+	double factor = 1;
+	Point position;
+	std::random_shuffle(shapesList.begin(), shapesList.end());
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		shapesList[i]->calculateWH();
+		factor = shapesList[i]->getfactor(col, row-20);
+		shapesList[i]->resize(factor);
+		position.x = shapePositions[i].x + 10;
+		position.y = shapePositions[i].y + 10;
+		shapesList[i]->scrambleShape(position,col,row);
+	}
 }
+
+void Graph::fillpositions()
+{
+	col = 1000 / (shapesList.size()/2);
+	int c = 0;
+	Point p;
+	for (int i = 0;i < shapesList.size();i++)
+	{
+		/*if (c == shapesList.size() / 2) c = 0;
+		shapePositionsx.push_back(100+10+(col+10)*(c));
+		c++;
+		int y = 100 + 10 + 250 * (i / (shapesList.size() / 2));
+		shapePositionsy.push_back(100 + 10 + 250 * (i / (shapesList.size() / 2)));*/
+		if (c == shapesList.size() / 2) c = 0;
+		p.x=100 + 10 + (col + 10) * (c);
+		c++;
+		p.y =100 + 10 + 250 * (i / (shapesList.size() / 2));
+		shapePositions.push_back(p);
+	}
+}
+
 
 //////////////////////////////////////////
 //					UNDO				//

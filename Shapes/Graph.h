@@ -20,6 +20,8 @@ private:
 	vector <operationType> operationHistory; //vector to record the history of operations made
 	vector <operationType> undoHistory; //records the operations deleting
 	vector <shape*> deletedShp;
+	vector <Point> shapePositions;
+	int col; int row = 250;
 public:										
 	Graph();
 	~Graph();
@@ -38,6 +40,8 @@ public:
 	bool getIsAllSaved() const;
 	void setselectedshape();
 	void scrambleGraph(); //scrambles the graph
+	void fillpositions(); //positions on the grid
+	void fitShp(shape*); 
 
 //	UNDO
 

@@ -11,7 +11,8 @@ protected:
 	int ID;		//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
 	bool AllSaved;
-	
+	int width;
+	int height;
 	/// Add more parameters if needed.
 
 public:
@@ -51,5 +52,8 @@ public:
 	virtual void resize(double) = 0;
 	Point randPoint(); //generates coordinates of a random point
 	virtual void scrambleShape() = 0;
+	virtual void scrambleShape(Point,int,int) = 0;
+	virtual void calculateWH() = 0;
+	virtual double getfactor(int col,int row) = 0;
 };
 

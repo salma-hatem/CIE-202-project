@@ -102,3 +102,43 @@ void Line::scrambleShape()
 	point2.x = point1.x + diffX;
 	point2.y = point1.y + diffY;
 }
+
+
+
+void Line::calculateWH()
+{
+	width = abs(point1.x - point2.x);
+	height = abs(point1.y - point2.y);
+}
+
+void Line::scrambleShape(Point p, int col, int row)
+{
+	int diffX = point2.x - point1.x;
+	int diffY = point2.y - point1.y;
+	if (point2.x > point1.x && point2.y > point1.y)
+	{
+		
+		point1.x = 5 + p.x; point1.y = 5 + p.y;
+		point2.x = point1.x + diffX;
+		point2.y = point1.y + diffY;
+	}
+	else if(point2.x < point1.x && point2.y < point1.y)
+	{
+		int diffX = point1.x - point2.x;
+		int diffY = point1.y - point2.y;
+		point2.x = 5 + p.x; point2.y = 5 + p.y;
+		point1.x = point2.x + diffX;
+		point1.y = point2.y + diffY;
+	}
+}
+
+double Line::getfactor(int col, int row)
+{
+	double f1 = 1;
+	if (width > row) f1 = double(row) / width;
+
+	double f2 = 1;
+	if (height > col) f2 = double(col) / height;
+	if (f1 < f2) return f1;
+	else return f2;
+}
