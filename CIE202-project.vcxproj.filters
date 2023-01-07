@@ -64,6 +64,9 @@
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opDuplicate.cpp" />
+    <ClCompile Include="operations\opScramble.cpp" />
+    <ClCompile Include="operations\opUndo.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -115,5 +118,8 @@
     <ClInclude Include="operations\opCopy.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opDuplicate.h" />
+    <ClInclude Include="operations\opScramble.h" />
+    <ClInclude Include="operations\opUndo.h" />
+    <ClInclude Include="operations\opRedo.h" />
   </ItemGroup>
 </Project>

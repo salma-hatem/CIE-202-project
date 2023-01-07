@@ -17,6 +17,9 @@ private:
 	shape* selectedShape;	// vector for a single selected shape
 	vector <shape*> clipboard; //clipboard for copied shape
 	shape* rotatedShape;
+	vector <operationType> operationHistory; //vector to record the history of operations made
+	vector <operationType> undoHistory; //records the operations deleting
+	vector <shape*> deletedShp;
 public:										
 	Graph();
 	~Graph();
@@ -35,5 +38,22 @@ public:
 	bool getIsAllSaved() const;
 	void setselectedshape();
 	void scrambleGraph(); //scrambles the graph
-	
+
+//	UNDO
+
+	bool emptyHistory(); //checks if the user made any operations
+	operationType lastOperation() const; //returns the type of the last operation made
+	void recordOperation(operationType); //records the last operation in the vector
+	void deleteLastShp(); //deletes last shape in the shape vector
+	void deleteFromHistory();
+
+	//	REDO
+
+	bool emptyUndoHistory(); //checks if the user undo any operations
+	operationType lastUndoOperation() const;
+	void recordUndo(operationType); //adds operation to undoHistory
+	void recordDeltedShp(); //saves a pointer to the deleted shape in deletedShp
+	shape* getLastDeletedShp() const; //returns last element in deletedShp
+	void deleteLastDeletedShp();
+	void deleteFromUndoHistory();
 };

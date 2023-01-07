@@ -6,7 +6,7 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
-	
+	rotatedShape = nullptr;
 
 	
 }
@@ -14,7 +14,7 @@ Graph::Graph()
 Graph::~Graph()
 {
 	selectedShape = nullptr;
-	
+	rotatedShape = nullptr;
 }
 
 //==================================================================================//
@@ -155,4 +155,77 @@ void Graph::scrambleGraph()
 	{
 		shapesList[i]->scrambleShape();
 	}
+}
+
+//////////////////////////////////////////
+//					UNDO				//
+//////////////////////////////////////////
+
+
+bool Graph::emptyHistory()
+{
+	//int x = operationHistory.size();
+	if (operationHistory.size() == 0) return true;
+	else return false;
+}
+
+operationType Graph::lastOperation() const
+{
+	return operationHistory[operationHistory.size()-1];
+}
+
+void Graph::recordOperation(operationType x)
+{
+	operationHistory.push_back(x);
+}
+
+void Graph::deleteLastShp()
+{
+	//deletedShp.push_back(shapesList[shapesList.size() - 1]);
+	shapesList.pop_back();
+}
+void Graph::deleteFromHistory()
+{
+	operationHistory.pop_back();
+}
+
+//////////////////////////////////////////
+//					REDO				//
+//////////////////////////////////////////
+
+bool Graph::emptyUndoHistory()
+{
+	//int x = undoHistory.size();
+	if (undoHistory.size() == 0) return true;
+	else return false;
+}
+
+operationType Graph::lastUndoOperation() const
+{
+	return undoHistory[undoHistory.size() - 1];
+}
+
+void Graph::recordUndo(operationType x)
+{
+	undoHistory.push_back(x);
+}
+
+void Graph::recordDeltedShp()
+{
+	deletedShp.push_back(shapesList[shapesList.size() - 1]);
+}
+
+shape* Graph::getLastDeletedShp() const
+{
+	return deletedShp[deletedShp.size() - 1];
+}
+
+void Graph::deleteLastDeletedShp()
+{
+	deletedShp.pop_back();
+}
+
+void Graph::deleteFromUndoHistory()
+{
+	undoHistory.pop_back();
 }

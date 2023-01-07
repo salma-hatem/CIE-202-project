@@ -106,8 +106,8 @@ operationType GUI::GetUseroperation() const
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
 			case ICON_SCRAMBLE: return SCRAMBLE;
-			//case ICON_PASTE: return PASTE;
-			//case ICON_DELETE: return DEL;
+			case ICON_UNDO: return UNDO;
+			case ICON_REDO: return REDO;
 			case ICON_SAVE: return SAVE;
 			case ICON_LOAD: return LOAD;
 			case ICON_SELECT: return SELECT;
