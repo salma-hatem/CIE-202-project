@@ -114,3 +114,7 @@ void Line::Hidding(GUI* pUI) {
 	}
 	else{}
 }
+string Line::shapename() {
+	string name = "line";
+	return name;
+}

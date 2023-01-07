@@ -17,13 +17,12 @@ private:
 	shape* selectedShape;	// vector for a single selected shape
 	vector <shape*> clipboard; //clipboard for copied shape
 	shape* rotatedShape;
-	vector <shape*> cardslist;
+	vector <shape*> selectedshapes;
+	vector <shape*> matchedshapes;
 public:										
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
-	void Addcard(shape* pShp);
-	shape* Getcardslist();
 	void AddToClipboard(shape* pFig); //add a pointer to the shape in the vector
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
@@ -33,6 +32,7 @@ public:
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void Load(ifstream& inputfile);	//Save all shapes to a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
+	void DeleteMatched();
 	shape* getSelectedShape();
 	bool getIsAllSaved() const;
 	void setselectedshape();
@@ -40,6 +40,8 @@ public:
 	void setshapeduphidded(int x, int y);
 	void Hide(GUI* pUI);
 	void UnHide(GUI* pUI);
-
+	vector <shape*> getmatched();
+	void Graph::addMatched(shape* s);
+	void Graph::clearMatched();
 	
 };

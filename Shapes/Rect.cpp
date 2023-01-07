@@ -127,3 +127,7 @@ void Rect::Hidding(GUI* pUI)  {
 	else {}
 
 }
+string Rect::shapename() {
+	string name = "rect";
+	return name;
+}

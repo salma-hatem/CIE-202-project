@@ -62,6 +62,7 @@ void Square::SetShapeSaved(bool s) {
 
 
 
+
 shape* Square::duplicate(shape* ptr)
 {
 	Square* PTR = (Square*)ptr;
@@ -99,4 +100,8 @@ void Square::Hidding(GUI* pUI) {
 	}
 	else {}
 
+}
+string Square::shapename() {
+	string name = "square";
+	return name;
 }

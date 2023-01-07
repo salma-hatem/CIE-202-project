@@ -158,3 +158,7 @@ void Triangle::Hidding(GUI* pUI) {
 	else {}
 
 }
+string Triangle::shapename() {
+	string name = "triangle";
+	return name;
+}

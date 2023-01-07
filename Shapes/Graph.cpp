@@ -6,15 +6,11 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
-	
-
-	
 }
 
 Graph::~Graph()
 {
 	selectedShape = nullptr;
-	
 }
 
 //==================================================================================//
@@ -36,14 +32,6 @@ void Graph::AddToClipboard(shape* pFig)
 shape* Graph::GetClipboard()
 {
 	return clipboard[0];
-}
-void Graph::Addcard(shape* pFig)
-{
-	cardslist.push_back(pFig);
-}
-shape* Graph::Getcardslist()
-{
-	return cardslist[0];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -127,16 +115,41 @@ shape* Graph::getSelectedShape()
 
 
 void Graph::Delete() {
-	int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
-	if (num != shapesList.end()) { //the selected shape is in the shapesList
-		 index = num - shapesList.begin(); //get the index of selectedshape
-	};
-	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[index]->SetAllSaved(false);
-	//shapesList.erase(shapesList.begin());
-	//switch the zero to the index of selected shape11
-	//make the shape's saved= false
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num = find(shapesList.begin(), shapesList.end(), getselectedshape());  //serach for selectedShape
+		if (num != shapesList.end()) { //the selected shape is in the shapesList
+			index = num - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+
+		}
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getselectedshape()), shapesList.end());//remove the selected shape from the shapesList*/
+		//shapesList.erase(shapesList.begin());
+		//switch the zero to the index of selected shape11
+		//make the shape's saved= false
+	}
+
+}
+void Graph::DeleteMatched() {
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num1 = find(shapesList.begin(), shapesList.end(), getmatched()[0]);  //serach for selectedShape
+		if (num1 != shapesList.end()) { //the selected shape is in the shapesList
+			index = num1 - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+		}
+		auto num2 = find(shapesList.begin(), shapesList.end(), getmatched()[1]);  //serach for selectedShape
+		if (num2 != shapesList.end()) { //the selected shape is in the shapesList
+			index = num2 - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+		}
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[0]), shapesList.end());//remove the selected shape from the shapesList*/
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[1]), shapesList.end());//remove the selected shape from the shapesList*/
+
+		//shapesList.erase(shapesList.begin());
+		//switch the zero to the index of selected shape11
+		//make the shape's saved= false
+	}
 
 }
 
@@ -178,13 +191,31 @@ void Graph::setshapeduphidded(int x, int y) {
 		{
 			shapePointer->sethidden(false);
 		}
+		
+		setshapeshidden();
 	}
 
 }
+
 void Graph::UnHide(GUI* pUI) {
 
 	for (auto shapePointer : shapesList) {
 		shapePointer->sethidden(false);
 	}
 	Draw(pUI);
+}
+
+void Graph::addMatched(shape* s)
+{
+	matchedshapes.push_back(s);
+}
+
+vector <shape*> Graph::getmatched()
+{
+	return matchedshapes;
+}
+
+void Graph::clearMatched()
+{
+	matchedshapes.clear();
 }

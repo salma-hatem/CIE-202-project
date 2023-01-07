@@ -120,3 +120,7 @@ void Circle::Hidding(GUI* pUI) {
 	else {}
 	
 }
+string Circle::shapename() {
+	string name = "circle";
+	return name;
+}

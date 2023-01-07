@@ -23,4 +23,5 @@ public:
 	void resize(double) override;
 	virtual void Rotate(GUI* pUI);
 	virtual void Hidding(GUI* pUI);
+	virtual string shapename();
 };

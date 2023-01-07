@@ -52,6 +52,6 @@ public:
 	virtual void Hidding(GUI* pUI)=0;
 	void sethidden(bool t);
 	bool gethidden();
-	//bool ishidden();
+	virtual string shapename() = 0;
 };
 

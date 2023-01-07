@@ -6,13 +6,6 @@ opHide::opHide(controller* pCont) :operation(pCont) {}
 
 opHide::~opHide() {}
 
-//void opHide::Execute() {
-//
-//	GUI* pUI = pControl->GetUI();
-//	Graph* pGr = pControl->getGraph();
-//
-//	pGr->Hide(pUI);
-//}
 void opHide::Execute()
 {
 	Point P1;
