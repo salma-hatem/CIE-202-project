@@ -21,11 +21,17 @@
 #include "operations\opResize.h"
 #include "operations\opRotate.h"
 #include "operations\opDuplicate.h"
+<<<<<<< HEAD
 #include "operations\opHide.h"
 #include "operations\opUnHide.h"
 #include "operations\opMatch.h"
 #include "operations\opStart.h"
 
+=======
+#include "operations\opScramble.h"
+#include "operations\opUndo.h"
+#include "operations\opRedo.h"
+>>>>>>> origin/salma
 
 //Constructor
 controller::controller()
@@ -116,6 +122,7 @@ operation* controller::createOperation(operationType OpType)
 		case ROTATE:
 			pOp = new opRotate(this);
 			break;
+<<<<<<< HEAD
 		case Hide:
 			pOp = new opHide(this);
 			break;
@@ -131,6 +138,18 @@ operation* controller::createOperation(operationType OpType)
 
 
 		//	break;
+=======
+		case SCRAMBLE:
+			pOp = new opScramble(this);
+			break;
+		case UNDO:
+			pOp = new opUndo(this);
+			break;
+		case REDO:
+			pOp = new opRedo(this);
+			break;
+			
+>>>>>>> origin/salma
 			
 	}
 	return pOp;

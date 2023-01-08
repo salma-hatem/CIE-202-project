@@ -11,7 +11,8 @@ protected:
 	int ID;		//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
 	bool AllSaved;
-	
+	int width;
+	int height;
 	/// Add more parameters if needed.
 
 public:
@@ -49,9 +50,17 @@ public:
 	virtual shape* duplicate(shape *)=0;
 	Point pointshift(Point p); //shifts the coordinates of the point
 	virtual void resize(double) = 0;
+<<<<<<< HEAD
 	virtual void Hidding(GUI* pUI)=0;
 	void sethidden(bool t);
 	bool gethidden();
 	virtual string shapename() = 0;
+=======
+	Point randPoint(); //generates coordinates of a random point
+	virtual void scrambleShape() = 0;
+	virtual void scrambleShape(Point,int,int) = 0;
+	virtual void calculateWH() = 0;
+	virtual double getfactor(int col,int row) = 0;
+>>>>>>> origin/salma
 };
 

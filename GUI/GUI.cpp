@@ -105,13 +105,13 @@ operationType GUI::GetUseroperation() const
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
-			//case ICON_COPY: return COPY;
-			//case ICON_PASTE: return PASTE;
-			//case ICON_DELETE: return DEL;
+			case ICON_STICK: return STICK;
+			case ICON_UNDO: return UNDO;
+			case ICON_REDO: return REDO;
 			case ICON_SAVE: return SAVE;
 			case ICON_LOAD: return LOAD;
 			case ICON_SELECT: return SELECT;
-			case ICON_DUPLICATE:return DUPL;
+			//case ICON_DUPLICATE:return DUPL;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;
 			//case ICON_UNDO:return ;
@@ -137,6 +137,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_RESIZE: return RESIZE;
 			case ICON_ROTATE: return ROTATE;
 			case ICON_PASTE: return PASTE;
+			case ICON_MOVE: return MOVE;
 			case ICON_DELETE: return DEL;
 			default: return EMPTY;
 			}
@@ -166,10 +167,14 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
+<<<<<<< HEAD
 			case ICON_START: return START;
 			case ICON_HIDE:return Hide;
 			case ICON_UNHIDE: return UnHide;
 			case ICON_MATCH: return Match;
+=======
+			case ICON_MATCH:return MATCH;
+>>>>>>> origin/salma
 			case ICON_EXIT_P: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -249,7 +254,12 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\Menu_SElect.jpg";
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
+<<<<<<< HEAD
 	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+=======
+	//MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\Menu_Stick.jpg";
+>>>>>>> origin/salma
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
@@ -277,10 +287,14 @@ void GUI::CreatePlayToolBar()
 	///TODO: write code to create Play mode menu
 	string MenuIconImages[PLAY_ICON_COUNT];
 	MenuIconImages[ICON_START] = "images\\MenuIcons\\Menu_Start.jpg";
+<<<<<<< HEAD
 	MenuIconImages[ICON_HIDE]= "images\\MenuIcons\\hide.jpg";
 	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
 	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
 	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\match.jpg";
+=======
+	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\Menu_Match.jpg";
+>>>>>>> origin/salma
 	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 
@@ -305,6 +319,8 @@ void GUI::CreateSideToolBar()
 	SideMenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_Resize.jpg";
 	SideMenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\Menu_Rotate.jpg";
 	SideMenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Delete.jpg";
+	SideMenuIconImages[ICON_MOVE] = "images\\MenuIcons\\Menu_Move.jpg";
+
 
 	for (int i = 0; i < SIDE_ICON_COUNT; i++)
 		pWind->DrawImage(SideMenuIconImages[i], 0, ToolBarHeight+SideMenuPosition+(i*SideMenuWidth), SideMenuWidth, SideMenuWidth);

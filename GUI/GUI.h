@@ -52,7 +52,11 @@ class GUI
 		ICON_UNDO,
 		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
+<<<<<<< HEAD
 		ICON_DUPLICATE,
+=======
+		ICON_STICK,
+>>>>>>> origin/salma
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
@@ -71,6 +75,7 @@ class GUI
 		ICON_PASTE,		//paste icon in menu
 		ICON_RESIZE,
 		ICON_ROTATE,
+		ICON_MOVE,
 		ICON_DELETE,	//Delete icon in menu
 		SIDE_ICON_COUNT
 	};
@@ -80,10 +85,14 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_START,
+<<<<<<< HEAD
 		ICON_HIDE,
 		ICON_UNHIDE,
 		ICON_MATCH,
 		ICON_SCRAMBLE,
+=======
+		ICON_MATCH,
+>>>>>>> origin/salma
 		ICON_EXIT_P,
 		//TODO: Add more icons names here
 

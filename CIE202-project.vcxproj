@@ -181,13 +181,19 @@
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opMatch.cpp" />
     <ClCompile Include="operations\opPaste.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opStart.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
+    <ClCompile Include="operations\opScramble.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="operations\opUnHide.cpp" />
+=======
+    <ClCompile Include="operations\opUndo.cpp" />
+>>>>>>> origin/salma
     <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
@@ -236,12 +242,18 @@
     <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="operations\opMatch.h" />
     <ClInclude Include="operations\opPaste.h" />
+    <ClInclude Include="operations\opRedo.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opSave.h" />
+    <ClInclude Include="operations\opScramble.h" />
     <ClInclude Include="operations\opSelect.h" />
     <ClInclude Include="operations\opStart.h" />
     <ClInclude Include="operations\opSwitch.h" />
+<<<<<<< HEAD
     <ClInclude Include="operations\opUnHide.h" />
+=======
+    <ClInclude Include="operations\opUndo.h" />
+>>>>>>> origin/salma
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
     <ClInclude Include="Shapes\Line.h" />

@@ -19,7 +19,14 @@ public:
 	shape* duplicate(shape*);
 	void resize(double) override;
 	virtual void Rotate(GUI* pUI);
+<<<<<<< HEAD
 	virtual void Hidding(GUI* pUI);
 	virtual string shapename();
+=======
+	void scrambleShape() override;
+	void scrambleShape(Point, int, int) override;
+	void calculateWH() override;
+	double getfactor(int col, int row) override;
+>>>>>>> origin/salma
 };
 

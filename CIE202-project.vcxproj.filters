@@ -64,10 +64,16 @@
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opDuplicate.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="operations\opHide.cpp" />
     <ClCompile Include="operations\opUnHide.cpp" />
     <ClCompile Include="operations\opStart.cpp" />
     <ClCompile Include="operations\opMatch.cpp" />
+=======
+    <ClCompile Include="operations\opScramble.cpp" />
+    <ClCompile Include="operations\opUndo.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
+>>>>>>> origin/salma
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -118,9 +124,15 @@
     <ClInclude Include="operations\opCopy.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opDuplicate.h" />
+<<<<<<< HEAD
     <ClInclude Include="operations\opHide.h" />
     <ClInclude Include="operations\opUnHide.h" />
     <ClInclude Include="operations\opStart.h" />
     <ClInclude Include="operations\opMatch.h" />
+=======
+    <ClInclude Include="operations\opScramble.h" />
+    <ClInclude Include="operations\opUndo.h" />
+    <ClInclude Include="operations\opRedo.h" />
+>>>>>>> origin/salma
   </ItemGroup>
 </Project>

@@ -54,4 +54,5 @@ void opAddCircle::Execute()
 	//Add the rectangle to the list of shapes
 	pGr->Addshape(R);
 
+	pGr->recordOperation(DRAW_CIRC);
 }
