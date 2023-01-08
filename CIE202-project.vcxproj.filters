@@ -68,6 +68,9 @@
     <ClCompile Include="operations\opUnHide.cpp" />
     <ClCompile Include="operations\opStart.cpp" />
     <ClCompile Include="operations\opMatch.cpp" />
+    <ClCompile Include="operations\opUndo.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
+    <ClCompile Include="operations\opScramble.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -122,5 +125,7 @@
     <ClInclude Include="operations\opUnHide.h" />
     <ClInclude Include="operations\opStart.h" />
     <ClInclude Include="operations\opMatch.h" />
+    <ClInclude Include="operations\opUndo.h" />
+    <ClInclude Include="operations\opRedo.h" />
   </ItemGroup>
 </Project>

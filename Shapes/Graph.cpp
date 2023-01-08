@@ -38,6 +38,10 @@ void Graph::AddToClipboard(shape* pFig)
 	//clipboard.clear();
 	clipboard.push_back(pFig);
 }
+void Graph::clearClipBoard()
+{
+	clipboard.clear();
+}
 shape* Graph::GetClipboard()
 {
 	return clipboard[0];

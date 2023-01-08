@@ -34,6 +34,7 @@ public:
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void AddToClipboard(shape* pFig); //add a pointer to the shape in the vector
+	void clearClipBoard();
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
@@ -56,7 +57,7 @@ public:
 	void setallduplicated(shape* s);
 	void scrambleGraph(); //scrambles the graph
 	void fillpositions(); //positions on the grid
-	void fitShp(shape*); 
+	 
 
 //	UNDO
 

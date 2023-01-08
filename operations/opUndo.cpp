@@ -11,7 +11,7 @@ opUndo::~opUndo()
 //Execute the operation
 void opUndo::Execute()
 {
-  //Get a pointer to the graph
+	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 	if (!pGr->emptyHistory())
 	{

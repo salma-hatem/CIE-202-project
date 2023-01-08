@@ -115,13 +115,11 @@ void Circle::Hidding(GUI* pUI) {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2*radius, 2*radius);
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2 * radius, 2 * radius);
 	}
-	else if (getcurrenthidden() == false && getprevhidden() == true) {
-		Sleep(3000);
+	else {
 		pUI->DrawCircle(point1, point2, ShpGfxInfo);
 	}
-	prevhidden(getcurrenthidden());
 	
 }
 string Circle::shapename() {
@@ -129,7 +127,7 @@ string Circle::shapename() {
 	return name;
 }
 
-}
+
 
 void Circle::scrambleShape()
 {

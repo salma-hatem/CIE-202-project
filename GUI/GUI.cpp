@@ -170,7 +170,6 @@ operationType GUI::GetUseroperation() const
 			case ICON_START: return START;
 			case ICON_HIDE:return Hide;
 			case ICON_UNHIDE: return UnHide;
-			case ICON_MATCH: return Match;
 			case ICON_MATCH:return MATCH;
 			case ICON_EXIT_P: return EXIT;
 

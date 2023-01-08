@@ -25,7 +25,6 @@
 #include "operations\opUnHide.h"
 #include "operations\opMatch.h"
 #include "operations\opStart.h"
-
 #include "operations\opScramble.h"
 #include "operations\opUndo.h"
 #include "operations\opRedo.h"
@@ -72,14 +71,16 @@ operation* controller::createOperation(operationType OpType)
 			///create AddTriangleoperation here
 			pOp = new opAddTriangle(this);
 			break;
+
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
+
 		case SAVE:
 			pOp = new opSave(this);
 			break;
 
-		case LOAD: 
+		case LOAD: break;
 			//pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
@@ -125,24 +126,25 @@ operation* controller::createOperation(operationType OpType)
 		case UnHide:
 			pOp = new opUnHide(this);
 			break;
-		case Match:
+		case MATCH:
 			pOp = new opMatch(this);
 			break;
 		case START:
 			pOp = new opStart(this);
 			break;
 
-
-		//	break;
-		case SCRAMBLE:
-			pOp = new opScramble(this);
-			break;
 		case UNDO:
 			pOp = new opUndo(this);
 			break;
+
 		case REDO:
 			pOp = new opRedo(this);
 			break;
+			
+		case SCRAMBLE:
+			pOp = new opScramble(this);
+			break;
+
 			
 			
 	}

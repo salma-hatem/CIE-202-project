@@ -203,7 +203,7 @@ double Rect::getfactor(int col, int row)
 	if (f1 < f2) return f1;
 	else return f2;
 }
-}
+
 void Rect::Hidding(GUI* pUI)  {
 	Point newpoint;
 	if (Corner1.x > Corner2.x) {

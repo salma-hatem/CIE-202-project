@@ -11,7 +11,7 @@ opRedo::~opRedo()
 //Execute the operation
 void opRedo::Execute()
 {
-  //Get a pointer to the graph
+	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 	if (!pGr->emptyUndoHistory())
 	{

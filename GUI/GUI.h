@@ -87,7 +87,6 @@ class GUI
 		ICON_UNHIDE,
 		ICON_MATCH,
 		ICON_SCRAMBLE,
-		ICON_MATCH,
 		ICON_EXIT_P,
 		//TODO: Add more icons names here
 

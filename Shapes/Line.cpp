@@ -120,7 +120,7 @@ string Line::shapename() {
 	string name = "line";
 	return name;
 }
-}
+
 
 void Line::scrambleShape()
 {

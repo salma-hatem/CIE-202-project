@@ -59,7 +59,7 @@ Point shape::randPoint()
 	c++;
 	return p;
 }
-}
+
 
 void shape::currenthidden(bool t) {
 		ShpGfxInfo.isHidden = t;

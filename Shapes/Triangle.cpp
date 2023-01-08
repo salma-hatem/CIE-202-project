@@ -247,8 +247,6 @@ double Triangle::getfactor(int col, int row)
 	if (f1 < f2) return f1;
 	else return f2;
 }
-	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
-}
 void Triangle::Hidding(GUI* pUI) {
 
 	Point newpoint;

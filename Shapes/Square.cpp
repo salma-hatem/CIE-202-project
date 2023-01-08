@@ -173,7 +173,7 @@ double Square::getfactor(int col, int row)
 	if (f1 < f2) return f1;
 	else return f2;
 }
-}
+
 string Square::shapename() {
 	string name = "square";
 	return name;
