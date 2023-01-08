@@ -52,8 +52,10 @@ public:
 	virtual void resize(double) = 0;
 <<<<<<< HEAD
 	virtual void Hidding(GUI* pUI)=0;
-	void sethidden(bool t);
-	bool gethidden();
+	void currenthidden(bool t);
+	bool getcurrenthidden();
+	void prevhidden(bool t);
+	bool getprevhidden();
 	virtual string shapename() = 0;
 =======
 	Point randPoint(); //generates coordinates of a random point

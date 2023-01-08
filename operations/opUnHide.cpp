@@ -14,6 +14,13 @@ void opUnHide::Execute() {
 	Graph* pGr = pControl->getGraph();
 	pUI->GetPointClicked(P1.x, P1.y);
 	pGr->setshapeduphidded(P1.x, P1.y);
+	pUI->ClearDrawArea();
+	pGr->Draw(pUI);
+	Sleep(1000);
+	pGr->setshapeshidden();
+	
+	//Sleep(3000);
+	//pGr->setshapeshidden();
 	
 }
 

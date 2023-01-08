@@ -66,7 +66,7 @@ string Circle::shapeInfo()
 	center.x = abs(point1.x - point2.x) / 2;
 	center.y = abs(point1.y - point2.y) / 2;
 
-	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the circle is " + to_string(area) ;
 	return text;
 }
 
@@ -113,12 +113,16 @@ void Circle::Hidding(GUI* pUI) {
 	newpoint1.y = point1.y - radius;
 	
 	//Call Output::DrawCircle to draw a circle on the screen	
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2*radius, 2*radius);
 	}
-	else {}
+	else if (getcurrenthidden() == false && getprevhidden() == true) {
+		Sleep(3000);
+		pUI->DrawCircle(point1, point2, ShpGfxInfo);
+	}
+	prevhidden(getcurrenthidden());
 	
 }
 string Circle::shapename() {

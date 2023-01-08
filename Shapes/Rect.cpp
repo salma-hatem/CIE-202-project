@@ -59,7 +59,7 @@ string Rect::shapeInfo()
 	center.x = abs(Corner1.x - Corner2.x) / 2;
 	center.y = abs(Corner1.y - Corner2.y) / 2;
 
-	text = "Area of the recrangle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the recrangle is " + to_string(area);
 	return text;
 }
 
@@ -120,13 +120,14 @@ void Rect::Hidding(GUI* pUI)  {
 	double width, height;
 	width = abs(Corner1.x - Corner2.x);
 	height = abs(Corner1.y - Corner2.y);
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x,newpoint.y, width, height);
 	}
-	else {}
-
+	else {
+		pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+	}
 }
 string Rect::shapename() {
 	string name = "rect";

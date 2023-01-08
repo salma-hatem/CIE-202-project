@@ -44,13 +44,19 @@ Point shape::pointshift(Point p)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void shape::sethidden(bool t) {
 	
 	ShpGfxInfo.isHidden = t;
+=======
+void shape::currenthidden(bool t) {
+		ShpGfxInfo.isHidden = t;
+>>>>>>> d22ddba5cca426ecc4e0c030bafc2e297120ab18
 }
-bool shape::gethidden() {
+bool shape::getcurrenthidden() {
 	return ShpGfxInfo.isHidden;
 }
+<<<<<<< HEAD
 //bool shape::ishidden() {
 //	return false;
 //}
@@ -72,3 +78,11 @@ Point shape::randPoint()
 	return p;
 }
 >>>>>>> origin/salma
+=======
+void shape::prevhidden(bool t) {
+	ShpGfxInfo.isunhidden = t;
+}
+bool shape::getprevhidden() {
+	return ShpGfxInfo.isunhidden;
+}
+>>>>>>> d22ddba5cca426ecc4e0c030bafc2e297120ab18

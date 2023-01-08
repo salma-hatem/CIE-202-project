@@ -53,7 +53,7 @@ string Square::shapeInfo()
 	center.x = abs(Corner1.x - Corner2.x) / 2;
 	center.y = abs(Corner1.y - Corner2.y) / 2;
 
-	text = "Area of the square is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the square is " + to_string(area) ;
 	return text;
 }
 void Square::SetShapeSaved(bool s) {
@@ -94,12 +94,14 @@ void Square::Rotate(GUI* pUI)  {
 void Square::Hidding(GUI* pUI) {
 	
 	double length = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x, Corner1.y,length, length);
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x,Corner1.y, length, length);
 	}
-	else {}
+	else {
+		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	}
 
 }
 string Square::shapename() {

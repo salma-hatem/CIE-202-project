@@ -57,7 +57,7 @@ string Triangle::shapeInfo()
 	string text;
 	double triangle_area = trianglearea(point1.x, point2.x, point3.x, point1.y, point2.y, point3.y);
 	
-	text = "Area of the recrangle is " + to_string(triangle_area);
+	text = "Area of the Triangle is " + to_string(triangle_area);
 	return text;
 }
 void Triangle::SetShapeSaved(bool s) {
@@ -153,10 +153,14 @@ void Triangle::Hidding(GUI* pUI) {
 		height = abs(point1.y - point3.y);
 
 
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
+
+		// call the function that draw an image on the circle
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, width, height);
 	}
-	else {}
+	else {
+		pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
+	}
 
 }
 string Triangle::shapename() {

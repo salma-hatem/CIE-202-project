@@ -1,8 +1,15 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
+<<<<<<< HEAD
 #include <iostream>
 #include <vector>
 #include <algorithm>
+=======
+#include<Windows.h>
+#include <iostream>
+#include<dos.h>
+using namespace std;
+>>>>>>> d22ddba5cca426ecc4e0c030bafc2e297120ab18
 
 Graph::Graph()
 {
@@ -37,7 +44,7 @@ void Graph::Addshape(shape* pShp)
 
 void Graph::AddToClipboard(shape* pFig)
 {
-	clipboard.clear();
+	//clipboard.clear();
 	clipboard.push_back(pFig);
 }
 shape* Graph::GetClipboard()
@@ -59,29 +66,22 @@ shape* Graph::getselectedshape()const {
 	return selectedShape;
 }
 
-shape* Graph::Getshape(int x, int y) 
+shape* Graph::Getshape(int x, int y)
 {
 	//If a shape is found return a pointer to it.
 	//if this point (x,y) does not belong to any shape return NULL
-	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer)
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
 		if ((*shapePointer)->point_included(x, y))
 		{
 			selectedShape = (*shapePointer);
 			return selectedShape;
-		
 		}
-		return nullptr;
+		
 	}
-//shape* Graph::getrotatedshape(int x, int y) {
-//	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
-//		if ((*shapePointer)->point_included(x, y))
-//		{
-//			rotatedShape = (*shapePointer);
-//			return rotatedShape;
-//		}
-//	}
-//	return nullptr;
-//}
+	
+	return nullptr;
+}
+
 
 void Graph::UnselectAll()
 {
@@ -119,11 +119,6 @@ void Graph::Save(ofstream& outfile)
 	//Loop through the selected shape vector and call the save function in each shape
 }
 
-shape* Graph::getSelectedShape() 
-{
-	return selectedShape;
-}
-
 
 void Graph::Delete() {
 	if (!shapesList.empty()) {
@@ -157,9 +152,7 @@ void Graph::DeleteMatched() {
 		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[0]), shapesList.end());//remove the selected shape from the shapesList*/
 		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[1]), shapesList.end());//remove the selected shape from the shapesList*/
 
-		//shapesList.erase(shapesList.begin());
-		//switch the zero to the index of selected shape11
-		//make the shape's saved= false
+	
 	}
 
 }
@@ -182,6 +175,7 @@ void Graph::setselectedshape()
 	}
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 //void Graph::Hide(GUI* pUI) {
 //	pUI->getwind()->DrawString(20,20, "ssss");
 //	for (auto shapePointer : shapesList) {
@@ -190,32 +184,27 @@ void Graph::setselectedshape()
 //	}
 //	Draw(pUI);
 //}
+=======
+
+>>>>>>> d22ddba5cca426ecc4e0c030bafc2e297120ab18
 
 void Graph::setshapeshidden() {
 	for (auto shapePointer : shapesList) {
-		shapePointer->sethidden(true);
-	
+		shapePointer->currenthidden(true);
 	}
 }
 void Graph::setshapeduphidded(int x, int y) {
-	for (auto shapePointer : shapesList) {
-		if (shapePointer->point_included(x, y))
-		{
-			shapePointer->sethidden(false);
+
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
+		if ((*shapePointer)->point_included(x, y)) {
+			(*shapePointer)->currenthidden(false);
+			(*shapePointer)->prevhidden(true);
+			
 		}
 		
-		
 	}
-
 }
 
-/*void Graph::UnHide(GUI* pUI) {
-
-	for (auto shapePointer : shapesList) {
-		shapePointer->sethidden(false);
-	}
-	Draw(pUI);
-}*/
 
 void Graph::addMatched(shape* s)
 {
@@ -232,13 +221,16 @@ void Graph::clearMatched()
 	matchedshapes.clear();
 }
 void Graph::Addscore() {
-	static int score1 = 0;
-	score1 += 1;
-	ptr = &score1;
+	score += 3;
+}
+void Graph::Subtractscore() {
+	score -= 1;
+	
 }
 int Graph::getscore() {
-	return *ptr;
+	return score;
 }
+<<<<<<< HEAD
 
 =======
 /*
@@ -361,3 +353,16 @@ void Graph::deleteFromUndoHistory()
 	undoHistory.pop_back();
 }
 >>>>>>> origin/salma
+=======
+void Graph::setallduplicated(shape* s) {
+	for (auto shapePointer : shapesList) {
+		AddToClipboard(shapePointer);
+		
+	}
+	for (auto clip : clipboard) {
+		shape* newshp = clip->duplicate(clip);
+		Addshape(newshp);
+	}
+	
+}
+>>>>>>> d22ddba5cca426ecc4e0c030bafc2e297120ab18
