@@ -51,7 +51,7 @@ public:
 	void deleteLastShp(); //deletes last shape in the shape vector
 	void deleteFromHistory();
 
-	//	REDO
+//	REDO
 
 	bool emptyUndoHistory(); //checks if the user undo any operations
 	operationType lastUndoOperation() const;
