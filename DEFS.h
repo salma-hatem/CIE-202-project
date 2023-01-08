@@ -25,6 +25,8 @@ enum operationType //The operations supported (you can add more if needed)
 	START,
 	UnHide,			//UnHide a shape(s)
 	Match,
+	SCRAMBLE,       //scrambles graph
+	STICK,			//sticks image
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file
@@ -33,6 +35,9 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
+	MATCH,
+	UNDO,
+	REDO,
 
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode

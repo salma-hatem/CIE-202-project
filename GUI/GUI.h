@@ -54,6 +54,7 @@ class GUI
 		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
 		ICON_DUPLICATE,
+		ICON_STICK,
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
@@ -72,6 +73,7 @@ class GUI
 		ICON_PASTE,		//paste icon in menu
 		ICON_RESIZE,
 		ICON_ROTATE,
+		ICON_MOVE,
 		ICON_DELETE,	//Delete icon in menu
 		SIDE_ICON_COUNT
 	};

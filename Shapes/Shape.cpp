@@ -1,4 +1,5 @@
 #include "shape.h"
+#include <time.h>
 
 shape::shape(GfxInfo shapeGfxInfo)
 {  
@@ -41,6 +42,24 @@ Point shape::pointshift(Point p)
 	p.x += 20;p.y += 20;
 	return p;
 }
+
+
+Point shape::randPoint()
+{
+	srand(time(0));
+	int randNumX[100];
+	for (int i = 0; i < 100;i++) randNumX[i] = rand() % 900 + 150;
+	int randNumY[100];
+	for (int i = 0; i < 100;i++) randNumY[i] = rand() % 300 + 150;
+	static int c=0;
+	int xrand = randNumX[c];
+	int yrand = randNumY[c];
+	Point p;
+	p.x = xrand; p.y = yrand;
+	c++;
+	return p;
+}
+
 
 void shape::currenthidden(bool t) {
 		ShpGfxInfo.isHidden = t;

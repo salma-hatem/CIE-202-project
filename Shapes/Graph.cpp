@@ -1,5 +1,8 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
 #include<Windows.h>
 #include <iostream>
 #include<dos.h>
@@ -8,11 +11,15 @@ using namespace std;
 Graph::Graph()
 {
 	selectedShape = nullptr;
+	rotatedShape = nullptr;
+
+	
 }
 
 Graph::~Graph()
 {
 	selectedShape = nullptr;
+	rotatedShape = nullptr;
 }
 
 //==================================================================================//
@@ -30,6 +37,10 @@ void Graph::AddToClipboard(shape* pFig)
 {
 	//clipboard.clear();
 	clipboard.push_back(pFig);
+}
+void Graph::clearClipBoard()
+{
+	clipboard.clear();
 }
 shape* Graph::GetClipboard()
 {
@@ -157,6 +168,125 @@ void Graph::setselectedshape()
 	{
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
+}
+/*
+void Graph::scrambleGraph()
+{
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		shapesList[i]->scrambleShape();
+	}
+}*/
+
+void Graph::scrambleGraph()
+{
+	fillpositions();
+	double factor = 1;
+	Point position;
+	std::random_shuffle(shapesList.begin(), shapesList.end());
+	for (int i = 0; i < shapesList.size();i++)
+	{
+		shapesList[i]->calculateWH();
+		factor = shapesList[i]->getfactor(col, row-20);
+		shapesList[i]->resize(factor);
+		position.x = shapePositions[i].x + 10;
+		position.y = shapePositions[i].y + 10;
+		shapesList[i]->scrambleShape(position,col,row);
+	}
+}
+
+void Graph::fillpositions()
+{
+	col = 1000 / (shapesList.size()/2);
+	int c = 0;
+	Point p;
+	for (int i = 0;i < shapesList.size();i++)
+	{
+		/*if (c == shapesList.size() / 2) c = 0;
+		shapePositionsx.push_back(100+10+(col+10)*(c));
+		c++;
+		int y = 100 + 10 + 250 * (i / (shapesList.size() / 2));
+		shapePositionsy.push_back(100 + 10 + 250 * (i / (shapesList.size() / 2)));*/
+		if (c == shapesList.size() / 2) c = 0;
+		p.x=100 + 10 + (col + 10) * (c);
+		c++;
+		p.y =100 + 10 + 250 * (i / (shapesList.size() / 2));
+		shapePositions.push_back(p);
+	}
+}
+
+
+//////////////////////////////////////////
+//					UNDO				//
+//////////////////////////////////////////
+
+
+bool Graph::emptyHistory()
+{
+	//int x = operationHistory.size();
+	if (operationHistory.size() == 0) return true;
+	else return false;
+}
+
+operationType Graph::lastOperation() const
+{
+	return operationHistory[operationHistory.size()-1];
+}
+
+void Graph::recordOperation(operationType x)
+{
+	operationHistory.push_back(x);
+}
+
+void Graph::deleteLastShp()
+{
+	//deletedShp.push_back(shapesList[shapesList.size() - 1]);
+	shapesList.pop_back();
+}
+void Graph::deleteFromHistory()
+{
+	operationHistory.pop_back();
+}
+
+//////////////////////////////////////////
+//					REDO				//
+//////////////////////////////////////////
+
+bool Graph::emptyUndoHistory()
+{
+	//int x = undoHistory.size();
+	if (undoHistory.size() == 0) return true;
+	else return false;
+}
+
+operationType Graph::lastUndoOperation() const
+{
+	return undoHistory[undoHistory.size() - 1];
+}
+
+void Graph::recordUndo(operationType x)
+{
+	undoHistory.push_back(x);
+}
+
+void Graph::recordDeltedShp()
+{
+	deletedShp.push_back(shapesList[shapesList.size() - 1]);
+}
+
+shape* Graph::getLastDeletedShp() const
+{
+	return deletedShp[deletedShp.size() - 1];
+}
+
+void Graph::deleteLastDeletedShp()
+{
+	deletedShp.pop_back();
+}
+
+void Graph::deleteFromUndoHistory()
+{
+	undoHistory.pop_back();
 }
 
 
