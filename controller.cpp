@@ -28,6 +28,7 @@
 #include "operations\opScramble.h"
 #include "operations\opUndo.h"
 #include "operations\opRedo.h"
+#include "operations\opMove.h"
 
 //Constructor
 controller::controller()
@@ -144,7 +145,9 @@ operation* controller::createOperation(operationType OpType)
 		case SCRAMBLE:
 			pOp = new opScramble(this);
 			break;
-
+		case MOVE:
+			pOp = new opMove(this);
+			break;
 			
 			
 	}

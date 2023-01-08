@@ -13,6 +13,7 @@ void opUndo::Execute()
 {
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
+
 	if (!pGr->emptyHistory())
 	{
 		operationType lastOp = pGr->lastOperation();
@@ -21,10 +22,18 @@ void opUndo::Execute()
 			pGr->recordDeltedShp();
 			pGr->deleteLastShp();
 		}
+
+		if (lastOp == DELETE) {
+			pGr->Addshape(pGr->getLastDeletedShp());
+			pGr->deleteLastDeletedShp();
+		}
+		if (lastOp == MOVE) {
+			pGr->selectLastSelectedShape();
+			pGr->unMove();
+			pControl->UpdateInterface();
+		}
 		pGr->recordUndo(lastOp);
 		pGr->deleteFromHistory();
 	}
-
-	pGr = nullptr;
 
 }

@@ -105,7 +105,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_FILL: return CHNG_FILL_CLR;
-			//case ICON_STICK: return STICK;
+			//case ICON_MOVE: return MOVE;
 			case ICON_UNDO: return UNDO;
 			case ICON_REDO: return REDO;
 			case ICON_SAVE: return SAVE;
@@ -806,6 +806,72 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircleGfxInfo) const {
 //{
 //	FillColor = pickedColor;
 //}
+
+
+void GUI::setCrntDrawColor(string draw_color) {
+	if (draw_color == "RED") {
+		DrawColor = RED;
+	}
+	else if (draw_color == "GREEN") {
+		DrawColor = GREEN;
+	}
+	else if (draw_color == "YELLOW") {
+		DrawColor = YELLOW;
+	}
+	else if (draw_color == "ORANGE") {
+		DrawColor = ORANGE;
+	}
+	else if (draw_color == "PLUM") {
+		DrawColor = PLUM;
+	}
+	else if (draw_color == "LIGHTBLUE") {
+		DrawColor = LIGHTBLUE;
+	}
+	else if (draw_color == "WHITE") {
+		DrawColor = WHITE;
+	}
+	else if (draw_color == "BLACK") {
+		DrawColor = BLACK;
+	}
+	else {
+		DrawColor = ROYALBLUE;
+	}
+
+
+}
+void GUI::setCrntFillColor(string fill_color) {
+	if (fill_color == "RED") {
+		FillColor = RED;
+	}
+	else if (fill_color == "GREEN") {
+		FillColor = GREEN;
+	}
+	else if (fill_color == "YELLOW") {
+		FillColor = YELLOW;
+	}
+	else if (fill_color == "ORANGE") {
+		FillColor = ORANGE;
+	}
+	else if (fill_color == "PLUM") {
+		FillColor = PLUM;
+	}
+	else if (fill_color == "LIGHTBLUE") {
+		FillColor = LIGHTBLUE;
+	}
+	else if (fill_color == "WHITE") {
+		FillColor = WHITE;
+	}
+	else if (fill_color == "BLACK") {
+		FillColor = BLACK;
+	}
+	else {
+		FillColor = ROYALBLUE;
+	}
+}
+void GUI::setPenWidth(string width) {
+	PenWidth = stoi(width);
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

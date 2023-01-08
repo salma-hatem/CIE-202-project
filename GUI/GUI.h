@@ -168,6 +168,8 @@ public:
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
+	
+	void setPenWidth(string width);
 
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
@@ -177,6 +179,9 @@ public:
 	void switchToPlay(); //switches the play mode
 	void changePenColor(color pickedColor); //changes pen color to picked color
 	void changeFillColor(color pickedColor); //changes fill color to picked color
+
+	void setCrntDrawColor(string draw_color);
+	void setCrntFillColor(string fill_color);
 
 //	string getDrawclr() const ; //gets a string according to draw color
 	//string getFillclr() const ; //gets a string according to fill color

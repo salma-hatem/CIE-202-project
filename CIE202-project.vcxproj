@@ -180,6 +180,7 @@
     <ClCompile Include="operations\opHide.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opMatch.cpp" />
+    <ClCompile Include="operations\opMove.cpp" />
     <ClCompile Include="operations\opPaste.cpp" />
     <ClCompile Include="operations\opRedo.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="operations\opHide.h" />
     <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="operations\opMatch.h" />
+    <ClInclude Include="operations\opMove.h" />
     <ClInclude Include="operations\opPaste.h" />
     <ClInclude Include="operations\opRedo.h" />
     <ClInclude Include="operations\opResize.h" />

@@ -4,9 +4,15 @@
 class Rect : public shape
 {
 private:
-	Point Corner1;	
+	Point Corner1;
 	Point Corner2;
 	bool Saved;
+	Point Corner3;
+	Point OG_Corner1;
+	Point OG_Corner2;
+	Point OG_Corner3;
+	double l;
+	double w;
 public:
 	Rect(Point , Point, GfxInfo shapeGfxInfo );
 	virtual ~Rect();
@@ -25,5 +31,7 @@ public:
 	double getfactor(int col, int row) override;
 	virtual void Hidding(GUI* pUI);
 	virtual string shapename();
+	virtual void Move(int& x, int& y);
+	virtual void UnMove();
 };
 

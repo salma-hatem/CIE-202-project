@@ -24,6 +24,7 @@ private:
 	int col; int row = 250;								
 	vector <shape*> selectedshapes;
 	vector <shape*> matchedshapes;
+	vector<shape*> SelectedShapes;
 	int score = 0;
 	
 	
@@ -57,6 +58,9 @@ public:
 	void scrambleGraph(); //scrambles the graph
 	void fillpositions(); //positions on the grid
 	bool shapeslist();
+	void unMove();
+	void Move_graph(Point& position);
+	//void setselectedshape();
 
 //	UNDO
 
@@ -72,7 +76,10 @@ public:
 	operationType lastUndoOperation() const;
 	void recordUndo(operationType); //adds operation to undoHistory
 	void recordDeltedShp(); //saves a pointer to the deleted shape in deletedShp
-	shape* getLastDeletedShp() const; //returns last element in deletedShp
+	shape* getLastDeletedShp(); //returns last element in deletedShp
 	void deleteLastDeletedShp();
 	void deleteFromUndoHistory();
+	void selectLastDeletedShape();
+	void selectLastSelectedShape();
+	shape* getLastSelectedShape();
 };

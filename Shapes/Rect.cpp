@@ -5,6 +5,14 @@ Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 	Corner1 = P1;
 	Corner2 = P2;
 	Saved = false;
+	OG_Corner1 = P1;
+	OG_Corner2 = P2;
+	OG_Corner3.x = P1.x;
+	OG_Corner3.y = P2.y;
+	Corner3.x = Corner1.x;
+	Corner3.y = Corner2.y;
+	l = sqrt(pow((Corner3.x - Corner2.x), 2) + pow(Corner3.y - Corner2.y, 2));
+	w = sqrt(pow((Corner3.x - Corner1.x), 2) + pow(Corner3.y - Corner1.y, 2));
 }
 
 Rect::~Rect()
@@ -20,7 +28,7 @@ void Rect::Save(ofstream& outfile) {
 	string fill = ShpGfxInfo.FillClr_s;
 	int pen_Width = ShpGfxInfo.BorderWdth;
 
-	outfile << "Rect " << "ID " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	outfile << "Rect " << "ID" << " " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
 	outfile << draw << " " << fill << " " << pen_Width << endl;
 
 	SetShapeSaved(true);
@@ -233,4 +241,67 @@ void Rect::Hidding(GUI* pUI)  {
 string Rect::shapename() {
 	string name = "rect";
 	return name;
+}
+
+
+void Rect::UnMove() {
+
+	//pUI->DrawCircle(OG_point1, OG_point2, ShpGfxInfo);
+	Corner1.x = OG_Corner1.x;
+	Corner1.y = OG_Corner1.y;
+	Corner2.x = OG_Corner2.x;
+	Corner2.y = OG_Corner2.y;
+
+	Corner3.x = OG_Corner3.x;
+	Corner3.y = OG_Corner3.y;
+
+
+}
+
+void Rect::Move(int& x, int& y) {
+
+	int change_x, change_y;
+
+
+	change_x = x - Corner1.x;
+	change_y = y - Corner1.y;
+
+
+
+
+	Corner1.x = Corner1.x + change_x;
+	Corner1.y = Corner1.y + change_y;
+
+	Corner2.x = Corner2.x + change_x;
+	Corner2.y = Corner2.y + change_y;
+
+	/*
+	 Corner3.x = Corner1.x;
+	 Corner3.y = Corner2.y;
+	 double l = sqrt(pow((Corner3.x - Corner2.x), 2) + pow(Corner3.y - Corner2.y, 2));
+	 double w = sqrt(pow((Corner3.x - Corner1.x), 2) + pow(Corner3.y - Corner1.y, 2));*/
+	 /* int point_2_x, point_2_y;
+	  double r= sqrt(pow((Corner1.x - x), 2) + pow(Corner1.y -y, 2));
+	  double sin_theta = (Corner1.y - y) / r;
+	  double cos_theta = (Corner1.x - x) / r;
+	  point_2_x = Corner2.x;
+	  point_2_y = Corner2.y;*/
+	  //resize by drag
+	  /*int change_x, change_y;
+
+	  change_x = x - Corner1.x;
+	  change_y = y - Corner1.y;
+	  int point_2_x, point_2_y;
+
+	  point_2_x = Corner2.x;
+	  point_2_y = Corner2.y;
+
+
+	  Corner1.x = x;
+	  Corner1.y = y;
+	  Corner2.x = point_2_x -change_x;
+	  Corner2.y =point_2_y- change_y;*/
+
+	  //Corner2.x = point_2_x - (r * cos_theta);
+	  //Corner2.y = point_2_y - (r * sin_theta);
 }

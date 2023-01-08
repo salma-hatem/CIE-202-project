@@ -23,11 +23,11 @@ double Triangle::trianglearea(int x1, int x2, int x3, int y1, int y2, int y3) {
 }
 
 void Triangle::Save(ofstream& outfile) {
-	//char info[100];
+
 	string draw = ShpGfxInfo.DrawClr_s;
 	string fill = ShpGfxInfo.FillClr_s;
 	int pen_Width = ShpGfxInfo.BorderWdth;
-	outfile << "TRI " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
+	outfile << "TRI " << "ID" << " " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " " << point3.x << " " << point3.y << " ";
 
 	outfile << draw << " " << fill << " " << pen_Width << endl;
 
@@ -300,4 +300,32 @@ void Triangle::Hidding(GUI* pUI) {
 string Triangle::shapename() {
 	string name = "triangle";
 	return name;
+}
+
+void Triangle::Move(int& x, int& y) {
+
+	int change_x, change_y;
+	change_x = x - point1.x;
+	change_y = y - point1.y;
+
+	point1.x = point1.x + change_x;
+	point1.y = point1.y + change_y;
+
+	point2.x = point2.x + change_x;
+	point2.y = point2.y + change_y;
+
+	point3.x = point3.x + change_x;
+	point3.y = point3.y + change_y;
+}
+void Triangle::UnMove() {
+
+	//pUI->DrawCircle(OG_point1, OG_point2, ShpGfxInfo);
+	point1.x = OG_point1.x;
+	point1.y = OG_point1.y;
+	point2.x = OG_point2.x;
+	point2.y = OG_point2.y;
+	point3.x = OG_point3.x;
+	point3.y = OG_point3.y;
+
+
 }

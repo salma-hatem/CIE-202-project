@@ -7,6 +7,9 @@ private:
 	Point point1;
 	Point point2;
 	Point point3;
+	Point OG_point1;
+	Point OG_point2;
+	Point OG_point3;
 	bool Saved;
 public:
 	Triangle(Point, Point,Point, GfxInfo shapeGfxInfo);
@@ -27,6 +30,8 @@ public:
 	double getfactor(int col, int row) override;
 	virtual void Hidding(GUI* pUI);
 	virtual string shapename();
+	virtual void Move(int& x, int& y);
+	virtual void UnMove();
 
 };
 

@@ -89,31 +89,22 @@ void Graph::UnselectAll()
 //return nullptr;
 
 
-void Graph::Save(ofstream& outfile)
-{
-	//CREATE A NEW FILE //ASK THE TA IF YOU CREATE A NEW FILE OR IS IT THE SAME FILE
+void Graph::Save(ofstream& outfile) {
+
 
 	//GET THE SHAPES LIST 
 	//LOOP THROUGH THE ELEMENTS
 
 	shapesList[0]->InitializeAllSaved();
-	outfile << "Draw color " << " fill color " << &GUI::getCrntPenWidth << " " << shapesList.size() << endl;
+
 	for (int i = 0;i < shapesList.size();i++) {
 		shapesList[i]->Save(outfile);
 
 
-		//if (!shapesList[i]->IsAllSaved()) { //if there's a shape that isn't saved
-
-			//GUI*->
-		//}
-
 	}
 
-	//delete pOi;
-	//pOi = nullptr;
-	//Loop through the selected shape vector and call the save function in each shape
-}
 
+}
 
 void Graph::Delete() {
 	if (!shapesList.empty()) {
@@ -127,10 +118,46 @@ void Graph::Delete() {
 		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getselectedshape()), shapesList.end());//remove the selected shape from the shapesList*/
 		//shapesList.erase(shapesList.begin());
 		//switch the zero to the index of selected shape11
-		//make the shape's saved= false
+			//make the shape's saved= false
+
+
 	}
+}
+
+void Graph::Load(ifstream& inputfile) {
+
+	//slice the file into lines and each line into an array of wo crds
+	//if statement to know which shape it is
+	//create the shapes with the same parameters 
+	//append these shapes into shapeslist
+
 
 }
+
+
+
+void Graph::Move_graph(Point& position) {
+
+	/*Point final_change;
+
+	final_change.x = changed.x - initial.x;
+	final_change.y = changed.y - initial.y;*/
+
+	int x = position.x;
+	int y = position.y;
+
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num = find(shapesList.begin(), shapesList.end(), getselectedshape());  //serach for selectedShape
+		if (num != shapesList.end()) { //the selected shape is in the shapesList
+			index = num - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->Move(x, y);
+
+		}
+
+	}
+}
+
 void Graph::DeleteMatched() {
 	if (!shapesList.empty()) {
 		int index = 0;
@@ -274,7 +301,7 @@ void Graph::recordDeltedShp()
 	deletedShp.push_back(shapesList[shapesList.size() - 1]);
 }
 
-shape* Graph::getLastDeletedShp() const
+shape* Graph::getLastDeletedShp()
 {
 	return deletedShp[deletedShp.size() - 1];
 }
@@ -287,6 +314,31 @@ void Graph::deleteLastDeletedShp()
 void Graph::deleteFromUndoHistory()
 {
 	undoHistory.pop_back();
+}
+
+
+void Graph::selectLastDeletedShape() {
+	getLastDeletedShp()->SetSelected(true);
+}
+
+void Graph::selectLastSelectedShape() {
+	SelectedShapes[-1]->SetSelected(true);
+}
+shape* Graph::getLastSelectedShape() {
+
+	return SelectedShapes[-1];
+}
+
+void Graph::unMove() {
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num = find(shapesList.begin(), shapesList.end(), getselectedshape());  //serach for selectedShape
+		if (num != shapesList.end()) { //the selected shape is in the shapesList
+			index = num - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->UnMove();
+
+		}
+	}
 }
 
 

@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include "operation.h"
 #include <fstream>
 //Add Rectangle operation class
@@ -9,7 +9,7 @@ public:
 	opLoad(controller* pCont);
 	virtual ~opLoad();
 
-	//saves all shapes
+	//loads all shapes
 	virtual void Execute();
 
-};*/
+};

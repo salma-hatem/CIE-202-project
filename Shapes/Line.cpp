@@ -5,6 +5,11 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
+	OG_point1 = P1;
+	OG_point2 = P2;
+	line_length = sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
+	COO_X_change = point2.x - point1.x;
+	COO_y_change = point2.y - point1.y;
 }
 
 Line::~Line()
@@ -16,18 +21,21 @@ void Line::Draw(GUI* pUI) const
 	pUI->DrawLine(point1, point2, ShpGfxInfo);
 }
 
+
 void Line::Save(ofstream& outfile) {
 
 	string draw = ShpGfxInfo.DrawClr_s;
 	string fill = ShpGfxInfo.FillClr_s;
 	int pen_Width = ShpGfxInfo.BorderWdth;
-	
-	outfile << "Line " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y;
+
+	outfile << "Line " << "ID" << " " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " ";
+
 	outfile << draw << " " << "No-Fill" << " " << pen_Width << endl;
 
 	SetShapeSaved(true);
 	SetAllSaved(true);
 }
+
 
 
 
@@ -207,4 +215,39 @@ double Line::getfactor(int col, int row)
 	if (height > col) f2 = double(col) / height;
 	if (f1 < f2) return f1;
 	else return f2;
+}
+
+
+void Line::Move(int& x, int& y) {
+	//resize by drag
+
+
+	int change_x, change_y;
+	change_x = x - point1.x;
+	change_y = y - point1.y;
+
+	/*point2.x -= change_x;
+	point2.y -= change_y;*/
+	/*double r = sqrt(pow((point1.x - x), 2) + pow(point1.y - y, 2));
+	double sin_theta = (point1.y - y) / r;
+	double cos_theta = (point1.x - x) / r;*/
+
+	point1.x = point1.x + change_x;
+	point1.y = point1.y + change_y;
+
+
+	point2.x = point2.x + change_x;
+	point2.y = point2.y + change_y;
+
+}
+
+void Line::UnMove() {
+
+	//pUI->DrawCircle(OG_point1, OG_point2, ShpGfxInfo);
+	point1.x = OG_point1.x;
+	point1.y = OG_point1.y;
+	point2.x = OG_point2.x;
+	point2.y = OG_point2.y;
+
+
 }

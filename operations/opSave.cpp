@@ -29,10 +29,10 @@ void opSave::Execute()
 	file.open(file_name, ios::out);
 	//call function Save from Graph
 
+	file << pGi->getCrntDrawColor_s() << " " << pGi->getCrntFillColor_s() << " " << pGi->getCrntPenWidth() << endl;
+
 	pGr->Save(file);
 
 	file.close();
 	pGi->PrintMessage("Your work is saved! ");
-
-	pGr = nullptr;
 }

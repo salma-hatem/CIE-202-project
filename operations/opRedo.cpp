@@ -21,9 +21,23 @@ void opRedo::Execute()
 			pGr->Addshape(pGr->getLastDeletedShp());
 			pGr->deleteLastDeletedShp();
 		}
+		if (lastOp == DELETE) {
+			//delete the last shape
+			pGr->selectLastSelectedShape();
+			pGr->Delete();
+			pGr->Addshape(pGr->getLastDeletedShp());
+			pGr->deleteLastDeletedShp();
+
+		}
+		if (lastOp == MOVE) {
+			//delete the last selected shape  (make a selected shapes vector)
+			//redraw the shape with original points
+			
+			pGr->selectLastDeletedShape();
+			pGr->Delete();
+
+		}
 		pGr->recordOperation(lastOp);
 		pGr->deleteFromUndoHistory();
 	}
-
-	pGr = nullptr;
 }

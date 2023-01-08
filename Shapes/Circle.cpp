@@ -6,6 +6,8 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	point1 = P1;
 	point2 = P2;
 	Saved = false;
+	OG_point1 = P1;
+	OG_point2 = P2;
 }
 
 
@@ -18,23 +20,6 @@ void Circle::Draw(GUI* pUI) const
 	pUI->DrawCircle(point1, point2, ShpGfxInfo);
 }
 
-void Circle::Save(ofstream& outfile) {
-	
-	//GUI* pSr;
-	//pSr->getCrntDrawColor();
-	//string draw = ShpGfxInfo.DrawClr_s;
-	//string fill=  ShpGfxInfo.FillClr_s;
-	//int pen_Width= ShpGfxInfo.BorderWdth;
-	outfile << "Circle " << "ID " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y;
-	//outfile << draw << " " << fill <<" "<< pen_Width << endl;
-	
-
-	
-	//outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
-	//outfile << ShpGfxInfo.DrawClr.ucGreen << ShpGfxInfo.BorderWdth << endl;
-	SetShapeSaved(true);
-	SetAllSaved(true);
-}
 
 bool Circle::ShapeSaved() const {
 	return Saved;
@@ -164,4 +149,53 @@ double Circle::getfactor(int col, int row)
 	if (height > col) f2 = double(col) / height;
 	if (f1 < f2) return f1;
 	else return f2;
+}
+
+void Circle::UnMove() {
+
+	//pUI->DrawCircle(OG_point1, OG_point2, ShpGfxInfo);
+	point1.x = OG_point1.x;
+	point1.y = OG_point1.y;
+	point2.x = OG_point2.x;
+	point2.y = OG_point2.y;
+
+
+}
+
+
+void Circle::Save(ofstream& outfile) {
+
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	outfile << "Circle " << "ID" << " " << point1.x - point2.x << " " << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << " ";
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
+	//outfile << "Circle " << " Id (can't think of one)" << point1.x << " " << point1.y << " " << point2.x << " " << point2.y << endl;
+	//outfile << ShpGfxInfo.DrawClr.ucGreen << ShpGfxInfo.BorderWdth << endl;
+	SetShapeSaved(true);
+	SetAllSaved(true);
+}
+
+
+void Circle::Move(int& x, int& y) {
+	/* double c = radius;
+	 point2.y = point1.y - c;
+	 point2.x = sqrt(pow(c, 2) - pow(point2.y - y, 2)) + x;*/
+
+	 //point1.x = x;
+	 //point1.y = y;
+
+	 ///
+	int radius = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+
+	int diff_x = x - point1.x;
+	int diff_y = y - point1.y;
+
+	point1.x = point1.x + diff_x;
+	point1.y = point1.y + diff_y;
+	point2.x = point1.x + radius;
+	point2.y = point1.y;
+
+
 }

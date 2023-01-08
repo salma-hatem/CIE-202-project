@@ -5,6 +5,10 @@ Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	Corner1 = P1;
 	Corner2 = P2;
 	Saved = false;
+	OG_Corner1.x = P1.x;
+	OG_Corner1.y = P1.y;
+	OG_Corner2.x = P2.x;
+	OG_Corner2.y = P2.y;
 }
 
 Square::~Square()
@@ -14,19 +18,6 @@ void Square::Draw(GUI* pUI) const
 {
 	//Call Output::DrawRect to draw a square on the screen	
 	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
-}
-
-void Square::Save(ofstream& outfile) {
-	string draw = ShpGfxInfo.DrawClr_s;
-	string fill = ShpGfxInfo.FillClr_s;
-	int pen_Width = ShpGfxInfo.BorderWdth;
-	outfile << "SQU " << "ID " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
-
-	outfile << draw << " " << fill << " " << pen_Width << endl;
-
-	SetShapeSaved(true);
-	SetAllSaved(true);
-
 }
 
 
@@ -177,4 +168,39 @@ double Square::getfactor(int col, int row)
 string Square::shapename() {
 	string name = "square";
 	return name;
+}
+
+
+void Square::Save(ofstream& outfile) {
+	string draw = ShpGfxInfo.DrawClr_s;
+	string fill = ShpGfxInfo.FillClr_s;
+	int pen_Width = ShpGfxInfo.BorderWdth;
+	outfile << "SQU " << "ID" << " " << Corner1.x - Corner2.x << " " << Corner1.x << "  " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+
+	outfile << draw << " " << fill << " " << pen_Width << endl;
+
+	SetShapeSaved(true);
+	SetAllSaved(true);
+
+}
+
+void Square::Move(int& x, int& y) {
+	Point Corner3;
+	Corner3.x = Corner1.x;
+	Corner3.y = Corner2.y;
+	double l = sqrt(pow((Corner3.x - Corner2.x), 2) + pow(Corner3.y - Corner2.y, 2));
+	double w = sqrt(pow((Corner3.x - Corner1.x), 2) + pow(Corner3.y - Corner1.y, 2));
+	Corner1.x = x;
+	Corner1.y = y;
+	Corner2.x = (x + w);
+	Corner2.y = (y + l);
+
+
+}
+
+void Square::UnMove() {
+	Corner1.x = OG_Corner1.x;
+	Corner1.y = OG_Corner1.y;
+	Corner2.x = OG_Corner2.x;
+	Corner2.y = OG_Corner2.y;
 }

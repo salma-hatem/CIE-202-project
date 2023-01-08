@@ -13,6 +13,8 @@ protected:
 	bool AllSaved;
 	int width;
 	int height;
+	Point OG_Corner1;
+	Point OG_Corner2;
 	/// Add more parameters if needed.
 
 public:
@@ -61,5 +63,7 @@ public:
 	virtual void scrambleShape(Point,int,int) = 0;
 	virtual void calculateWH() = 0;
 	virtual double getfactor(int col,int row) = 0;
+	virtual void Move(int& x, int& y) = 0;
+	virtual void UnMove() = 0;
 };
 

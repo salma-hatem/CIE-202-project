@@ -25,4 +25,6 @@ public:
 	double getfactor(int col, int row) override;
 	virtual void Hidding(GUI* pUI);
 	virtual string shapename();
+	virtual void Move(int& x, int& y);
+	virtual void UnMove();
 };
