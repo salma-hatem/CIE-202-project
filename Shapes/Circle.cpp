@@ -66,7 +66,7 @@ string Circle::shapeInfo()
 	center.x = abs(point1.x - point2.x) / 2;
 	center.y = abs(point1.y - point2.y) / 2;
 
-	text = "Area of the circle is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the circle is " + to_string(area) ;
 	return text;
 }
 

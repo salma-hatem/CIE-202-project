@@ -37,17 +37,15 @@ public:
 	void Load(ifstream& inputfile);	//Save all shapes to a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
 	void DeleteMatched();
-	shape* getSelectedShape();
 	bool getIsAllSaved() const;
 	void setselectedshape();
 	void setshapeshidden();
 	void setshapeduphidded(int x, int y);
-	//void Hide(GUI* pUI);
-	//void UnHide(GUI* pUI);
 	vector <shape*> getmatched();
 	void addMatched(shape* s);
 	void clearMatched();
 	void Addscore();
 	int getscore();
+	void setallduplicated(shape* s);
 	
 };

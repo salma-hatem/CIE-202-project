@@ -1,7 +1,9 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
-
-
+#include<Windows.h>
+#include <iostream>
+#include<dos.h>
+using namespace std;
 
 Graph::Graph()
 {
@@ -26,7 +28,7 @@ void Graph::Addshape(shape* pShp)
 
 void Graph::AddToClipboard(shape* pFig)
 {
-	clipboard.clear();
+	//clipboard.clear();
 	clipboard.push_back(pFig);
 }
 shape* Graph::GetClipboard()
@@ -61,16 +63,7 @@ shape* Graph::Getshape(int x, int y)
 		}
 		return nullptr;
 	}
-//shape* Graph::getrotatedshape(int x, int y) {
-//	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
-//		if ((*shapePointer)->point_included(x, y))
-//		{
-//			rotatedShape = (*shapePointer);
-//			return rotatedShape;
-//		}
-//	}
-//	return nullptr;
-//}
+
 
 void Graph::UnselectAll()
 {
@@ -106,11 +99,6 @@ void Graph::Save(ofstream& outfile)
 	//delete pOi;
 	//pOi = nullptr;
 	//Loop through the selected shape vector and call the save function in each shape
-}
-
-shape* Graph::getSelectedShape() 
-{
-	return selectedShape;
 }
 
 
@@ -170,19 +158,11 @@ void Graph::setselectedshape()
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
 }
-//void Graph::Hide(GUI* pUI) {
-//	pUI->getwind()->DrawString(20,20, "ssss");
-//	for (auto shapePointer : shapesList) {
-//		shapePointer->Hidding(pUI);
-//	
-//	}
-//	Draw(pUI);
-//}
+
 
 void Graph::setshapeshidden() {
 	for (auto shapePointer : shapesList) {
 		shapePointer->sethidden(true);
-	
 	}
 }
 void Graph::setshapeduphidded(int x, int y) {
@@ -190,20 +170,14 @@ void Graph::setshapeduphidded(int x, int y) {
 		if (shapePointer->point_included(x, y))
 		{
 			shapePointer->sethidden(false);
+			
+			//shapePointer->sethidden(true);
+	
 		}
-		
-		
 	}
-
+	/*Sleep(300);
+	setshapeshidden();*/
 }
-
-/*void Graph::UnHide(GUI* pUI) {
-
-	for (auto shapePointer : shapesList) {
-		shapePointer->sethidden(false);
-	}
-	Draw(pUI);
-}*/
 
 void Graph::addMatched(shape* s)
 {
@@ -227,4 +201,19 @@ void Graph::Addscore() {
 int Graph::getscore() {
 	return *ptr;
 }
-
+void Graph::setallduplicated(shape* s) {
+	for (auto shapePointer : shapesList) {
+		AddToClipboard(shapePointer);
+		/*if (shapePointer)
+		{
+			shape* newShp = shapePointer->duplicate(shapePointer);
+			Addshape(newShp);
+			
+		}*/
+	}
+	for (auto clip : clipboard) {
+		shape* newshp = clip->duplicate(clip);
+		Addshape(newshp);
+	}
+	
+}

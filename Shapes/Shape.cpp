@@ -49,6 +49,3 @@ void shape::sethidden(bool t) {
 bool shape::gethidden() {
 	return ShpGfxInfo.isHidden;
 }
-//bool shape::ishidden() {
-//	return false;
-//}

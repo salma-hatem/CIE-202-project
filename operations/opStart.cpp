@@ -13,8 +13,10 @@ void opStart::Execute()
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	pGr->setshapeshidden();
-
+	shape* s = pGr->getselectedshape();
+	
+	pGr->setallduplicated(s);
+	//pGr->setshapeshidden();
 }
 
 

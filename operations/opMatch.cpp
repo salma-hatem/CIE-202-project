@@ -8,8 +8,8 @@ opMatch::~opMatch() {}
 
 void opMatch::Execute()
 {
-	static int score=0;
-	Point P1,P2;
+	static int score = 0;
+	Point P1, P2;
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
@@ -41,16 +41,18 @@ void opMatch::Execute()
 		pUI->ClearStatusBar();
 	}
 	if (pGr->getmatched().size() == 2) {
-		if (pGr->getmatched()[0]->shapename() == pGr->getmatched()[1]->shapename()) {
+		if (pGr->getmatched()[0]->shapeInfo() == pGr->getmatched()[1]->shapeInfo()) {
 			pUI->PrintMessage("you got two matched shapes, congrats");
 			pGr->DeleteMatched();
 			pGr->clearMatched();
 			pGr->Addscore();
 			//pUI->PrintMessage(to_string(pGr->getscore()));
 		}
+		else {
+			pGr->clearMatched();
+		}
 	}
 	else if (pGr->getmatched().size() != 1) {
 		pGr->clearMatched();
 	}
-	
 }

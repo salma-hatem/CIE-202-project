@@ -53,7 +53,7 @@ string Square::shapeInfo()
 	center.x = abs(Corner1.x - Corner2.x) / 2;
 	center.y = abs(Corner1.y - Corner2.y) / 2;
 
-	text = "Area of the square is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the square is " + to_string(area) ;
 	return text;
 }
 void Square::SetShapeSaved(bool s) {
