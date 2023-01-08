@@ -152,10 +152,14 @@ void Triangle::Hidding(GUI* pUI) {
 		height = abs(point1.y - point3.y);
 
 
-	if (gethidden()) {
+	if (getcurrenthidden() == true) {
+
+		// call the function that draw an image on the circle
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, width, height);
 	}
-	else {}
+	else {
+		pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
+	}
 
 }
 string Triangle::shapename() {

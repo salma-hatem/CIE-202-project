@@ -50,8 +50,10 @@ public:
 	Point pointshift(Point p); //shifts the coordinates of the point
 	virtual void resize(double) = 0;
 	virtual void Hidding(GUI* pUI)=0;
-	void sethidden(bool t);
-	bool gethidden();
+	void currenthidden(bool t);
+	bool getcurrenthidden();
+	void prevhidden(bool t);
+	bool getprevhidden();
 	virtual string shapename() = 0;
 };
 

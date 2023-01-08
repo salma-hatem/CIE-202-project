@@ -24,6 +24,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	string DrawClr_s;
 	string FillClr_s;
 	bool isHidden = false;
+	bool isunhidden = false;
 };
 
 

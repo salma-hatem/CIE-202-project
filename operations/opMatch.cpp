@@ -48,6 +48,7 @@ void opMatch::Execute()
 			pGr->clearMatched();
 			pGr->Addscore();
 			pUI->PrintMessage(to_string(pGr->getscore()));
+			
 		}
 		else {
 			pGr->clearMatched();
@@ -55,6 +56,10 @@ void opMatch::Execute()
 			pUI->PrintMessage(to_string(pGr->getscore()));
 			pGr->setshapeduphidded(P1.x,P1.y);
 			pGr->setshapeduphidded(P2.x, P2.y);
+			pUI->ClearDrawArea();
+			pGr->Draw(pUI);
+			Sleep(1000);
+			pGr->setshapeshidden();
 		}
 	}
 	/*else if (pGr->getmatched().size() != 1) {

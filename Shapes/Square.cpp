@@ -93,12 +93,14 @@ void Square::Rotate(GUI* pUI)  {
 void Square::Hidding(GUI* pUI) {
 	
 	double length = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x, Corner1.y,length, length);
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x,Corner1.y, length, length);
 	}
-	else {}
+	else {
+		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	}
 
 }
 string Square::shapename() {

@@ -107,12 +107,14 @@ void Line::Hidding(GUI* pUI) {
 	else {
 		newpoint.y = point1.y;
 	}
-	if (gethidden()== true) {
-		
+	if (getcurrenthidden() == true) {
 
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg",newpoint.x, newpoint.y, abs(point1.x - point2.x), abs(point1.y - point2.y));
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, abs(point1.x-point2.x),abs(point1.y-point2.y));
 	}
-	else{}
+	else {
+		pUI->DrawLine(point1, point2, ShpGfxInfo);
+	}
 }
 string Line::shapename() {
 	string name = "line";

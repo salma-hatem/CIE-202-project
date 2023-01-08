@@ -112,12 +112,16 @@ void Circle::Hidding(GUI* pUI) {
 	newpoint1.y = point1.y - radius;
 	
 	//Call Output::DrawCircle to draw a circle on the screen	
-	if (gethidden() == true) {
+	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2*radius, 2*radius);
 	}
-	else {}
+	else if (getcurrenthidden() == false && getprevhidden() == true) {
+		Sleep(3000);
+		pUI->DrawCircle(point1, point2, ShpGfxInfo);
+	}
+	prevhidden(getcurrenthidden());
 	
 }
 string Circle::shapename() {

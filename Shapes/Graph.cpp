@@ -162,14 +162,15 @@ void Graph::setselectedshape()
 
 void Graph::setshapeshidden() {
 	for (auto shapePointer : shapesList) {
-		shapePointer->sethidden(true);
+		shapePointer->currenthidden(true);
 	}
 }
 void Graph::setshapeduphidded(int x, int y) {
 
 	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
 		if ((*shapePointer)->point_included(x, y)) {
-			(*shapePointer)->sethidden(false);
+			(*shapePointer)->currenthidden(false);
+			(*shapePointer)->prevhidden(true);
 			
 		}
 		
