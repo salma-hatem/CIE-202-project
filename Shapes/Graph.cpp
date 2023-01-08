@@ -50,19 +50,21 @@ shape* Graph::getselectedshape()const {
 	return selectedShape;
 }
 
-shape* Graph::Getshape(int x, int y) 
+shape* Graph::Getshape(int x, int y)
 {
 	//If a shape is found return a pointer to it.
 	//if this point (x,y) does not belong to any shape return NULL
-	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer)
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
 		if ((*shapePointer)->point_included(x, y))
 		{
 			selectedShape = (*shapePointer);
 			return selectedShape;
-		
 		}
-		return nullptr;
+		
 	}
+	
+	return nullptr;
+}
 
 
 void Graph::UnselectAll()
@@ -134,9 +136,7 @@ void Graph::DeleteMatched() {
 		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[0]), shapesList.end());//remove the selected shape from the shapesList*/
 		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[1]), shapesList.end());//remove the selected shape from the shapesList*/
 
-		//shapesList.erase(shapesList.begin());
-		//switch the zero to the index of selected shape11
-		//make the shape's saved= false
+	
 	}
 
 }
@@ -166,17 +166,16 @@ void Graph::setshapeshidden() {
 	}
 }
 void Graph::setshapeduphidded(int x, int y) {
-	
-	for (int i = 0; i < shapesList.size(); i++) {
-		if (shapesList[i]->point_included(x, y))
-		{
-			shapesList[i]->sethidden(false);	
+
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
+		if ((*shapePointer)->point_included(x, y)) {
+			(*shapePointer)->sethidden(false);
+			
 		}
+		break;
 	}
 }
-void Graph::sleep() {
-	Sleep(3000);
-}
+
 
 void Graph::addMatched(shape* s)
 {
@@ -205,12 +204,7 @@ int Graph::getscore() {
 void Graph::setallduplicated(shape* s) {
 	for (auto shapePointer : shapesList) {
 		AddToClipboard(shapePointer);
-		/*if (shapePointer)
-		{
-			shape* newShp = shapePointer->duplicate(shapePointer);
-			Addshape(newShp);
-			
-		}*/
+		
 	}
 	for (auto clip : clipboard) {
 		shape* newshp = clip->duplicate(clip);

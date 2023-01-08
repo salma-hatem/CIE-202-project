@@ -48,6 +48,6 @@ public:
 	void Subtractscore();
 	int getscore();
 	void setallduplicated(shape* s);
-	void sleep();
+
 	
 };
