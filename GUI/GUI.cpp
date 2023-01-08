@@ -114,6 +114,9 @@ operationType GUI::GetUseroperation() const
 			//case ICON_DUPLICATE:return DUPL;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_EXIT: return EXIT;
+			//case ICON_UNDO:return ;
+			//case ICON_REDO: return ;
+			
 
 
 
@@ -164,6 +167,10 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
+			case ICON_START: return START;
+			case ICON_HIDE:return Hide;
+			case ICON_UNHIDE: return UnHide;
+			case ICON_MATCH: return Match;
 			case ICON_MATCH:return MATCH;
 			case ICON_EXIT_P: return EXIT;
 
@@ -199,6 +206,9 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 	pW->DrawRectangle(0, ToolBarHeight, w, h);
 
 	return pW;
+}
+window* GUI::getwind() {
+	return pWind;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateStatusBar() const
@@ -243,6 +253,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 	//MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
 	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\Menu_Stick.jpg";
+	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\Menu_Switch.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
@@ -270,8 +281,13 @@ void GUI::CreatePlayToolBar()
 	///TODO: write code to create Play mode menu
 	string MenuIconImages[PLAY_ICON_COUNT];
 	MenuIconImages[ICON_START] = "images\\MenuIcons\\Menu_Start.jpg";
+	MenuIconImages[ICON_HIDE]= "images\\MenuIcons\\hide.jpg";
+	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
+	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
+	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\match.jpg";
 	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\Menu_Match.jpg";
 	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
+
 
 
 	//Draw menu icon one image at a time

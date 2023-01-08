@@ -64,9 +64,10 @@
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
     <ClCompile Include="operations\opDuplicate.cpp" />
-    <ClCompile Include="operations\opScramble.cpp" />
-    <ClCompile Include="operations\opUndo.cpp" />
-    <ClCompile Include="operations\opRedo.cpp" />
+    <ClCompile Include="operations\opHide.cpp" />
+    <ClCompile Include="operations\opUnHide.cpp" />
+    <ClCompile Include="operations\opStart.cpp" />
+    <ClCompile Include="operations\opMatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -106,7 +107,6 @@
     <ClInclude Include="operations\opSwitch.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\Circle.h" />
-    <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Line.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
@@ -118,8 +118,9 @@
     <ClInclude Include="operations\opCopy.h" />
     <ClInclude Include="operations\opResize.h" />
     <ClInclude Include="operations\opDuplicate.h" />
-    <ClInclude Include="operations\opScramble.h" />
-    <ClInclude Include="operations\opUndo.h" />
-    <ClInclude Include="operations\opRedo.h" />
+    <ClInclude Include="operations\opHide.h" />
+    <ClInclude Include="operations\opUnHide.h" />
+    <ClInclude Include="operations\opStart.h" />
+    <ClInclude Include="operations\opMatch.h" />
   </ItemGroup>
 </Project>

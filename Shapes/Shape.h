@@ -50,6 +50,12 @@ public:
 	virtual shape* duplicate(shape *)=0;
 	Point pointshift(Point p); //shifts the coordinates of the point
 	virtual void resize(double) = 0;
+	virtual void Hidding(GUI* pUI)=0;
+	void currenthidden(bool t);
+	bool getcurrenthidden();
+	void prevhidden(bool t);
+	bool getprevhidden();
+	virtual string shapename() = 0;
 	Point randPoint(); //generates coordinates of a random point
 	virtual void scrambleShape() = 0;
 	virtual void scrambleShape(Point,int,int) = 0;

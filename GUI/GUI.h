@@ -23,6 +23,8 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool isSelected;	//true if the shape is selected.
 	string DrawClr_s;
 	string FillClr_s;
+	bool isHidden = false;
+	bool isunhidden = false;
 };
 
 
@@ -51,6 +53,7 @@ class GUI
 		ICON_UNDO,
 		ICON_REDO,
 		ICON_SELECT,    //Select icon in menu
+		ICON_DUPLICATE,
 		ICON_STICK,
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
@@ -80,6 +83,10 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_START,
+		ICON_HIDE,
+		ICON_UNHIDE,
+		ICON_MATCH,
+		ICON_SCRAMBLE,
 		ICON_MATCH,
 		ICON_EXIT_P,
 		//TODO: Add more icons names here
@@ -144,6 +151,7 @@ public:
 
 	// Output Functions  ---------------------------
 	window* CreateWind(int, int, int, int) const; //creates the application window
+	window* getwind();
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar();	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar

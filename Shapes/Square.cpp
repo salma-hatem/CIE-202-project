@@ -53,12 +53,13 @@ string Square::shapeInfo()
 	center.x = abs(Corner1.x - Corner2.x) / 2;
 	center.y = abs(Corner1.y - Corner2.y) / 2;
 
-	text = "Area of the square is " + to_string(area) + " The center is at (" + to_string(center.x) + "," + to_string(center.y) + ")";
+	text = "Area of the square is " + to_string(area) ;
 	return text;
 }
 void Square::SetShapeSaved(bool s) {
 	Saved = s;
 }
+
 
 
 
@@ -84,9 +85,22 @@ void Square::resize(double factor)
 	Corner2.y = Corner1.y - diffY * factor;
 }
 
-void Square::Rotate(GUI* pUI) {
+void Square::Rotate(GUI* pUI)  {
 	// it will change nothing in the square 
 	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+
+}
+void Square::Hidding(GUI* pUI) {
+	
+	double length = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
+	if (getcurrenthidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x,Corner1.y, length, length);
+	}
+	else {
+		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);
+	}
 
 }
 
@@ -158,4 +172,9 @@ double Square::getfactor(int col, int row)
 	if (height > col) f2 = double(col) / height;
 	if (f1 < f2) return f1;
 	else return f2;
+}
+}
+string Square::shapename() {
+	string name = "square";
+	return name;
 }

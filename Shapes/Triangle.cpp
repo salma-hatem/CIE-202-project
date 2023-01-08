@@ -57,7 +57,7 @@ string Triangle::shapeInfo()
 	string text;
 	double triangle_area = trianglearea(point1.x, point2.x, point3.x, point1.y, point2.y, point3.y);
 	
-	text = "Area of the recrangle is " + to_string(triangle_area);
+	text = "Area of the Triangle is " + to_string(triangle_area);
 	return text;
 }
 void Triangle::SetShapeSaved(bool s) {
@@ -246,4 +246,60 @@ double Triangle::getfactor(int col, int row)
 	if (height > col) f2 = double(col) / height;
 	if (f1 < f2) return f1;
 	else return f2;
+}
+	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
+}
+void Triangle::Hidding(GUI* pUI) {
+
+	Point newpoint;
+	// if statments to calculate the starting point of the image
+	if (point1.x < point2.x && point1.x< point3.x){
+		newpoint.x = point1.x;
+	}
+	else if (point2.x < point1.x && point2.x < point3.x) {
+		newpoint.x = point2.x;
+	}
+	else if (point3.x < point2.x && point3.x < point1.x) {
+		newpoint.x = point3.x;
+	}
+	if (point1.y < point2.y && point1.y < point3.y) {
+		newpoint.y = point1.y;
+	}
+	else if (point2.y < point1.y && point2.y < point3.y) {
+		newpoint.y = point2.y;
+	}
+	else if (point3.y < point2.y && point3.y < point1.y) {
+		newpoint.y = point3.y;
+	}
+
+	// if statements to calculate the height and width of the image
+	double width, height;
+	if (abs(point1.x - point2.x) > abs(point1.x - point3.x) && abs(point1.x - point2.x) > abs(point2.x - point3.x))
+		width = abs(point1.x - point2.x);
+	else if (abs(point2.x - point3.x) > abs(point1.x - point3.x) && abs(point2.x - point3.x) > abs(point1.x - point2.x))
+		width = abs(point2.x - point3.x);
+	else if (abs(point1.x - point3.x) > abs(point1.x - point2.x) && abs(point1.x - point3.x) > abs(point2.x - point3.x))
+		width = abs(point1.x - point3.x);
+
+	if (abs(point1.y - point2.y) > abs(point1.y - point3.y) && abs(point1.y - point2.y) > abs(point2.y - point3.y))
+		height = abs(point1.y - point2.y);
+	else if (abs(point2.y - point3.y) > abs(point1.y - point3.y) && abs(point2.y - point3.y) > abs(point1.y - point2.y))
+		height = abs(point2.y - point3.y);
+	else if (abs(point1.y - point3.y) > abs(point1.y - point2.y) && abs(point1.y - point3.y) > abs(point2.y - point3.y))
+		height = abs(point1.y - point3.y);
+
+
+	if (getcurrenthidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, width, height);
+	}
+	else {
+		pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
+	}
+
+}
+string Triangle::shapename() {
+	string name = "triangle";
+	return name;
 }

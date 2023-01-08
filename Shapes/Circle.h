@@ -26,4 +26,6 @@ public:
 	void scrambleShape(Point,int,int) override;
 	void calculateWH() override;
 	double getfactor(int col, int row) override;
+	virtual void Hidding(GUI* pUI);
+	virtual string shapename();
 };

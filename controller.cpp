@@ -21,6 +21,11 @@
 #include "operations\opResize.h"
 #include "operations\opRotate.h"
 #include "operations\opDuplicate.h"
+#include "operations\opHide.h"
+#include "operations\opUnHide.h"
+#include "operations\opMatch.h"
+#include "operations\opStart.h"
+
 #include "operations\opScramble.h"
 #include "operations\opUndo.h"
 #include "operations\opRedo.h"
@@ -114,6 +119,21 @@ operation* controller::createOperation(operationType OpType)
 		case ROTATE:
 			pOp = new opRotate(this);
 			break;
+		case Hide:
+			pOp = new opHide(this);
+			break;
+		case UnHide:
+			pOp = new opUnHide(this);
+			break;
+		case Match:
+			pOp = new opMatch(this);
+			break;
+		case START:
+			pOp = new opStart(this);
+			break;
+
+
+		//	break;
 		case SCRAMBLE:
 			pOp = new opScramble(this);
 			break;
@@ -135,8 +155,9 @@ operation* controller::createOperation(operationType OpType)
 
 //Draw all shapes on the user interface
 void controller::UpdateInterface() const
-{	
+{
 	pGraph->Draw(pGUI);
+	
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the UI

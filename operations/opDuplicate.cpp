@@ -11,17 +11,10 @@ opDuplicate::~opDuplicate()
 //Execute the operation
 void opDuplicate::Execute()
 {
-	Graph* pGr = pControl->getGraph();
-	pGr->setselectedshape();
-	shape* clip = pGr->getselectedshape();
-	pGr->AddToClipboard(clip);
 	GUI* pUI = pControl->GetUI();
-	pUI->PrintMessage("Shape added to clipboard!");
+	Graph* pGr = pControl->getGraph();
+	shape* s = pGr->getselectedshape();
+
+	pGr->setallduplicated(s);
 	
-	if (clip)
-	{
-		shape* newShp = clip->duplicate(clip);
-		pGr->Addshape(newShp);
-	}
-	pUI->PrintMessage("Shape pasted!");
 }

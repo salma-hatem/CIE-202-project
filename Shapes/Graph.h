@@ -23,6 +23,13 @@ private:
 	vector <Point> shapePositions;
 	int col; int row = 250;
 public:										
+	vector <shape*> selectedshapes;
+	vector <shape*> matchedshapes;
+	int score = 0;
+	
+	
+public:	
+	
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
@@ -30,15 +37,23 @@ public:
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
-	shape* getrotatedshape(int x, int y);
 	shape* getselectedshape() const;
 	void UnselectAll();
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void Load(ifstream& inputfile);	//Save all shapes to a file
 	void Delete(); // Deletes one selected shape (Deletes the first shape in shapesList untill select feature is made)
-	shape* getSelectedShape();
+	void DeleteMatched();
 	bool getIsAllSaved() const;
 	void setselectedshape();
+	void setshapeshidden();
+	void setshapeduphidded(int x, int y);
+	vector <shape*> getmatched();
+	void addMatched(shape* s);
+	void clearMatched();
+	void Addscore();
+	void Subtractscore();
+	int getscore();
+	void setallduplicated(shape* s);
 	void scrambleGraph(); //scrambles the graph
 	void fillpositions(); //positions on the grid
 	void fitShp(shape*); 

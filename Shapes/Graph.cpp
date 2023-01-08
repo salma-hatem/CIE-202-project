@@ -3,6 +3,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include<Windows.h>
+#include <iostream>
+#include<dos.h>
+using namespace std;
 
 Graph::Graph()
 {
@@ -29,10 +33,9 @@ void Graph::Addshape(shape* pShp)
 	shapesList.push_back(pShp);	
 }
 
-
 void Graph::AddToClipboard(shape* pFig)
 {
-	clipboard.clear();
+	//clipboard.clear();
 	clipboard.push_back(pFig);
 }
 shape* Graph::GetClipboard()
@@ -45,36 +48,31 @@ shape* Graph::GetClipboard()
 void Graph::Draw(GUI* pUI) const
 {
 	pUI->ClearDrawArea();
-	for (auto shapePointer : shapesList)
+	for (auto shapePointer : shapesList) {
 		shapePointer->Draw(pUI);
+		shapePointer->Hidding(pUI);
+	}
 }
 shape* Graph::getselectedshape()const {
 	return selectedShape;
 }
 
-shape* Graph::Getshape(int x, int y) 
+shape* Graph::Getshape(int x, int y)
 {
 	//If a shape is found return a pointer to it.
 	//if this point (x,y) does not belong to any shape return NULL
-	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer)
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
 		if ((*shapePointer)->point_included(x, y))
 		{
 			selectedShape = (*shapePointer);
 			return selectedShape;
-		
 		}
-		return nullptr;
+		
 	}
-//shape* Graph::getrotatedshape(int x, int y) {
-//	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
-//		if ((*shapePointer)->point_included(x, y))
-//		{
-//			rotatedShape = (*shapePointer);
-//			return rotatedShape;
-//		}
-//	}
-//	return nullptr;
-//}
+	
+	return nullptr;
+}
+
 
 void Graph::UnselectAll()
 {
@@ -112,23 +110,41 @@ void Graph::Save(ofstream& outfile)
 	//Loop through the selected shape vector and call the save function in each shape
 }
 
-shape* Graph::getSelectedShape() 
-{
-	return selectedShape;
-}
-
 
 void Graph::Delete() {
-	int index = 0;
-	auto num = find(shapesList.begin(), shapesList.end(), getSelectedShape());  //serach for selectedShape
-	if (num != shapesList.end()) { //the selected shape is in the shapesList
-		 index = num - shapesList.begin(); //get the index of selectedshape
-	};
-	shapesList.erase(shapesList.begin()+index);//remove the selected shape from the shapesList*/
-	shapesList[index]->SetAllSaved(false);
-	//shapesList.erase(shapesList.begin());
-	//switch the zero to the index of selected shape11
-	//make the shape's saved= false
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num = find(shapesList.begin(), shapesList.end(), getselectedshape());  //serach for selectedShape
+		if (num != shapesList.end()) { //the selected shape is in the shapesList
+			index = num - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+
+		}
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getselectedshape()), shapesList.end());//remove the selected shape from the shapesList*/
+		//shapesList.erase(shapesList.begin());
+		//switch the zero to the index of selected shape11
+		//make the shape's saved= false
+	}
+
+}
+void Graph::DeleteMatched() {
+	if (!shapesList.empty()) {
+		int index = 0;
+		auto num1 = find(shapesList.begin(), shapesList.end(), getmatched()[0]);  //serach for selectedShape
+		if (num1 != shapesList.end()) { //the selected shape is in the shapesList
+			index = num1 - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+		}
+		auto num2 = find(shapesList.begin(), shapesList.end(), getmatched()[1]);  //serach for selectedShape
+		if (num2 != shapesList.end()) { //the selected shape is in the shapesList
+			index = num2 - shapesList.begin(); //get the index of selectedshape
+			shapesList[index]->SetAllSaved(false);
+		}
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[0]), shapesList.end());//remove the selected shape from the shapesList*/
+		shapesList.erase(remove(shapesList.begin(), shapesList.end(), getmatched()[1]), shapesList.end());//remove the selected shape from the shapesList*/
+
+	
+	}
 
 }
 
@@ -267,4 +283,59 @@ void Graph::deleteLastDeletedShp()
 void Graph::deleteFromUndoHistory()
 {
 	undoHistory.pop_back();
+}
+
+
+void Graph::setshapeshidden() {
+	for (auto shapePointer : shapesList) {
+		shapePointer->currenthidden(true);
+	}
+}
+void Graph::setshapeduphidded(int x, int y) {
+
+	for (auto shapePointer = shapesList.rbegin(); shapePointer != shapesList.rend(); ++shapePointer) {
+		if ((*shapePointer)->point_included(x, y)) {
+			(*shapePointer)->currenthidden(false);
+			(*shapePointer)->prevhidden(true);
+			
+		}
+		
+	}
+}
+
+
+void Graph::addMatched(shape* s)
+{
+	matchedshapes.push_back(s);
+}
+
+vector <shape*> Graph::getmatched()
+{
+	return matchedshapes;
+}
+
+void Graph::clearMatched()
+{
+	matchedshapes.clear();
+}
+void Graph::Addscore() {
+	score += 3;
+}
+void Graph::Subtractscore() {
+	score -= 1;
+	
+}
+int Graph::getscore() {
+	return score;
+}
+void Graph::setallduplicated(shape* s) {
+	for (auto shapePointer : shapesList) {
+		AddToClipboard(shapePointer);
+		
+	}
+	for (auto clip : clipboard) {
+		shape* newshp = clip->duplicate(clip);
+		Addshape(newshp);
+	}
+	
 }

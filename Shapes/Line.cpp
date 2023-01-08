@@ -85,13 +85,41 @@ shape* Line::duplicate(shape* ptr)
 	return C;
 }
 
-
 void Line::resize(double factor)
 {
 	int diffX = point1.x - point2.x;
 	int diffY = point1.y - point2.y;
 	point2.x = point1.x + -diffX * factor;
 	point2.y = point1.y + -diffY * factor;
+}
+
+void Line::Hidding(GUI* pUI) {
+	Point newpoint;
+	if (point1.x > point2.x) {
+		newpoint.x = point2.x;
+	}
+	else {
+		newpoint.x = point1.x;
+	}
+	if (point1.y > point2.y) {
+		newpoint.y = point2.y;
+	}
+	else {
+		newpoint.y = point1.y;
+	}
+	if (getcurrenthidden() == true) {
+
+		// call the function that draw an image on the circle
+		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, abs(point1.x-point2.x),abs(point1.y-point2.y));
+	}
+	else {
+		pUI->DrawLine(point1, point2, ShpGfxInfo);
+	}
+}
+string Line::shapename() {
+	string name = "line";
+	return name;
+}
 }
 
 void Line::scrambleShape()
