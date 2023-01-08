@@ -43,8 +43,14 @@ Point shape::pointshift(Point p)
 }
 
 void shape::sethidden(bool t) {
-	
-	ShpGfxInfo.isHidden = t;
+	if (t) {
+		ShpGfxInfo.isHidden = t;
+	}
+	else {
+		ShpGfxInfo.isHidden = t;
+		Sleep(3000);
+		ShpGfxInfo.isHidden = true;
+	}
 }
 bool shape::gethidden() {
 	return ShpGfxInfo.isHidden;

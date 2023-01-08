@@ -42,17 +42,21 @@ void opMatch::Execute()
 	}
 	if (pGr->getmatched().size() == 2) {
 		if (pGr->getmatched()[0]->shapeInfo() == pGr->getmatched()[1]->shapeInfo()) {
-			pUI->PrintMessage("you got two matched shapes, congrats");
+			//pUI->PrintMessage("you got two matched shapes, congrats");
 			pGr->DeleteMatched();
 			pGr->clearMatched();
 			pGr->Addscore();
-			//pUI->PrintMessage(to_string(pGr->getscore()));
+			pUI->PrintMessage(to_string(pGr->getscore()));
 		}
 		else {
 			pGr->clearMatched();
+			pGr->Subtractscore();
+			pUI->PrintMessage(to_string(pGr->getscore()));
 		}
 	}
 	else if (pGr->getmatched().size() != 1) {
 		pGr->clearMatched();
+		pGr->Subtractscore();
+		pUI->PrintMessage(to_string(pGr->getscore()));
 	}
 }

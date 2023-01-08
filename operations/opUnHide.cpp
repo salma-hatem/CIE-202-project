@@ -15,5 +15,8 @@ void opUnHide::Execute() {
 	pUI->GetPointClicked(P1.x, P1.y);
 	pGr->setshapeduphidded(P1.x, P1.y);
 	
+	//Sleep(3000);
+	//pGr->setshapeshidden();
+	
 }
 

@@ -166,17 +166,16 @@ void Graph::setshapeshidden() {
 	}
 }
 void Graph::setshapeduphidded(int x, int y) {
-	for (auto shapePointer : shapesList) {
-		if (shapePointer->point_included(x, y))
-		{
-			shapePointer->sethidden(false);
-			
-			//shapePointer->sethidden(true);
 	
+	for (int i = 0; i < shapesList.size(); i++) {
+		if (shapesList[i]->point_included(x, y))
+		{
+			shapesList[i]->sethidden(false);	
 		}
 	}
-	/*Sleep(300);
-	setshapeshidden();*/
+}
+void Graph::sleep() {
+	Sleep(3000);
 }
 
 void Graph::addMatched(shape* s)
@@ -194,12 +193,14 @@ void Graph::clearMatched()
 	matchedshapes.clear();
 }
 void Graph::Addscore() {
-	static int score1 = 0;
-	score1 += 1;
-	ptr = &score1;
+	score += 3;
+}
+void Graph::Subtractscore() {
+	score -= 1;
+	
 }
 int Graph::getscore() {
-	return *ptr;
+	return score;
 }
 void Graph::setallduplicated(shape* s) {
 	for (auto shapePointer : shapesList) {

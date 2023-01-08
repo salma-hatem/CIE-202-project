@@ -14,8 +14,8 @@ void opStart::Execute()
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
 	shape* s = pGr->getselectedshape();
-	
 	pGr->setallduplicated(s);
+	pUI->PrintMessage(to_string(pGr->getscore()));
 	//pGr->setshapeshidden();
 }
 

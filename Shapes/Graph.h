@@ -19,7 +19,7 @@ private:
 	shape* rotatedShape;
 	vector <shape*> selectedshapes;
 	vector <shape*> matchedshapes;
-	int* ptr = nullptr;
+	int score = 0;
 	
 	
 public:	
@@ -45,7 +45,9 @@ public:
 	void addMatched(shape* s);
 	void clearMatched();
 	void Addscore();
+	void Subtractscore();
 	int getscore();
 	void setallduplicated(shape* s);
+	void sleep();
 	
 };
