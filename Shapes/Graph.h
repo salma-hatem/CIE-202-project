@@ -19,7 +19,11 @@ private:
 	shape* rotatedShape;
 	vector <shape*> selectedshapes;
 	vector <shape*> matchedshapes;
-public:										
+	int* ptr = nullptr;
+	
+	
+public:	
+	
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
@@ -38,10 +42,12 @@ public:
 	void setselectedshape();
 	void setshapeshidden();
 	void setshapeduphidded(int x, int y);
-	void Hide(GUI* pUI);
-	void UnHide(GUI* pUI);
+	//void Hide(GUI* pUI);
+	//void UnHide(GUI* pUI);
 	vector <shape*> getmatched();
-	void Graph::addMatched(shape* s);
-	void Graph::clearMatched();
+	void addMatched(shape* s);
+	void clearMatched();
+	void Addscore();
+	int getscore();
 	
 };

@@ -8,7 +8,8 @@ opMatch::~opMatch() {}
 
 void opMatch::Execute()
 {
-	Point P1;
+	static int score=0;
+	Point P1,P2;
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
@@ -18,8 +19,20 @@ void opMatch::Execute()
 	{
 		pUI->PrintMessage(pGr->Getshape(P1.x, P1.y)->shapeInfo());
 		pGr->UnselectAll(); 							//unselect everything 
-		pGr->Getshape(P1.x, P1.y)->SetSelected(true);		//make this shape is selected
 		shape* shape1 = pGr->Getshape(P1.x, P1.y);
+		pGr->addMatched(shape1);
+	}
+	else
+	{
+		pGr->UnselectAll();
+		pUI->ClearStatusBar();
+	}
+	pUI->GetPointClicked(P2.x, P2.y);
+	if (pGr->Getshape(P2.x, P2.y))
+	{
+		pUI->PrintMessage(pGr->Getshape(P2.x, P2.y)->shapeInfo());
+		pGr->UnselectAll(); 							//unselect everything 
+		shape* shape1 = pGr->Getshape(P2.x, P2.y);
 		pGr->addMatched(shape1);
 	}
 	else
@@ -32,9 +45,12 @@ void opMatch::Execute()
 			pUI->PrintMessage("you got two matched shapes, congrats");
 			pGr->DeleteMatched();
 			pGr->clearMatched();
+			pGr->Addscore();
+			//pUI->PrintMessage(to_string(pGr->getscore()));
 		}
 	}
 	else if (pGr->getmatched().size() != 1) {
 		pGr->clearMatched();
 	}
+	
 }

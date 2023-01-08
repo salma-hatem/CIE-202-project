@@ -170,14 +170,14 @@ void Graph::setselectedshape()
 		if (shapesList[i]->IsSelected()) selectedShape = shapesList[i];
 	}
 }
-void Graph::Hide(GUI* pUI) {
-	pUI->getwind()->DrawString(20,20, "ssss");
-	for (auto shapePointer : shapesList) {
-		shapePointer->Hidding(pUI);
-	
-	}
-	Draw(pUI);
-}
+//void Graph::Hide(GUI* pUI) {
+//	pUI->getwind()->DrawString(20,20, "ssss");
+//	for (auto shapePointer : shapesList) {
+//		shapePointer->Hidding(pUI);
+//	
+//	}
+//	Draw(pUI);
+//}
 
 void Graph::setshapeshidden() {
 	for (auto shapePointer : shapesList) {
@@ -192,18 +192,18 @@ void Graph::setshapeduphidded(int x, int y) {
 			shapePointer->sethidden(false);
 		}
 		
-		setshapeshidden();
+		
 	}
 
 }
 
-void Graph::UnHide(GUI* pUI) {
+/*void Graph::UnHide(GUI* pUI) {
 
 	for (auto shapePointer : shapesList) {
 		shapePointer->sethidden(false);
 	}
 	Draw(pUI);
-}
+}*/
 
 void Graph::addMatched(shape* s)
 {
@@ -219,3 +219,12 @@ void Graph::clearMatched()
 {
 	matchedshapes.clear();
 }
+void Graph::Addscore() {
+	static int score1 = 0;
+	score1 += 1;
+	ptr = &score1;
+}
+int Graph::getscore() {
+	return *ptr;
+}
+

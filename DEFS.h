@@ -9,7 +9,7 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAW_RECT,		//Draw Rectangle
 	DRAW_TRI,		//Draw Triangle
 	DRAW_CIRC,		//Draw Circle
-	DRAW_SQR ,       //Draw Square
+	DRAW_SQR,       //Draw Square
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
 	CHNG_BK_CLR,	//Change background color
@@ -22,7 +22,9 @@ enum operationType //The operations supported (you can add more if needed)
 	RESIZE,			//Resize a shape(s)
 	ROTATE,			//Rotate a shape(s)
 	Hide,			//Hide a shape(s)
+	START,
 	UnHide,			//UnHide a shape(s)
+	Match,
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file

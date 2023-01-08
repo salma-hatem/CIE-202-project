@@ -23,6 +23,9 @@
 #include "operations\opDuplicate.h"
 #include "operations\opHide.h"
 #include "operations\opUnHide.h"
+#include "operations\opMatch.h"
+#include "operations\opStart.h"
+
 
 //Constructor
 controller::controller()
@@ -119,7 +122,12 @@ operation* controller::createOperation(operationType OpType)
 		case UnHide:
 			pOp = new opUnHide(this);
 			break;
-
+		case Match:
+			pOp = new opMatch(this);
+			break;
+		case START:
+			pOp = new opStart(this);
+			break;
 
 
 		//	break;
