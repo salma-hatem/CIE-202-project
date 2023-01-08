@@ -40,6 +40,7 @@ void opMatch::Execute()
 		pGr->UnselectAll();
 		pUI->ClearStatusBar();
 	}
+
 	if (pGr->getmatched().size() == 2) {
 		if (pGr->getmatched()[0]->shapeInfo() == pGr->getmatched()[1]->shapeInfo()) {
 			//pUI->PrintMessage("you got two matched shapes, congrats");
@@ -52,11 +53,15 @@ void opMatch::Execute()
 			pGr->clearMatched();
 			pGr->Subtractscore();
 			pUI->PrintMessage(to_string(pGr->getscore()));
+			pGr->setshapeduphidded(P1.x,P1.y);
+			pGr->setshapeduphidded(P2.x, P2.y);
 		}
 	}
-	else if (pGr->getmatched().size() != 1) {
+	/*else if (pGr->getmatched().size() != 1) {
 		pGr->clearMatched();
 		pGr->Subtractscore();
 		pUI->PrintMessage(to_string(pGr->getscore()));
-	}
+		pGr->setshapeduphidded(P1.x, P1.y);
+		pGr->setshapeduphidded(P2.x, P2.y);
+	}*/
 }

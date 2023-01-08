@@ -152,7 +152,7 @@ void Triangle::Hidding(GUI* pUI) {
 		height = abs(point1.y - point3.y);
 
 
-	if (gethidden() == true) {
+	if (gethidden()) {
 		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, width, height);
 	}
 	else {}

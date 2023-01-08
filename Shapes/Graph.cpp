@@ -172,7 +172,7 @@ void Graph::setshapeduphidded(int x, int y) {
 			(*shapePointer)->sethidden(false);
 			
 		}
-		break;
+		
 	}
 }
 
