@@ -57,12 +57,18 @@ public:
 	void prevhidden(bool t);
 	bool getprevhidden();
 	virtual string shapename() = 0;
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	Point randPoint(); //generates coordinates of a random point
 	virtual void scrambleShape() = 0;
 	virtual void scrambleShape(Point,int,int) = 0;
 	virtual void calculateWH() = 0;
 	virtual double getfactor(int col,int row) = 0;
+<<<<<<< HEAD
 >>>>>>> origin/salma
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 };
 

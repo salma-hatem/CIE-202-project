@@ -20,6 +20,13 @@ public:
 	void resize(double) override;
 	virtual void Rotate(GUI* pUI);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	void scrambleShape();
+	void scrambleShape(Point, int, int) override;
+	void calculateWH() override;
+	double getfactor(int col, int row) override;
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	virtual void Hidding(GUI* pUI);
 	virtual string shapename();
 =======

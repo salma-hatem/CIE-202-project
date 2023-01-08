@@ -18,6 +18,15 @@ private:
 	vector <shape*> clipboard; //clipboard for copied shape
 	shape* rotatedShape;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	vector <operationType> operationHistory; //vector to record the history of operations made
+	vector <operationType> undoHistory; //records the operations deleting
+	vector <shape*> deletedShp;
+	vector <Point> shapePositions;
+	int col; int row = 250;
+public:										
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	vector <shape*> selectedshapes;
 	vector <shape*> matchedshapes;
 	int score = 0;
@@ -37,6 +46,7 @@ public:
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void AddToClipboard(shape* pFig); //add a pointer to the shape in the vector
+	void clearClipBoard();
 	shape* GetClipboard(); //returns the pointer in the clipboard
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
@@ -58,13 +68,19 @@ public:
 	void Subtractscore();
 	int getscore();
 	void setallduplicated(shape* s);
+	void scrambleGraph(); //scrambles the graph
+	void fillpositions(); //positions on the grid
+	 
 
+<<<<<<< HEAD
 	
 =======
 	void scrambleGraph(); //scrambles the graph
 	void fillpositions(); //positions on the grid
 	void fitShp(shape*); 
 
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 //	UNDO
 
 	bool emptyHistory(); //checks if the user made any operations
@@ -73,7 +89,11 @@ public:
 	void deleteLastShp(); //deletes last shape in the shape vector
 	void deleteFromHistory();
 
+<<<<<<< HEAD
 	//	REDO
+=======
+//	REDO
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 
 	bool emptyUndoHistory(); //checks if the user undo any operations
 	operationType lastUndoOperation() const;
@@ -82,5 +102,8 @@ public:
 	shape* getLastDeletedShp() const; //returns last element in deletedShp
 	void deleteLastDeletedShp();
 	void deleteFromUndoHistory();
+<<<<<<< HEAD
 >>>>>>> origin/salma
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 };

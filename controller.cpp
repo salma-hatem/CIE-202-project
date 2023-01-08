@@ -26,12 +26,18 @@
 #include "operations\opUnHide.h"
 #include "operations\opMatch.h"
 #include "operations\opStart.h"
+<<<<<<< HEAD
 
 =======
 #include "operations\opScramble.h"
 #include "operations\opUndo.h"
 #include "operations\opRedo.h"
 >>>>>>> origin/salma
+=======
+#include "operations\opScramble.h"
+#include "operations\opUndo.h"
+#include "operations\opRedo.h"
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 
 //Constructor
 controller::controller()
@@ -75,14 +81,16 @@ operation* controller::createOperation(operationType OpType)
 			///create AddTriangleoperation here
 			pOp = new opAddTriangle(this);
 			break;
+
 		case DRAW_CIRC:
 			pOp = new opAddCircle(this);
 			break;
+
 		case SAVE:
 			pOp = new opSave(this);
 			break;
 
-		case LOAD: 
+		case LOAD: break;
 			//pOp = new opLoad(this);
 		case EXIT:
 			///create Exitoperation here
@@ -129,14 +137,18 @@ operation* controller::createOperation(operationType OpType)
 		case UnHide:
 			pOp = new opUnHide(this);
 			break;
-		case Match:
+		case MATCH:
 			pOp = new opMatch(this);
 			break;
 		case START:
 			pOp = new opStart(this);
 			break;
 
+		case UNDO:
+			pOp = new opUndo(this);
+			break;
 
+<<<<<<< HEAD
 		//	break;
 =======
 		case SCRAMBLE:
@@ -145,11 +157,21 @@ operation* controller::createOperation(operationType OpType)
 		case UNDO:
 			pOp = new opUndo(this);
 			break;
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 		case REDO:
 			pOp = new opRedo(this);
 			break;
 			
+<<<<<<< HEAD
 >>>>>>> origin/salma
+=======
+		case SCRAMBLE:
+			pOp = new opScramble(this);
+			break;
+
+			
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 			
 	}
 	return pOp;

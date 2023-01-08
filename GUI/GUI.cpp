@@ -171,10 +171,14 @@ operationType GUI::GetUseroperation() const
 			case ICON_START: return START;
 			case ICON_HIDE:return Hide;
 			case ICON_UNHIDE: return UnHide;
+<<<<<<< HEAD
 			case ICON_MATCH: return Match;
 =======
 			case ICON_MATCH:return MATCH;
 >>>>>>> origin/salma
+=======
+			case ICON_MATCH:return MATCH;
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 			case ICON_EXIT_P: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -255,6 +259,11 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\Menu_Undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	//MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\Menu_Stick.jpg";
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
 =======
 	//MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
@@ -292,9 +301,13 @@ void GUI::CreatePlayToolBar()
 	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
 	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_Scramble.jpg";
 	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\match.jpg";
+<<<<<<< HEAD
 =======
 	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\Menu_Match.jpg";
 >>>>>>> origin/salma
+=======
+	MenuIconImages[ICON_MATCH] = "images\\MenuIcons\\Menu_Match.jpg";
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	MenuIconImages[ICON_EXIT_P] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 

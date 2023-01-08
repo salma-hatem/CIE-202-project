@@ -120,7 +120,13 @@ void Line::Hidding(GUI* pUI) {
 string Line::shapename() {
 	string name = "line";
 	return name;
+<<<<<<< HEAD
 =======
+=======
+}
+
+
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 void Line::scrambleShape()
 {
 	int diffX = point2.x - point1.x;
@@ -206,5 +212,8 @@ double Line::getfactor(int col, int row)
 	if (height > col) f2 = double(col) / height;
 	if (f1 < f2) return f1;
 	else return f2;
+<<<<<<< HEAD
 >>>>>>> origin/salma
+=======
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 }

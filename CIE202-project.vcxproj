@@ -184,12 +184,17 @@
     <ClCompile Include="operations\opRedo.cpp" />
     <ClCompile Include="operations\opResize.cpp" />
     <ClCompile Include="operations\opRotate.cpp" />
+    <ClCompile Include="operations\opScramble.cpp" />
     <ClCompile Include="operations\opStart.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
     <ClCompile Include="operations\opScramble.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="operations\opSwitch.cpp" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <ClCompile Include="operations\opUndo.cpp" />
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
     <ClCompile Include="operations\opUnHide.cpp" />
 =======
     <ClCompile Include="operations\opUndo.cpp" />
@@ -250,6 +255,10 @@
     <ClInclude Include="operations\opStart.h" />
     <ClInclude Include="operations\opSwitch.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <ClInclude Include="operations\opUndo.h" />
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
     <ClInclude Include="operations\opUnHide.h" />
 =======
     <ClInclude Include="operations\opUndo.h" />

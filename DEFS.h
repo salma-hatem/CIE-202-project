@@ -26,10 +26,15 @@ enum operationType //The operations supported (you can add more if needed)
 	START,
 	UnHide,			//UnHide a shape(s)
 	Match,
+<<<<<<< HEAD
 =======
 	SCRAMBLE,       //scrambles graph
 	STICK,			//sticks image
 >>>>>>> origin/salma
+=======
+	SCRAMBLE,       //scrambles graph
+	STICK,			//sticks image
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file

@@ -113,6 +113,144 @@ void Triangle::Rotate(GUI* pUI) {
 	pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+void Triangle::scrambleShape()
+{
+	int diffX1 = point2.x - point1.x;
+	int diffY1 = point2.y - point1.y;
+
+	int diffX2 = point3.x - point1.x;
+	int diffY2 = point3.y - point1.y;
+
+	point1 = randPoint();
+	point2.x = point1.x + diffX1;
+	point2.y = point1.y + diffY1;
+
+	point3.x = point1.x + diffX2;
+	point3.y = point1.y + diffY2;
+
+}
+
+
+void Triangle::calculateWH()
+{
+	Point* pminX; Point* pminY;
+	Point* pmaxX; Point* pmaxY;
+	if (point1.x < point2.x && point1.x < point3.x)
+	{
+		pminX = &point1;
+		if (point2.x < point3.x) pmaxX = &point3;
+		else pmaxX = &point2;
+	}
+	else if (point2.x < point3.x)
+	{
+		 pminX = &point2;
+		 if (point1.x < point3.x) pmaxX = &point3;
+		 else pmaxX = &point1;
+	}
+	else 
+	{ 
+		pminX = &point3;
+		if (point1.x < point2.x) pmaxX = &point2;
+		else pmaxX = &point1;
+	}
+	
+
+	if (point1.y < point2.y && point1.y < point3.y)
+	{
+		pminY = &point1;
+		if (point2.y < point3.y) pmaxY = &point3;
+		else pmaxY = &point2;
+	}
+	else if (point2.y < point3.y)
+	{
+		pminY = &point2;
+		if (point1.y < point3.y) pmaxY = &point3;
+		else pmaxY = &point1;
+	}
+	else
+	{
+		pminY = &point3;
+		if (point1.y < point2.y) pmaxY = &point2;
+		else pmaxY = &point1;
+	}
+
+	width = abs((*pmaxX).x - (*pminX).x);
+	height = abs((*pmaxY).y - (*pminY).y);
+}
+
+void Triangle::scrambleShape(Point p, int col, int row)
+{
+	Point* pminX; Point* pminY;
+	Point* pmaxX; Point* pmaxY;
+	if (point1.x < point2.x && point1.x < point3.x)
+	{
+		pminX = &point1;
+		if (point2.x < point3.x) pmaxX = &point3;
+		else pmaxX = &point2;
+	}
+	else if (point2.x < point3.x)
+	{
+		pminX = &point2;
+		if (point1.x < point3.x) pmaxX = &point3;
+		else pmaxX = &point1;
+	}
+	else
+	{
+		pminX = &point3;
+		if (point1.x < point2.x) pmaxX = &point2;
+		else pmaxX = &point1;
+	}
+
+
+	if (point1.y < point2.y && point1.y < point3.y)
+	{
+		pminY = &point1;
+		if (point2.y < point3.y) pmaxY = &point3;
+		else pmaxY = &point2;
+	}
+	else if (point2.y < point3.y)
+	{
+		pminY = &point2;
+		if (point1.y < point3.y) pmaxY = &point3;
+		else pmaxY = &point1;
+	}
+	else
+	{
+		pminY = &point3;
+		if (point1.y < point2.y) pmaxY = &point2;
+		else pmaxY = &point1;
+	}
+	int w = (*pmaxX).x - (*pminX).x;
+	int h = (*pmaxY).y - (*pminY).y;
+	int cx = (*pmaxX).x - w / 2;
+	int cy = (*pmaxY).y - h / 2;
+
+	int diffX1 = point1.x - cx; int diffY1 = point1.y - cy;
+	int diffX2 = point2.x - cx; int diffY2 = point2.y - cy;
+	int diffX3 = point3.x - cx; int diffY3 = point3.y - cy;
+
+	int cardcx = p.x + col / 2;
+	int cardcy = p.y + row / 2;
+	cx = cardcx; cy = cardcy;
+	point1.x = cx + diffX1; point1.y = cy + diffY1;
+	point2.x = cx + diffX2; point2.y = cy + diffY2;
+	point3.x = cx + diffX3; point3.y = cy + diffY3;
+}
+
+double Triangle::getfactor(int col, int row)
+{
+	double f1 = 1;
+	if (width > row) f1 = double(row) / width;
+
+	double f2 = 1;
+	if (height > col) f2 = double(col) / height;
+	if (f1 < f2) return f1;
+	else return f2;
+}
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 void Triangle::Hidding(GUI* pUI) {
 
 	Point newpoint;

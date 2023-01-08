@@ -55,9 +55,13 @@ class GUI
 		ICON_SELECT,    //Select icon in menu
 <<<<<<< HEAD
 		ICON_DUPLICATE,
+<<<<<<< HEAD
 =======
 		ICON_STICK,
 >>>>>>> origin/salma
+=======
+		ICON_STICK,
+>>>>>>> bab3859d683abf495d9c92d054cd758032630b19
 		ICON_SAVE,		//save icon in menu
 		ICON_LOAD,		//Load icon in menu
 		ICON_SWITCH,	//Switch icon in menu
