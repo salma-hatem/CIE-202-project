@@ -24,4 +24,6 @@ void opRedo::Execute()
 		pGr->recordOperation(lastOp);
 		pGr->deleteFromUndoHistory();
 	}
+
+	pGr = nullptr;
 }

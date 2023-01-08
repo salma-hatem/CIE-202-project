@@ -3,6 +3,7 @@
 #include "..\controller.h"
 #include "..\GUI\GUI.h"
 
+
 opStart::opStart(controller* pCont) :operation(pCont)
 {}
 opStart::~opStart()
@@ -15,9 +16,18 @@ void opStart::Execute()
 	Graph* pGr = pControl->getGraph();
 	shape* s = pGr->getselectedshape();
 	pGr->setallduplicated(s);
-	pUI->PrintMessage(to_string(pGr->getscore()));
-	//pGr->setshapeshidden();
+	pGr->scrambleGraph();
+	pGr->setshapeshidden();
+
+
+	/*if (pGr->shapeslist()== true) {
+		pUI->PrintMessage("Winner Winner Chicken Dinner");
+	}*/
+	pUI = nullptr;
+	pGr = nullptr;
+
 }
+
 
 
 

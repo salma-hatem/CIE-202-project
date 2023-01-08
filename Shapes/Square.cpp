@@ -96,7 +96,7 @@ void Square::Hidding(GUI* pUI) {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", Corner1.x,Corner1.y, length, length);
+		pUI->getwind()->DrawImage("images\\card.jpg", Corner1.x,Corner1.y, length, length);
 	}
 	else {
 		pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);

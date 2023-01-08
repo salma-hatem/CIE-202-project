@@ -59,4 +59,7 @@ void opAddTriangle::Execute()
 	//Add the Triangle to the list of shapes
 	pGr->Addshape(R);
 	pGr->recordOperation(DRAW_TRI);
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

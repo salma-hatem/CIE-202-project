@@ -27,4 +27,6 @@ void opRotate::Execute()
 		pUI->ClearStatusBar();
 	}
 
+	pUI = nullptr;
+	pGr = nullptr;
 }

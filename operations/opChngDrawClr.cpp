@@ -24,4 +24,5 @@ void opChngDrawClr::Execute()
 	pUI->changePenColor(pickedcolor);
 	pUI->switchToDraw();
 
+	pUI = nullptr;
 }

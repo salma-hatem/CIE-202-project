@@ -20,4 +20,7 @@ void opPaste::Execute()
 	}
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("Shape pasted!");
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

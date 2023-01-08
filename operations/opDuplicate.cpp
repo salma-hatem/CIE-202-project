@@ -16,5 +16,7 @@ void opDuplicate::Execute()
 	shape* s = pGr->getselectedshape();
 
 	pGr->setallduplicated(s);
-	
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

@@ -16,7 +16,7 @@ void opScramble::Execute()
 	GUI* pUI = pControl->GetUI();
 	pGr->scrambleGraph();
 	pUI->PrintMessage("Graph scrambled");
+	pUI = nullptr;
+	pGr = nullptr;
 }
-#include "opRedo.h"
-#include "..\controller.h"
 

@@ -24,4 +24,7 @@ void opResize::Execute()
 	
 	pUI->PrintMessage("Resized!");
 	Shp->SetSelected(false);
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

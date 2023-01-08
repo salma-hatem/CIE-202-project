@@ -23,4 +23,5 @@ void opChngFillClr::Execute()
 	pUI->changeFillColor(pickedcolor);
 	pUI->switchToDraw();
 
+	pUI = nullptr;
 }

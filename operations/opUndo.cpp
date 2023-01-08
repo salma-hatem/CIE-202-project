@@ -25,4 +25,6 @@ void opUndo::Execute()
 		pGr->deleteFromHistory();
 	}
 
+	pGr = nullptr;
+
 }

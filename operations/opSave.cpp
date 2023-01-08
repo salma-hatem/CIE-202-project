@@ -33,4 +33,6 @@ void opSave::Execute()
 
 	file.close();
 	pGi->PrintMessage("Your work is saved! ");
+
+	pGr = nullptr;
 }

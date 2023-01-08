@@ -17,5 +17,5 @@ void opSwitch::Execute()
 
 
 	pUI->switchToPlay();
-
+	pUI = nullptr;
 }

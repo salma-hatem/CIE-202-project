@@ -343,3 +343,12 @@ void Graph::setallduplicated(shape* s) {
 	}
 	
 }
+
+bool Graph::shapeslist() {
+	if (shapesList.size() == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}

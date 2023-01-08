@@ -55,4 +55,7 @@ void opAddCircle::Execute()
 	pGr->Addshape(R);
 
 	pGr->recordOperation(DRAW_CIRC);
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

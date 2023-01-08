@@ -32,4 +32,7 @@ void opExit::Execute()
 			file.close();
 		}
 	}
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

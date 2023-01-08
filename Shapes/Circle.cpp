@@ -115,7 +115,7 @@ void Circle::Hidding(GUI* pUI) {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint1.x, newpoint1.y, 2 * radius, 2 * radius);
+		pUI->getwind()->DrawImage("images\\card.jpg", newpoint1.x, newpoint1.y, 2 * radius, 2 * radius);
 	}
 	else {
 		pUI->DrawCircle(point1, point2, ShpGfxInfo);

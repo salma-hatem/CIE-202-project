@@ -271,7 +271,7 @@ void Triangle::Hidding(GUI* pUI) {
 	}
 
 	// if statements to calculate the height and width of the image
-	double width, height;
+	static double width=0, height=0;
 	if (abs(point1.x - point2.x) > abs(point1.x - point3.x) && abs(point1.x - point2.x) > abs(point2.x - point3.x))
 		width = abs(point1.x - point2.x);
 	else if (abs(point2.x - point3.x) > abs(point1.x - point3.x) && abs(point2.x - point3.x) > abs(point1.x - point2.x))
@@ -290,7 +290,7 @@ void Triangle::Hidding(GUI* pUI) {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, width, height);
+		pUI->getwind()->DrawImage("images\\card.jpg", newpoint.x, newpoint.y, width, height);
 	}
 	else {
 		pUI->DrawTriangle(point1, point2,point3, ShpGfxInfo);

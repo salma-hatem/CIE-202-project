@@ -180,7 +180,8 @@ controller::~controller()
 {
 	delete pGUI;
 	delete pGraph;
-	
+	pGraph = nullptr;
+	pGUI = nullptr;
 }
 
 

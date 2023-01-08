@@ -224,7 +224,7 @@ void Rect::Hidding(GUI* pUI)  {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x,newpoint.y, width, height);
+		pUI->getwind()->DrawImage("images\\card.jpg", newpoint.x,newpoint.y, width, height);
 	}
 	else {
 		pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);

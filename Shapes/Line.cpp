@@ -110,7 +110,7 @@ void Line::Hidding(GUI* pUI) {
 	if (getcurrenthidden() == true) {
 
 		// call the function that draw an image on the circle
-		pUI->getwind()->DrawImage("images\\MenuIcons\\card.jpg", newpoint.x, newpoint.y, abs(point1.x-point2.x),abs(point1.y-point2.y));
+		pUI->getwind()->DrawImage("images\\card.jpg", newpoint.x, newpoint.y, abs(point1.x-point2.x),abs(point1.y-point2.y));
 	}
 	else {
 		pUI->DrawLine(point1, point2, ShpGfxInfo);

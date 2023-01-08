@@ -43,18 +43,19 @@ void opMatch::Execute()
 
 	if (pGr->getmatched().size() == 2) {
 		if (pGr->getmatched()[0]->shapeInfo() == pGr->getmatched()[1]->shapeInfo()) {
-			//pUI->PrintMessage("you got two matched shapes, congrats");
+			pGr->Addscore();
+			pUI->PrintMessage("well done, you got two matched shapes,   your score is " + to_string(pGr->getscore()));
 			pGr->DeleteMatched();
 			pGr->clearMatched();
-			pGr->Addscore();
-			pUI->PrintMessage(to_string(pGr->getscore()));
-			
+
+
+
 		}
 		else {
 			pGr->clearMatched();
 			pGr->Subtractscore();
-			pUI->PrintMessage(to_string(pGr->getscore()));
-			pGr->setshapeduphidded(P1.x,P1.y);
+			pUI->PrintMessage("try again, your score is " + to_string(pGr->getscore()));
+			pGr->setshapeduphidded(P1.x, P1.y);
 			pGr->setshapeduphidded(P2.x, P2.y);
 			pUI->ClearDrawArea();
 			pGr->Draw(pUI);
@@ -62,11 +63,11 @@ void opMatch::Execute()
 			pGr->setshapeshidden();
 		}
 	}
-	/*else if (pGr->getmatched().size() != 1) {
-		pGr->clearMatched();
-		pGr->Subtractscore();
-		pUI->PrintMessage(to_string(pGr->getscore()));
-		pGr->setshapeduphidded(P1.x, P1.y);
-		pGr->setshapeduphidded(P2.x, P2.y);
-	}*/
+	if (pGr->shapeslist()) {
+		pUI->PrintMessage("Winner Winner Chicken Dinner");
+
+	}
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

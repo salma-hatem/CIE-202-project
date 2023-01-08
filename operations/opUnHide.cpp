@@ -21,6 +21,7 @@ void opUnHide::Execute() {
 	
 	//Sleep(3000);
 	//pGr->setshapeshidden();
-	
+	pUI = nullptr;
+	pGr = nullptr;
 }
 

@@ -53,4 +53,7 @@ void opAddSquare::Execute()
 	//Add the Square to the list of shapes
 	pGr->Addshape(R);
 	pGr->recordOperation(DRAW_SQR);
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

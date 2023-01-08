@@ -21,8 +21,7 @@ private:
 	vector <operationType> undoHistory; //records the operations deleting
 	vector <shape*> deletedShp;
 	vector <Point> shapePositions;
-	int col; int row = 250;
-public:										
+	int col; int row = 250;								
 	vector <shape*> selectedshapes;
 	vector <shape*> matchedshapes;
 	int score = 0;
@@ -57,7 +56,7 @@ public:
 	void setallduplicated(shape* s);
 	void scrambleGraph(); //scrambles the graph
 	void fillpositions(); //positions on the grid
-	 
+	bool shapeslist();
 
 //	UNDO
 

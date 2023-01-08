@@ -14,4 +14,7 @@ void opHide::Execute()
 	Graph* pGr = pControl->getGraph();
 	pUI->PrintMessage("all shapes have been hidden");
 	pGr->setshapeshidden();
+
+	pUI = nullptr;
+	pGr = nullptr;
 }

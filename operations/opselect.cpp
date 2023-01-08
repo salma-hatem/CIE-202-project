@@ -29,7 +29,8 @@ void opSelect::Execute()
 		pGr->UnselectAll();
 		pUI->ClearStatusBar();
 	}
-
+	pUI = nullptr;
+	pGr = nullptr;
 }
 
 
